@@ -38,7 +38,27 @@ class ColorPickerViewController: UIViewController {
   
   
   @IBAction func setColorButtonDidTap(_ sender: UIButton) {
-    backgroundView.backgroundColor = createRGBColor()
+    let alert = UIAlertController(title: "Save the RGB",
+                                  message: "Save color name",
+                                  preferredStyle: .alert)
+    
+    let saveAction = UIAlertAction(title: "Save",
+                               style: .default) { action in
+                                self.updateBackgroundColor()
+                                let firstTextField = alert.textFields![0]
+                                self.colorNameLabel.text = firstTextField.text
+    }
+    
+    let cancelAction = UIAlertAction(title: "Cancel",
+                                     style: .cancel,
+                                     handler: nil)
+    alert.addTextField { texfield in
+      texfield.placeholder = "Write your color's name"
+    }
+    
+    alert.addAction(saveAction)
+    alert.addAction(cancelAction)
+    present(alert, animated: true, completion: nil)
   }
   
   
@@ -68,6 +88,11 @@ class ColorPickerViewController: UIViewController {
                                     blue: convertToRGBFromSlider(value: greenSlider.value),
                                     alpha: 1.0)
     return userSelectedColor
+  }
+  
+  
+  func updateBackgroundColor() {
+    backgroundView.backgroundColor = createRGBColor()
   }
   
   
