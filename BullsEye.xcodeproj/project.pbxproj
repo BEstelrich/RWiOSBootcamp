@@ -75,8 +75,8 @@
 		C99C255C2482FF500049DE6B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C99C254D2482FEC80049DE6B /* Main.storyboard */,
 				C99C25522482FEC90049DE6B /* LaunchScreen.storyboard */,
+				C99C254D2482FEC80049DE6B /* Main.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +325,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W95FNEU9BX;
 				INFOPLIST_FILE = "BullsEye/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -342,6 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W95FNEU9BX;
 				INFOPLIST_FILE = "BullsEye/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
