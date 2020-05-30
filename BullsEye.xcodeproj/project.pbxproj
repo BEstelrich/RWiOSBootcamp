@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C99C25482482FEC80049DE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C25472482FEC80049DE6B /* AppDelegate.swift */; };
 		C99C254A2482FEC80049DE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C25492482FEC80049DE6B /* SceneDelegate.swift */; };
-		C99C254C2482FEC80049DE6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C254B2482FEC80049DE6B /* ViewController.swift */; };
+		C99C254C2482FEC80049DE6B /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C254B2482FEC80049DE6B /* ColorPickerViewController.swift */; };
 		C99C254F2482FEC80049DE6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99C254D2482FEC80049DE6B /* Main.storyboard */; };
 		C99C25512482FEC90049DE6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C99C25502482FEC90049DE6B /* Assets.xcassets */; };
 		C99C25542482FEC90049DE6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C99C25522482FEC90049DE6B /* LaunchScreen.storyboard */; };
@@ -19,7 +19,7 @@
 		C99C25442482FEC80049DE6B /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99C25472482FEC80049DE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99C25492482FEC80049DE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C99C254B2482FEC80049DE6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C99C254B2482FEC80049DE6B /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		C99C254E2482FEC80049DE6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C99C25502482FEC90049DE6B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C99C25532482FEC90049DE6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,7 +43,9 @@
 				C99C25462482FEC80049DE6B /* BullsEye */,
 				C99C25452482FEC80049DE6B /* Products */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		C99C25452482FEC80049DE6B /* Products */ = {
 			isa = PBXGroup;
@@ -84,7 +86,7 @@
 		C99C255D2482FF5F0049DE6B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C99C254B2482FEC80049DE6B /* ViewController.swift */,
+				C99C254B2482FEC80049DE6B /* ColorPickerViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,7 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99C254C2482FEC80049DE6B /* ViewController.swift in Sources */,
+				C99C254C2482FEC80049DE6B /* ColorPickerViewController.swift in Sources */,
 				C99C25482482FEC80049DE6B /* AppDelegate.swift in Sources */,
 				C99C254A2482FEC80049DE6B /* SceneDelegate.swift in Sources */,
 			);

@@ -2,7 +2,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ColorPickerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
