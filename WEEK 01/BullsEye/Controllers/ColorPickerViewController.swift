@@ -20,18 +20,17 @@ class ColorPickerViewController: UIViewController {
   
   @IBOutlet weak var colorSystemSegmentedControl: UISegmentedControl!
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSlidersForRGB()
   }
   
+  
   @IBAction func colorSystemSegmentedControlDidTap(_ sender: UISegmentedControl) {
-    if sender.selectedSegmentIndex == 0 {
-      configureSlidersForRGB()
-    } else {
-      configureSlidersForHSB()
-    }
+    sender.selectedSegmentIndex == 0 ? configureSlidersForRGB() : configureSlidersForHSB()
   }
+  
   
   @IBAction func redSliderDidDrag(_ sender: UISlider) {
     firstValueLabel.text = "\(Int(firstSlider.value.rounded()))"
@@ -49,22 +48,22 @@ class ColorPickerViewController: UIViewController {
   
   
   @IBAction func setColorButtonDidTap(_ sender: UIButton) {
-    let alert = UIAlertController(title: "Save the RGB",
-                                  message: "Save color name",
+    let alert = UIAlertController(title: "Color profile",
+                                  message: "Define a name for your color profile",
                                   preferredStyle: .alert)
     
     let saveAction = UIAlertAction(title: "Save",
                                style: .default) { action in
                                 self.updateBackgroundColor()
                                 let firstTextField = alert.textFields![0]
-                                self.colorNameLabel.text = firstTextField.text
+                                self.colorNameLabel.text = firstTextField.text != "" ? firstTextField.text : "Color name"
     }
     
     let cancelAction = UIAlertAction(title: "Cancel",
                                      style: .cancel,
                                      handler: nil)
     alert.addTextField { texfield in
-      texfield.placeholder = "Write your color's name"
+      texfield.placeholder = "Write here the profile's name"
     }
     
     alert.addAction(saveAction)
@@ -78,58 +77,16 @@ class ColorPickerViewController: UIViewController {
   }
   
   
-  func createRGBColor() -> UIColor {
-    let userSelectedColor = UIColor(red: convertToRGB(firstSlider.value),
-                                    green: convertToRGB(thirdSlider.value),
-                                    blue: convertToRGB(secondSlider.value),
-                                    alpha: 1.0)
-    return userSelectedColor
-  }
-  
-  
-  func createHSBColor() -> UIColor {
-    let userSelectedColor = UIColor(hue: convertToHue(firstSlider.value),
-                                    saturation: convertToSaturation(secondSlider.value),
-                                    brightness: convertToBrightness(thirdSlider.value),
-                                    alpha: 1.0)
-    return userSelectedColor
-  }
-  
-  
   func updateBackgroundColor() {
     if colorSystemSegmentedControl.selectedSegmentIndex == 0 {
-      backgroundView.backgroundColor = createRGBColor()
+      backgroundView.backgroundColor = ColorHelper.createRGB(red: firstSlider.value,
+                                                             green: secondSlider.value,
+                                                             blue: thirdSlider.value)
     } else if colorSystemSegmentedControl.selectedSegmentIndex == 1 {
-      backgroundView.backgroundColor = createHSBColor()
+      backgroundView.backgroundColor = ColorHelper.createHSB(hue: firstSlider.value,
+                                                             saturation: secondSlider.value,
+                                                             brightness: thirdSlider.value)
     }
-  }
-  
-  
-  func convertToRGB(_ value: Float) -> CGFloat {
-    let roundedValue = CGFloat(value.rounded())
-    let convertedValue = roundedValue / 255
-    return convertedValue
-  }
-  
-  
-  func convertToHue(_ value: Float) -> CGFloat {
-    let roundedValue = CGFloat(value.rounded())
-    let convertedValue = roundedValue / 360
-    return convertedValue
-  }
-  
-  
-  func convertToSaturation(_ value: Float) -> CGFloat {
-    let roundedValue = CGFloat(value.rounded())
-    let convertedValue = roundedValue / 100
-    return convertedValue
-  }
-  
-  
-  func convertToBrightness(_ value: Float) -> CGFloat {
-    let roundedValue = CGFloat(value.rounded())
-    let convertedValue = roundedValue / 100
-    return convertedValue
   }
   
   

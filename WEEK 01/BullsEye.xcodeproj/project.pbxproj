@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C952EB9A248459AE009D74AD /* DefaultBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952EB99248459AE009D74AD /* DefaultBackgroundView.swift */; };
+		C952EB9E24846A6B009D74AD /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952EB9D24846A6B009D74AD /* ColorHelper.swift */; };
 		C96C9D672483156100DFD480 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C9D662483156100DFD480 /* DefaultButton.swift */; };
 		C96C9D6A24832BEB00DFD480 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C9D6924832BEB00DFD480 /* InfoViewController.swift */; };
 		C99C25482482FEC80049DE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C25472482FEC80049DE6B /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		C952EB99248459AE009D74AD /* DefaultBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBackgroundView.swift; sourceTree = "<group>"; };
+		C952EB9D24846A6B009D74AD /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		C96C9D662483156100DFD480 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		C96C9D6924832BEB00DFD480 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C99C25442482FEC80049DE6B /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,19 +83,20 @@
 			isa = PBXGroup;
 			children = (
 				C99C255E2482FF680049DE6B /* Supporting files */,
-				C99C255B2482FF470049DE6B /* Models */,
 				C99C255C2482FF500049DE6B /* Views */,
 				C99C255D2482FF5F0049DE6B /* Controllers */,
 				C99C255F2482FF770049DE6B /* Resources */,
+				C99C255B2482FF470049DE6B /* Helpers */,
 			);
 			path = BullsEye;
 			sourceTree = "<group>";
 		};
-		C99C255B2482FF470049DE6B /* Models */ = {
+		C99C255B2482FF470049DE6B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C952EB9D24846A6B009D74AD /* ColorHelper.swift */,
 			);
-			path = Models;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C99C255C2482FF500049DE6B /* Views */ = {
@@ -210,6 +213,7 @@
 				C952EB9A248459AE009D74AD /* DefaultBackgroundView.swift in Sources */,
 				C99C254A2482FEC80049DE6B /* SceneDelegate.swift in Sources */,
 				C96C9D672483156100DFD480 /* DefaultButton.swift in Sources */,
+				C952EB9E24846A6B009D74AD /* ColorHelper.swift in Sources */,
 				C96C9D6A24832BEB00DFD480 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
