@@ -191,7 +191,6 @@
                                             <constraint firstAttribute="width" constant="35" id="FW1-m0-MWQ"/>
                                         </constraints>
                                         <connections>
-                                            <action selector="infoButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TEV-tn-h9v"/>
                                             <segue destination="Xet-WO-UJ4" kind="presentation" id="vdS-tT-oUY"/>
                                         </connections>
                                     </button>
@@ -222,13 +221,17 @@
                     </view>
                     <connections>
                         <outlet property="backgroundView" destination="B7f-3k-MWO" id="qkR-Pc-ydd"/>
-                        <outlet property="blueSlider" destination="rq9-os-ETx" id="xYg-Pb-3IM"/>
-                        <outlet property="blueValueLabel" destination="wqe-hT-X9D" id="qRe-pv-yTC"/>
                         <outlet property="colorNameLabel" destination="MR7-rj-oxd" id="Fb4-EB-Tl5"/>
-                        <outlet property="greenSlider" destination="7mb-NH-dZ6" id="bJP-63-Fun"/>
-                        <outlet property="greenValueLabel" destination="rMh-3W-ucL" id="Xbm-sg-TRl"/>
-                        <outlet property="redSlider" destination="0e1-Sp-4bK" id="6Pn-1W-wBw"/>
-                        <outlet property="redValueLabel" destination="VDP-Dj-xaH" id="wPp-HG-G3k"/>
+                        <outlet property="colorSystemSegmentedControl" destination="J4u-ZL-4Cm" id="oIR-TP-bdP"/>
+                        <outlet property="firstColorLabel" destination="Mag-vk-bDc" id="mjt-E2-SiL"/>
+                        <outlet property="firstSlider" destination="0e1-Sp-4bK" id="6Pn-1W-wBw"/>
+                        <outlet property="firstValueLabel" destination="VDP-Dj-xaH" id="wPp-HG-G3k"/>
+                        <outlet property="secondColorLabel" destination="U1a-ZD-KeZ" id="OPp-cg-fha"/>
+                        <outlet property="secondSlider" destination="7mb-NH-dZ6" id="bJP-63-Fun"/>
+                        <outlet property="secondValueLabel" destination="rMh-3W-ucL" id="Xbm-sg-TRl"/>
+                        <outlet property="thirdColorLabel" destination="lNX-is-Otb" id="YuH-b8-iK9"/>
+                        <outlet property="thirdSlider" destination="rq9-os-ETx" id="xYg-Pb-3IM"/>
+                        <outlet property="thirdValueLabel" destination="wqe-hT-X9D" id="qRe-pv-yTC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

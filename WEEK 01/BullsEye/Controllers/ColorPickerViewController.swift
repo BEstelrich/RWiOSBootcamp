@@ -6,13 +6,17 @@ class ColorPickerViewController: UIViewController {
   @IBOutlet weak var backgroundView: UIView!
   @IBOutlet weak var colorNameLabel: UILabel!
   
-  @IBOutlet weak var redValueLabel: UILabel!
-  @IBOutlet weak var greenValueLabel: UILabel!
-  @IBOutlet weak var blueValueLabel: UILabel!
+  @IBOutlet weak var firstColorLabel: UILabel!
+  @IBOutlet weak var secondColorLabel: UILabel!
+  @IBOutlet weak var thirdColorLabel: UILabel!
   
-  @IBOutlet weak var redSlider: UISlider!
-  @IBOutlet weak var greenSlider: UISlider!
-  @IBOutlet weak var blueSlider: UISlider!
+  @IBOutlet weak var firstValueLabel: UILabel!
+  @IBOutlet weak var secondValueLabel: UILabel!
+  @IBOutlet weak var thirdValueLabel: UILabel!
+  
+  @IBOutlet weak var firstSlider: UISlider!
+  @IBOutlet weak var secondSlider: UISlider!
+  @IBOutlet weak var thirdSlider: UISlider!
   
   @IBOutlet weak var colorSystemSegmentedControl: UISegmentedControl!
   
@@ -30,17 +34,17 @@ class ColorPickerViewController: UIViewController {
   }
   
   @IBAction func redSliderDidDrag(_ sender: UISlider) {
-    redValueLabel.text = "\(Int(redSlider.value.rounded()))"
+    firstValueLabel.text = "\(Int(firstSlider.value.rounded()))"
   }
   
   
   @IBAction func greenSliderDidDrag(_ sender: UISlider) {
-    greenValueLabel.text = "\(Int(greenSlider.value.rounded()))"
+    secondValueLabel.text = "\(Int(secondSlider.value.rounded()))"
   }
   
   
   @IBAction func blueSliderDidDrag(_ sender: UISlider) {
-    blueValueLabel.text = "\(Int(blueSlider.value.rounded()))"
+    thirdValueLabel.text = "\(Int(thirdSlider.value.rounded()))"
   }
   
   
@@ -74,70 +78,90 @@ class ColorPickerViewController: UIViewController {
   }
   
   
-  @IBAction func infoButtonDidTap(_ sender: UIButton) {
-    print("Info button tapped.")
-  }
-  
   func createRGBColor() -> UIColor {
-    let userSelectedColor = UIColor(red: convertToRGBFromSlider(value: redSlider.value),
-                                    green: convertToRGBFromSlider(value: blueSlider.value),
-                                    blue: convertToRGBFromSlider(value: greenSlider.value),
+    let userSelectedColor = UIColor(red: convertToRGB(firstSlider.value),
+                                    green: convertToRGB(thirdSlider.value),
+                                    blue: convertToRGB(secondSlider.value),
                                     alpha: 1.0)
     return userSelectedColor
   }
   
   
   func createHSBColor() -> UIColor {
-    let userSelectedColor = UIColor(red: convertToHSBFromSlider(value: redSlider.value),
-                                    green: convertToHSBFromSlider(value: blueSlider.value),
-                                    blue: convertToHSBFromSlider(value: greenSlider.value),
+    let userSelectedColor = UIColor(hue: convertToHue(firstSlider.value),
+                                    saturation: convertToSaturation(secondSlider.value),
+                                    brightness: convertToBrightness(thirdSlider.value),
                                     alpha: 1.0)
     return userSelectedColor
   }
   
   
   func updateBackgroundColor() {
-    backgroundView.backgroundColor = createRGBColor()
+    if colorSystemSegmentedControl.selectedSegmentIndex == 0 {
+      backgroundView.backgroundColor = createRGBColor()
+    } else if colorSystemSegmentedControl.selectedSegmentIndex == 1 {
+      backgroundView.backgroundColor = createHSBColor()
+    }
   }
   
   
-  func convertToRGBFromSlider(value: Float) -> CGFloat {
+  func convertToRGB(_ value: Float) -> CGFloat {
     let roundedValue = CGFloat(value.rounded())
     let convertedValue = roundedValue / 255
     return convertedValue
   }
   
   
-  func convertToHSBFromSlider(value: Float) -> CGFloat {
+  func convertToHue(_ value: Float) -> CGFloat {
     let roundedValue = CGFloat(value.rounded())
     let convertedValue = roundedValue / 360
     return convertedValue
   }
   
   
+  func convertToSaturation(_ value: Float) -> CGFloat {
+    let roundedValue = CGFloat(value.rounded())
+    let convertedValue = roundedValue / 100
+    return convertedValue
+  }
+  
+  
+  func convertToBrightness(_ value: Float) -> CGFloat {
+    let roundedValue = CGFloat(value.rounded())
+    let convertedValue = roundedValue / 100
+    return convertedValue
+  }
+  
+  
   func configureSlidersForRGB() {
-    redSlider.minimumValue = 0
-    redSlider.maximumValue = 255
+    firstColorLabel.text = "Red"
+    firstSlider.minimumValue = 0
+    firstSlider.maximumValue = 255
     
-    greenSlider.minimumValue = 0
-    greenSlider.maximumValue = 255
+    secondColorLabel.text = "Green"
+    secondSlider.minimumValue = 0
+    secondSlider.maximumValue = 255
     
-    blueSlider.minimumValue = 0
-    blueSlider.maximumValue = 255
+    thirdColorLabel.text = "Blue"
+    thirdSlider.minimumValue = 0
+    thirdSlider.maximumValue = 255
     
     resetSliders()
   }
   
   
   func configureSlidersForHSB() {
-    redSlider.minimumValue = 0
-    redSlider.maximumValue = 360
+    firstColorLabel.text = "Hue"
+    firstSlider.minimumValue = 0
+    firstSlider.maximumValue = 360
     
-    greenSlider.minimumValue = 0
-    greenSlider.maximumValue = 360
+    secondColorLabel.text = "Saturation"
+    secondSlider.minimumValue = 0
+    secondSlider.maximumValue = 100
     
-    blueSlider.minimumValue = 0
-    blueSlider.maximumValue = 360
+    thirdColorLabel.text = "Brightness"
+    thirdSlider.minimumValue = 0
+    thirdSlider.maximumValue = 100
     
     resetSliders()
   }
@@ -148,12 +172,12 @@ class ColorPickerViewController: UIViewController {
                                              green: 0,
                                              blue: 0,
                                              alpha: 1)
-    redValueLabel.text = String(0)
-    greenValueLabel.text = String(0)
-    blueValueLabel.text = String(0)
+    firstValueLabel.text = String(0)
+    secondValueLabel.text = String(0)
+    thirdValueLabel.text = String(0)
     
-    redSlider.value = 0
-    blueSlider.value = 0
-    greenSlider.value = 0
+    firstSlider.value = 0
+    thirdSlider.value = 0
+    secondSlider.value = 0
   }
 }
