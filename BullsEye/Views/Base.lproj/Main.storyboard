@@ -19,6 +19,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7f-3k-MWO" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="J4u-ZL-4Cm">
+                                        <rect key="frame" x="32" y="152" width="350" height="32"/>
+                                        <segments>
+                                            <segment title="RGB"/>
+                                            <segment title="HSB"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="colorSystemSegmentedControlDidTap:" destination="BYZ-38-t0r" eventType="valueChanged" id="Lbg-8k-r5P"/>
+                                        </connections>
+                                    </segmentedControl>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="sVa-BD-CYN" userLabel="Functions Stack View">
                                         <rect key="frame" x="32" y="223" width="350" height="450"/>
                                         <subviews>
@@ -191,9 +201,13 @@
                                     <constraint firstAttribute="trailing" secondItem="JdQ-Vj-tP2" secondAttribute="trailing" constant="30" id="EAp-7K-EBg"/>
                                     <constraint firstAttribute="bottom" secondItem="JdQ-Vj-tP2" secondAttribute="bottom" constant="30" id="V6v-Qz-jbS"/>
                                     <constraint firstItem="sVa-BD-CYN" firstAttribute="centerY" secondItem="B7f-3k-MWO" secondAttribute="centerY" id="cxy-FO-Zyp"/>
+                                    <constraint firstItem="sVa-BD-CYN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="J4u-ZL-4Cm" secondAttribute="trailing" id="jsf-fT-FZG"/>
+                                    <constraint firstItem="sVa-BD-CYN" firstAttribute="top" secondItem="J4u-ZL-4Cm" secondAttribute="bottom" constant="40" id="mn4-Np-Tvh"/>
                                     <constraint firstItem="sVa-BD-CYN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="B7f-3k-MWO" secondAttribute="leading" constant="30" id="npp-Pa-KPd"/>
                                     <constraint firstItem="sVa-BD-CYN" firstAttribute="centerX" secondItem="B7f-3k-MWO" secondAttribute="centerX" id="tRa-Lv-HaH"/>
+                                    <constraint firstItem="J4u-ZL-4Cm" firstAttribute="centerX" secondItem="B7f-3k-MWO" secondAttribute="centerX" id="vVg-4a-Vkf"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sVa-BD-CYN" secondAttribute="trailing" constant="30" id="wAo-nP-GKw"/>
+                                    <constraint firstItem="sVa-BD-CYN" firstAttribute="leading" secondItem="J4u-ZL-4Cm" secondAttribute="leading" id="yCV-ej-Txl"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -14,12 +14,20 @@ class ColorPickerViewController: UIViewController {
   @IBOutlet weak var greenSlider: UISlider!
   @IBOutlet weak var blueSlider: UISlider!
   
+  @IBOutlet weak var colorSystemSegmentedControl: UISegmentedControl!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSlidersForRGB()
   }
   
+  @IBAction func colorSystemSegmentedControlDidTap(_ sender: UISegmentedControl) {
+    if sender.selectedSegmentIndex == 0 {
+      configureSlidersForRGB()
+    } else {
+      configureSlidersForHSB()
+    }
+  }
   
   @IBAction func redSliderDidDrag(_ sender: UISlider) {
     redValueLabel.text = "\(Int(redSlider.value.rounded()))"
@@ -62,17 +70,7 @@ class ColorPickerViewController: UIViewController {
   
   
   @IBAction func resetButtonDidTap(_ sender: UIButton) {
-    backgroundView.backgroundColor = UIColor(red: 0,
-                                             green: 0,
-                                             blue: 0,
-                                             alpha: 1)
-    redValueLabel.text = String(0)
-    greenValueLabel.text = String(0)
-    blueValueLabel.text = String(0)
-    
-    redSlider.value = 0
-    blueSlider.value = 0
-    greenSlider.value = 0
+    resetSliders()
   }
   
   
@@ -80,11 +78,19 @@ class ColorPickerViewController: UIViewController {
     print("Info button tapped.")
   }
   
-  
   func createRGBColor() -> UIColor {
     let userSelectedColor = UIColor(red: convertToRGBFromSlider(value: redSlider.value),
                                     green: convertToRGBFromSlider(value: blueSlider.value),
                                     blue: convertToRGBFromSlider(value: greenSlider.value),
+                                    alpha: 1.0)
+    return userSelectedColor
+  }
+  
+  
+  func createHSBColor() -> UIColor {
+    let userSelectedColor = UIColor(red: convertToHSBFromSlider(value: redSlider.value),
+                                    green: convertToHSBFromSlider(value: blueSlider.value),
+                                    blue: convertToHSBFromSlider(value: greenSlider.value),
                                     alpha: 1.0)
     return userSelectedColor
   }
@@ -102,6 +108,13 @@ class ColorPickerViewController: UIViewController {
   }
   
   
+  func convertToHSBFromSlider(value: Float) -> CGFloat {
+    let roundedValue = CGFloat(value.rounded())
+    let convertedValue = roundedValue / 360
+    return convertedValue
+  }
+  
+  
   func configureSlidersForRGB() {
     redSlider.minimumValue = 0
     redSlider.maximumValue = 255
@@ -111,6 +124,36 @@ class ColorPickerViewController: UIViewController {
     
     blueSlider.minimumValue = 0
     blueSlider.maximumValue = 255
+    
+    resetSliders()
   }
   
+  
+  func configureSlidersForHSB() {
+    redSlider.minimumValue = 0
+    redSlider.maximumValue = 360
+    
+    greenSlider.minimumValue = 0
+    greenSlider.maximumValue = 360
+    
+    blueSlider.minimumValue = 0
+    blueSlider.maximumValue = 360
+    
+    resetSliders()
+  }
+  
+  
+  func resetSliders() {
+    backgroundView.backgroundColor = UIColor(red: 0,
+                                             green: 0,
+                                             blue: 0,
+                                             alpha: 1)
+    redValueLabel.text = String(0)
+    greenValueLabel.text = String(0)
+    blueValueLabel.text = String(0)
+    
+    redSlider.value = 0
+    blueSlider.value = 0
+    greenSlider.value = 0
+  }
 }
