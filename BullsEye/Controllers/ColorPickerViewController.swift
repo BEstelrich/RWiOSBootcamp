@@ -1,7 +1,6 @@
 // 2020.05.30 | BullsEye - ViewController.swift | Copyright © 2020 BEstelrich. All rights reserved.
 import UIKit
 
-
 class ColorPickerViewController: UIViewController {
   
   @IBOutlet weak var backgroundView: UIView!

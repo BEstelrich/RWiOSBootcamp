@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C96C9D672483156100DFD480 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C9D662483156100DFD480 /* DefaultButton.swift */; };
+		C96C9D6A24832BEB00DFD480 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C9D6924832BEB00DFD480 /* InfoViewController.swift */; };
 		C99C25482482FEC80049DE6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C25472482FEC80049DE6B /* AppDelegate.swift */; };
 		C99C254A2482FEC80049DE6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C25492482FEC80049DE6B /* SceneDelegate.swift */; };
 		C99C254C2482FEC80049DE6B /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99C254B2482FEC80049DE6B /* ColorPickerViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		C96C9D662483156100DFD480 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
+		C96C9D6924832BEB00DFD480 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		C99C25442482FEC80049DE6B /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99C25472482FEC80049DE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99C25492482FEC80049DE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				C99C254B2482FEC80049DE6B /* ColorPickerViewController.swift */,
+				C96C9D6924832BEB00DFD480 /* InfoViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				C99C25482482FEC80049DE6B /* AppDelegate.swift in Sources */,
 				C99C254A2482FEC80049DE6B /* SceneDelegate.swift in Sources */,
 				C96C9D672483156100DFD480 /* DefaultButton.swift in Sources */,
+				C96C9D6A24832BEB00DFD480 /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

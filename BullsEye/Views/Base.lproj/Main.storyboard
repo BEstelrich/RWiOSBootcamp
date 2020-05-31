@@ -182,6 +182,7 @@
                                         </constraints>
                                         <connections>
                                             <action selector="infoButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TEV-tn-h9v"/>
+                                            <segue destination="Xet-WO-UJ4" kind="presentation" id="vdS-tT-oUY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -219,6 +220,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="pi7-A1-S1b">
+            <objects>
+                <viewController id="Xet-WO-UJ4" customClass="InfoViewController" customModule="BullsEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KWZ-r0-Bce">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F4G-gW-gBV">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="on5-pV-uUv"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="vbb-Ga-gFj">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="tkR-wG-F6Y">
+                                            <connections>
+                                                <action selector="closeButtonDidTap:" destination="Xet-WO-UJ4" id="J3N-gl-mf5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v9i-8Q-wFv">
+                                <rect key="frame" x="0.0" y="50" width="414" height="792"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="v9i-8Q-wFv" secondAttribute="bottom" id="6K8-NU-Ja6"/>
+                            <constraint firstItem="v9i-8Q-wFv" firstAttribute="trailing" secondItem="2MM-af-Psk" secondAttribute="trailing" id="8ft-TL-wOP"/>
+                            <constraint firstItem="v9i-8Q-wFv" firstAttribute="leading" secondItem="2MM-af-Psk" secondAttribute="leading" id="FHx-VL-G5n"/>
+                            <constraint firstItem="F4G-gW-gBV" firstAttribute="top" secondItem="2MM-af-Psk" secondAttribute="top" id="RXe-FE-PjG"/>
+                            <constraint firstItem="v9i-8Q-wFv" firstAttribute="top" secondItem="F4G-gW-gBV" secondAttribute="bottom" id="SdD-DN-Tl9"/>
+                            <constraint firstItem="F4G-gW-gBV" firstAttribute="trailing" secondItem="2MM-af-Psk" secondAttribute="trailing" id="jGH-ft-pKh"/>
+                            <constraint firstItem="F4G-gW-gBV" firstAttribute="leading" secondItem="2MM-af-Psk" secondAttribute="leading" id="yTV-Qt-EdC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2MM-af-Psk"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="v9i-8Q-wFv" id="sKS-UT-OZ6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I6N-xD-ivv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1079.7101449275362" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
