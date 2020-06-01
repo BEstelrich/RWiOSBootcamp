@@ -25,6 +25,7 @@ class ColorPickerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSlidersForRGB()
+    setColorButton.backgroundColor = updateColorWithCurrentSettings()
   }
   
   
@@ -58,7 +59,7 @@ class ColorPickerViewController: UIViewController {
     
     let saveAction = UIAlertAction(title: "Save",
                                style: .default) { action in
-                                self.updateBackgroundColor()
+                                self.backgroundView.backgroundColor = self.updateColorWithCurrentSettings()
                                 let firstTextField = alert.textFields![0]
                                 self.colorNameLabel.text = firstTextField.text != "" ? firstTextField.text : "Color name"
     }
@@ -67,7 +68,7 @@ class ColorPickerViewController: UIViewController {
                                      style: .cancel,
                                      handler: nil)
     alert.addTextField { texfield in
-      texfield.placeholder = "Write here the profile's name"
+      texfield.placeholder = "Write your color's name"
     }
     
     alert.addAction(saveAction)
@@ -78,19 +79,6 @@ class ColorPickerViewController: UIViewController {
   
   @IBAction func resetButtonDidTap(_ sender: UIButton) {
     resetSliders()
-  }
-  
-  
-  func updateBackgroundColor() {
-    if colorSystemSegmentedControl.selectedSegmentIndex == 0 {
-      backgroundView.backgroundColor = ColorHelper.createRGB(red: firstSlider.value,
-                                                             green: secondSlider.value,
-                                                             blue: thirdSlider.value)
-    } else if colorSystemSegmentedControl.selectedSegmentIndex == 1 {
-      backgroundView.backgroundColor = ColorHelper.createHSB(hue: firstSlider.value,
-                                                             saturation: secondSlider.value,
-                                                             brightness: thirdSlider.value)
-    }
   }
   
   
@@ -147,6 +135,7 @@ class ColorPickerViewController: UIViewController {
                                              blue: 0,
                                              alpha: 1)
     colorNameLabel.text = "Color name"
+    
     firstValueLabel.text = String(0)
     secondValueLabel.text = String(0)
     thirdValueLabel.text = String(0)
@@ -154,5 +143,6 @@ class ColorPickerViewController: UIViewController {
     firstSlider.value = 0
     thirdSlider.value = 0
     secondSlider.value = 0
+    setColorButton.backgroundColor = updateColorWithCurrentSettings()
   }
 }
