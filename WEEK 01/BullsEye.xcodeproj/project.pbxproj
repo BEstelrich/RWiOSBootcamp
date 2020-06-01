@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C940B08124854C6400F974FA /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C940B08024854C6400F974FA /* InfoButton.swift */; };
 		C952EB9A248459AE009D74AD /* DefaultBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952EB99248459AE009D74AD /* DefaultBackgroundView.swift */; };
 		C952EB9E24846A6B009D74AD /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952EB9D24846A6B009D74AD /* ColorHelper.swift */; };
 		C96C9D672483156100DFD480 /* DefaultButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96C9D662483156100DFD480 /* DefaultButton.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C940B08024854C6400F974FA /* InfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		C952EB99248459AE009D74AD /* DefaultBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBackgroundView.swift; sourceTree = "<group>"; };
 		C952EB9D24846A6B009D74AD /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		C96C9D662483156100DFD480 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				C96C9D662483156100DFD480 /* DefaultButton.swift */,
+				C940B08024854C6400F974FA /* InfoButton.swift */,
 			);
 			path = UIButtons;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				C99C254C2482FEC80049DE6B /* ColorPickerViewController.swift in Sources */,
 				C99C25482482FEC80049DE6B /* AppDelegate.swift in Sources */,
 				C952EB9A248459AE009D74AD /* DefaultBackgroundView.swift in Sources */,
+				C940B08124854C6400F974FA /* InfoButton.swift in Sources */,
 				C99C254A2482FEC80049DE6B /* SceneDelegate.swift in Sources */,
 				C96C9D672483156100DFD480 /* DefaultButton.swift in Sources */,
 				C952EB9E24846A6B009D74AD /* ColorHelper.swift in Sources */,
