@@ -25,7 +25,7 @@ class ColorPickerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSlidersForRGB()
-    setColorButton.backgroundColor = updateColorWithCurrentSettings()
+    updateSelectedColorSettings(on: setColorButton)
   }
   
   
@@ -36,19 +36,19 @@ class ColorPickerViewController: UIViewController {
   
   @IBAction func firstSliderDidDrag(_ sender: UISlider) {
     firstValueLabel.text = "\(Int(firstSlider.value.rounded()))"
-    setColorButton.backgroundColor = updateColorWithCurrentSettings()
+    updateSelectedColorSettings(on: setColorButton)
   }
   
   
   @IBAction func secondSliderDidDrag(_ sender: UISlider) {
     secondValueLabel.text = "\(Int(secondSlider.value.rounded()))"
-    setColorButton.backgroundColor = updateColorWithCurrentSettings()
+    updateSelectedColorSettings(on: setColorButton)
   }
   
   
   @IBAction func thirdSliderDidDrag(_ sender: UISlider) {
     thirdValueLabel.text = "\(Int(thirdSlider.value.rounded()))"
-    setColorButton.backgroundColor = updateColorWithCurrentSettings()
+    updateSelectedColorSettings(on: setColorButton)
   }
   
   
@@ -58,10 +58,10 @@ class ColorPickerViewController: UIViewController {
                                   preferredStyle: .alert)
     
     let saveAction = UIAlertAction(title: "Save",
-                               style: .default) { action in
-                                self.backgroundView.backgroundColor = self.updateColorWithCurrentSettings()
-                                let firstTextField = alert.textFields![0]
-                                self.colorNameLabel.text = firstTextField.text != "" ? firstTextField.text : "Color name"
+                                   style: .default) { action in
+                                    self.updateSelectedColorSettings(on: self.backgroundView)
+                                    let firstTextField = alert.textFields![0]
+                                    self.colorNameLabel.text = firstTextField.text != "" ? firstTextField.text : "Color name"
     }
     
     let cancelAction = UIAlertAction(title: "Cancel",
@@ -82,19 +82,20 @@ class ColorPickerViewController: UIViewController {
   }
   
   
-  func updateColorWithCurrentSettings() -> UIColor {
+  func updateSelectedColorSettings(on view: UIView) {
     if colorSystemSegmentedControl.selectedSegmentIndex == 0 {
-      return ColorHelper.createRGB(red: firstSlider.value,
-                                   green: secondSlider.value,
-                                   blue: thirdSlider.value)
+      view.backgroundColor = ColorHelper.createRGB(red: firstSlider.value,
+                                                   green: secondSlider.value,
+                                                   blue: thirdSlider.value)
     } else {
-      return ColorHelper.createHSB(hue: firstSlider.value,
-                                   saturation: secondSlider.value,
-                                   brightness: thirdSlider.value)
+      view.backgroundColor = ColorHelper.createHSB(hue: firstSlider.value,
+                                                   saturation: secondSlider.value,
+                                                   brightness: thirdSlider.value)
     }
   }
   
   
+  // View states.
   func configureSlidersForRGB() {
     firstColorLabel.text = "Red"
     firstSlider.minimumValue = 0
@@ -143,6 +144,6 @@ class ColorPickerViewController: UIViewController {
     firstSlider.value = 0
     thirdSlider.value = 0
     secondSlider.value = 0
-    setColorButton.backgroundColor = updateColorWithCurrentSettings()
+    updateSelectedColorSettings(on: setColorButton)
   }
 }
