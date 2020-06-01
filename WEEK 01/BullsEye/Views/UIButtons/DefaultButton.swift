@@ -17,9 +17,9 @@ import UIKit
   
   
   func configure() {
-    layer.cornerRadius = 15
+    layer.cornerRadius = 25
     layer.masksToBounds = true
-    layer.borderWidth = 3
+    layer.borderWidth = 2
     layer.borderColor = UIColor.white.cgColor
   }
   

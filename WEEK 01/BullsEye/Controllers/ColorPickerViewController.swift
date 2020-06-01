@@ -146,6 +146,7 @@ class ColorPickerViewController: UIViewController {
                                              green: 0,
                                              blue: 0,
                                              alpha: 1)
+    colorNameLabel.text = "Color name"
     firstValueLabel.text = String(0)
     secondValueLabel.text = String(0)
     thirdValueLabel.text = String(0)
