@@ -67,7 +67,7 @@
                                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="0e1-Sp-4bK">
                                                                                 <rect key="frame" x="-2" y="0.0" width="270" height="31"/>
                                                                                 <connections>
-                                                                                    <action selector="redSliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="hBN-XD-mXP"/>
+                                                                                    <action selector="firstSliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="hBN-XD-mXP"/>
                                                                                 </connections>
                                                                             </slider>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDP-Dj-xaH">
@@ -98,7 +98,7 @@
                                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7mb-NH-dZ6">
                                                                                 <rect key="frame" x="-2" y="0.0" width="270" height="31"/>
                                                                                 <connections>
-                                                                                    <action selector="greenSliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="X7m-pc-sOo"/>
+                                                                                    <action selector="secondSliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="X7m-pc-sOo"/>
                                                                                 </connections>
                                                                             </slider>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-3W-ucL">
@@ -129,7 +129,7 @@
                                                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rq9-os-ETx">
                                                                                 <rect key="frame" x="-2" y="0.0" width="270" height="31"/>
                                                                                 <connections>
-                                                                                    <action selector="blueSliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="GOn-sE-VGw"/>
+                                                                                    <action selector="thirdSliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="GOn-sE-VGw"/>
                                                                                 </connections>
                                                                             </slider>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqe-hT-X9D">
@@ -169,8 +169,10 @@
                                                             <constraint firstAttribute="height" constant="50" id="ZC7-oi-5LZ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <size key="titleShadowOffset" width="0.0" height="1"/>
                                                         <state key="normal" title="Set Color">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" white="0.25" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="setColorButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ted-lR-ZGP"/>
@@ -196,6 +198,11 @@
                                                             <constraint firstAttribute="width" secondItem="JdQ-Vj-tP2" secondAttribute="height" multiplier="1:1" id="Ibw-bf-qyX"/>
                                                             <constraint firstAttribute="height" constant="50" id="bqW-4h-gG1"/>
                                                         </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <size key="titleShadowOffset" width="0.0" height="1"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.25" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <segue destination="Xet-WO-UJ4" kind="presentation" id="vdS-tT-oUY"/>
                                                         </connections>
@@ -245,6 +252,7 @@
                         <outlet property="secondColorLabel" destination="U1a-ZD-KeZ" id="OPp-cg-fha"/>
                         <outlet property="secondSlider" destination="7mb-NH-dZ6" id="bJP-63-Fun"/>
                         <outlet property="secondValueLabel" destination="rMh-3W-ucL" id="Xbm-sg-TRl"/>
+                        <outlet property="setColorButton" destination="Usi-V5-gfd" id="ysD-wp-Xx2"/>
                         <outlet property="thirdColorLabel" destination="lNX-is-Otb" id="YuH-b8-iK9"/>
                         <outlet property="thirdSlider" destination="rq9-os-ETx" id="xYg-Pb-3IM"/>
                         <outlet property="thirdValueLabel" destination="wqe-hT-X9D" id="qRe-pv-yTC"/>

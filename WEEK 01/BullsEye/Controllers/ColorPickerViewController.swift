@@ -19,6 +19,7 @@ class ColorPickerViewController: UIViewController {
   @IBOutlet weak var thirdSlider: UISlider!
   
   @IBOutlet weak var colorSystemSegmentedControl: UISegmentedControl!
+  @IBOutlet weak var setColorButton: DefaultButton!
   
   
   override func viewDidLoad() {
@@ -32,18 +33,21 @@ class ColorPickerViewController: UIViewController {
   }
   
   
-  @IBAction func redSliderDidDrag(_ sender: UISlider) {
+  @IBAction func firstSliderDidDrag(_ sender: UISlider) {
     firstValueLabel.text = "\(Int(firstSlider.value.rounded()))"
+    setColorButton.backgroundColor = updateColorWithCurrentSettings()
   }
   
   
-  @IBAction func greenSliderDidDrag(_ sender: UISlider) {
+  @IBAction func secondSliderDidDrag(_ sender: UISlider) {
     secondValueLabel.text = "\(Int(secondSlider.value.rounded()))"
+    setColorButton.backgroundColor = updateColorWithCurrentSettings()
   }
   
   
-  @IBAction func blueSliderDidDrag(_ sender: UISlider) {
+  @IBAction func thirdSliderDidDrag(_ sender: UISlider) {
     thirdValueLabel.text = "\(Int(thirdSlider.value.rounded()))"
+    setColorButton.backgroundColor = updateColorWithCurrentSettings()
   }
   
   
@@ -86,6 +90,19 @@ class ColorPickerViewController: UIViewController {
       backgroundView.backgroundColor = ColorHelper.createHSB(hue: firstSlider.value,
                                                              saturation: secondSlider.value,
                                                              brightness: thirdSlider.value)
+    }
+  }
+  
+  
+  func updateColorWithCurrentSettings() -> UIColor {
+    if colorSystemSegmentedControl.selectedSegmentIndex == 0 {
+      return ColorHelper.createRGB(red: firstSlider.value,
+                                   green: secondSlider.value,
+                                   blue: thirdSlider.value)
+    } else {
+      return ColorHelper.createHSB(hue: firstSlider.value,
+                                   saturation: secondSlider.value,
+                                   brightness: thirdSlider.value)
     }
   }
   
