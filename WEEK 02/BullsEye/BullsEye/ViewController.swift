@@ -9,62 +9,36 @@ import UIKit
 
 
 class ViewController: UIViewController {
-
-  var currentValue = 0
-  var targetValue = 0
-  var score = 0
-  var round = 0
-  
-  let bullsEyeGame = BullsEyeGame()
-  
-  var quickDiff: Int {
-    return abs(bullsEyeGame.targetValue - currentValue)
-  }
   
   @IBOutlet weak var slider: UISlider!
   @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
   
+  var quickDifference: Int {
+    return abs(gameLogic.targetValue - Int(slider.value.rounded()))
+  }
+  
+  let gameLogic = BullsEyeGame()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    let roundedValue = slider.value.rounded()
-    currentValue = Int(roundedValue)
-    startNewGame()
-    addColorTintHint()
+    gameLogic.startNewGame()
+    updateView()
   }
-
   
-  @IBAction func showAlert() {
+  
+  @IBAction func hitMeButtonDidTap() {
+    gameLogic.calculateRoundResult(for: slider.value.rounded())
     
-    let difference = abs(targetValue - currentValue)
-    var points = 100 - difference
+    let alert = UIAlertController(title: gameLogic.roundMessage,
+                                  message: "You scored \(gameLogic.roundScore) points",
+                                  preferredStyle: .alert)
     
-    score += points
-    
-    let title: String
-    if difference == 0 {
-      title = "Perfect!"
-      points += 100
-    } else if difference < 5 {
-      title = "You almost had it!"
-      if difference == 1 {
-        points += 50
-      }
-    } else if difference < 10 {
-      title = "Pretty good!"
-    } else {
-      title = "Not even close..."
-    }
-    
-    let message = "You scored \(points) points"
-    
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    
-    let action = UIAlertAction(title: "OK", style: .default, handler: {
-      action in
-      self.startNewRound()
+    let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+      self.gameLogic.startNewRound()
+      self.updateView()
     })
     
     alert.addAction(action)
@@ -73,38 +47,28 @@ class ViewController: UIViewController {
   }
   
   
-  @IBAction func sliderMoved(_ slider: UISlider) {
-    let roundedValue = slider.value.rounded()
-    currentValue = Int(roundedValue)
+  @IBAction func sliderDidDrag(_ slider: UISlider) {
     addColorTintHint()
   }
   
   
-  @IBAction func startNewGame() {
-    score = 0
-    round = 0
-    startNewRound()
+  @IBAction func startOverButtonDidTap() {
+    gameLogic.startNewGame()
+    updateView()
   }
   
   
-  func startNewRound() {
-    round += 1
-    targetValue = Int.random(in: 1...100)
-    currentValue = 50
-    slider.value = Float(currentValue)
-    updateLabels()
-  }
-  
-  
-  func updateLabels() {
-    targetLabel.text = String(targetValue)
-    scoreLabel.text = String(score)
-    roundLabel.text = String(round)
+  func updateView() {
+    targetLabel.text = String(gameLogic.targetValue)
+    scoreLabel.text = String(gameLogic.gameScore)
+    roundLabel.text = String(gameLogic.roundNumber)
+    slider.value = 50
     addColorTintHint()
   }
   
   
   func addColorTintHint() {
-    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDiff)/100.0)
+    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
   }
+  
 }
