@@ -25,7 +25,6 @@ class ColorPickerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureSlidersForRGB()
-    updateSelectedColorSettings(on: setColorButton)
   }
   
   

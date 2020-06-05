@@ -26,7 +26,7 @@
 		C952EB9D24846A6B009D74AD /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		C96C9D662483156100DFD480 /* DefaultButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultButton.swift; sourceTree = "<group>"; };
 		C96C9D6924832BEB00DFD480 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		C99C25442482FEC80049DE6B /* BullsEye.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BullsEye.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99C25442482FEC80049DE6B /* ColorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99C25472482FEC80049DE6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C99C25492482FEC80049DE6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C99C254B2482FEC80049DE6B /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		C99C253B2482FEC80049DE6B = {
 			isa = PBXGroup;
 			children = (
-				C99C25462482FEC80049DE6B /* BullsEye */,
+				C99C25462482FEC80049DE6B /* ColorPicker */,
 				C99C25452482FEC80049DE6B /* Products */,
 			);
 			indentWidth = 2;
@@ -77,12 +77,12 @@
 		C99C25452482FEC80049DE6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C99C25442482FEC80049DE6B /* BullsEye.app */,
+				C99C25442482FEC80049DE6B /* ColorPicker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C99C25462482FEC80049DE6B /* BullsEye */ = {
+		C99C25462482FEC80049DE6B /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
 				C99C255E2482FF680049DE6B /* Supporting files */,
@@ -91,7 +91,7 @@
 				C99C255F2482FF770049DE6B /* Resources */,
 				C99C255B2482FF470049DE6B /* Helpers */,
 			);
-			path = BullsEye;
+			path = ColorPicker;
 			sourceTree = "<group>";
 		};
 		C99C255B2482FF470049DE6B /* Helpers */ = {
@@ -143,9 +143,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C99C25432482FEC80049DE6B /* BullsEye */ = {
+		C99C25432482FEC80049DE6B /* ColorPicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C99C25582482FEC90049DE6B /* Build configuration list for PBXNativeTarget "BullsEye" */;
+			buildConfigurationList = C99C25582482FEC90049DE6B /* Build configuration list for PBXNativeTarget "ColorPicker" */;
 			buildPhases = (
 				C99C25402482FEC80049DE6B /* Sources */,
 				C99C25412482FEC80049DE6B /* Frameworks */,
@@ -155,9 +155,9 @@
 			);
 			dependencies = (
 			);
-			name = BullsEye;
+			name = ColorPicker;
 			productName = BullsEye;
-			productReference = C99C25442482FEC80049DE6B /* BullsEye.app */;
+			productReference = C99C25442482FEC80049DE6B /* ColorPicker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -175,7 +175,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C99C253F2482FEC80049DE6B /* Build configuration list for PBXProject "BullsEye" */;
+			buildConfigurationList = C99C253F2482FEC80049DE6B /* Build configuration list for PBXProject "ColorPicker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -188,7 +188,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C99C25432482FEC80049DE6B /* BullsEye */,
+				C99C25432482FEC80049DE6B /* ColorPicker */,
 			);
 		};
 /* End PBXProject section */
@@ -364,12 +364,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W95FNEU9BX;
-				INFOPLIST_FILE = "BullsEye/Supporting files/Info.plist";
+				INFOPLIST_FILE = "ColorPicker/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BEstelrich.BullsEye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BEstelrich.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -382,12 +382,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W95FNEU9BX;
-				INFOPLIST_FILE = "BullsEye/Supporting files/Info.plist";
+				INFOPLIST_FILE = "ColorPicker/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BEstelrich.BullsEye;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BEstelrich.ColorPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -397,7 +397,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C99C253F2482FEC80049DE6B /* Build configuration list for PBXProject "BullsEye" */ = {
+		C99C253F2482FEC80049DE6B /* Build configuration list for PBXProject "ColorPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C99C25562482FEC90049DE6B /* Debug */,
@@ -406,7 +406,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C99C25582482FEC90049DE6B /* Build configuration list for PBXNativeTarget "BullsEye" */ = {
+		C99C25582482FEC90049DE6B /* Build configuration list for PBXNativeTarget "ColorPicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C99C25592482FEC90049DE6B /* Debug */,
