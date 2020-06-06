@@ -21,32 +21,58 @@
 */
 
 import Foundation
-import UIKit
 
-extension UIColor {
+class BullsEyeGame {
   
-  convenience init(rgbStruct rgb: RGB) {
-    let r = CGFloat(rgb.r) / 255.0
-    let g = CGFloat(rgb.g) / 255.0
-    let b = CGFloat(rgb.b) / 255.0
-    self.init(red: r, green: g, blue: b, alpha:1.0)
+  var targetValue = RGB()
+  var gameScore = 0
+  var roundNumber = 0
+  var roundScore = 0
+  var roundMessage = "N/A"
+
+  
+  func startNewGame() {
+    gameScore = 0
+    roundScore = 0
+    roundNumber = 0
+    startNewRound()
   }
   
-}
+  
+  func startNewRound() {
+    roundScore = 0
+    roundNumber += 1
+    
+    targetValue.red = Int.random(in: 0...255)
+    targetValue.green = Int.random(in: 0...255)
+    targetValue.blue = Int.random(in: 0...255)
+  }
+  
+  
+  func calculateRoundResult(for rgbValues: RGB, withTarget target: RGB) {
+    let difference = rgbValues.difference(target: target)
+    print(difference)
+    
+    switch difference {
+    case 0:
+      roundScore += 100
+      roundMessage = "Perfect!"
+      
+    case 1:
+      roundScore += 50
+      roundMessage = "You almost had it!"
+      
+    case 2..<5:
+      roundMessage = "You almost had it!"
+      
+    case 5..<10:
+      roundMessage = "Pretty good!"
+      
+    default:
+      roundMessage = "Not even close..."
+    }
 
-
-struct RGB {
-  
-  var r = 127
-  var g = 127
-  var b = 127
-  
-  
-  func difference(target: RGB) -> Double {
-    let rDiff = Double(r - target.r)
-    let gDiff = Double(g - target.g)
-    let bDiff = Double(b - target.b)
-    return sqrt(rDiff * rDiff + gDiff * gDiff + bDiff * bDiff) / 255.0
+    gameScore += roundScore
   }
   
 }

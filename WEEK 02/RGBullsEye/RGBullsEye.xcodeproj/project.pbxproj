@@ -54,6 +54,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C963ED99248C4183000B5C12 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB57F71BED941D00003224 /* RGB.swift */,
+				CDCB57F61BED941D00003224 /* BullsEyeGame.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C963ED9A248C4191000B5C12 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB57E61BED8F4800003224 /* ViewController.swift */,
+				CDCB57FA1BED986300003224 /* AboutViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C963ED9B248C41A5000B5C12 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB57E81BED8F4800003224 /* Main.storyboard */,
+				181A114E22AD925B003EA9CF /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C963ED9C248C41B0000B5C12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB57EB1BED8F4800003224 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C963ED9D248C41BD000B5C12 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CDCB57E41BED8F4800003224 /* AppDelegate.swift */,
+				CDCB57F01BED8F4800003224 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		CDCB57D81BED8F4800003224 = {
 			isa = PBXGroup;
 			children = (
@@ -73,15 +117,11 @@
 		CDCB57E31BED8F4800003224 /* RGBullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				CDCB57E41BED8F4800003224 /* AppDelegate.swift */,
-				CDCB57F71BED941D00003224 /* RGB.swift */,
-				CDCB57E61BED8F4800003224 /* ViewController.swift */,
-				CDCB57FA1BED986300003224 /* AboutViewController.swift */,
-				CDCB57F61BED941D00003224 /* BullsEyeGame.swift */,
-				CDCB57E81BED8F4800003224 /* Main.storyboard */,
-				181A114E22AD925B003EA9CF /* LaunchScreen.storyboard */,
-				CDCB57EB1BED8F4800003224 /* Assets.xcassets */,
-				CDCB57F01BED8F4800003224 /* Info.plist */,
+				C963ED9D248C41BD000B5C12 /* Supporting files */,
+				C963ED99248C4183000B5C12 /* Models */,
+				C963ED9B248C41A5000B5C12 /* Views */,
+				C963ED9A248C4191000B5C12 /* Controllers */,
+				C963ED9C248C41B0000B5C12 /* Resources */,
 			);
 			path = RGBullsEye;
 			sourceTree = "<group>";
@@ -291,7 +331,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = RGBullsEye/Info.plist;
+				INFOPLIST_FILE = "RGBullsEye/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.RGBullsEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,7 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = RGBullsEye/Info.plist;
+				INFOPLIST_FILE = "RGBullsEye/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.razeware.RGBullsEye;
 				PRODUCT_NAME = "$(TARGET_NAME)";

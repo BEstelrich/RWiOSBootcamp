@@ -19,59 +19,34 @@
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 * THE SOFTWARE.
 */
-
 import Foundation
+import UIKit
 
-class BullsEyeGame {
-  
-  var targetValue = RGB()
-  var gameScore = 0
-  var roundNumber = 0
-  var roundScore = 0
-  var roundMessage = "N/A"
 
+extension UIColor {
   
-  func startNewGame() {
-    gameScore = 0
-    roundScore = 0
-    roundNumber = 0
-    startNewRound()
+  convenience init(rgb: RGB) {
+    let red = CGFloat(rgb.red) / 255.0
+    let green = CGFloat(rgb.green) / 255.0
+    let blue = CGFloat(rgb.blue) / 255.0
+    self.init(red: red, green: green, blue: blue, alpha:1.0)
   }
   
-  
-  func startNewRound() {
-    roundScore = 0
-    roundNumber += 1
-    
-    targetValue.r = Int.random(in: 0...255)
-    targetValue.g = Int.random(in: 0...255)
-    targetValue.b = Int.random(in: 0...255)
-  }
-  
-  
-  func calculateRoundResult(for rgbValues: RGB, withTarget target: RGB) {
-    let difference = rgbValues.difference(target: target)
-    print(difference)
-    
-    switch difference {
-    case 0:
-      roundScore += 100
-      roundMessage = "Perfect!"
-      
-    case 1:
-      roundScore += 50
-      roundMessage = "You almost had it!"
-      
-    case 2..<5:
-      roundMessage = "You almost had it!"
-      
-    case 5..<10:
-      roundMessage = "Pretty good!"
-      
-    default:
-      roundMessage = "Not even close..."
-    }
+}
 
+
+struct RGB {
+  
+  var red = 127
+  var green = 127
+  var blue = 127
+  
+  
+  func difference(target: RGB) -> Double {
+    let redDiff = Double(red - target.red)
+    let greenDiff = Double(green - target.green)
+    let blueDiff = Double(blue - target.blue)
+    return sqrt(redDiff * redDiff + greenDiff * greenDiff + blueDiff * blueDiff) / 255.0
   }
   
 }

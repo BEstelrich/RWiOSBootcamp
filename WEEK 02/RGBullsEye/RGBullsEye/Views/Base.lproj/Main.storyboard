@@ -86,14 +86,14 @@
                                 <rect key="frame" x="60" y="343" width="776" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neV-iY-jJP">
-                                        <rect key="frame" x="0.0" y="10" width="66" height="30"/>
-                                        <state key="normal" title="start over"/>
+                                        <rect key="frame" x="0.0" y="10" width="68" height="30"/>
+                                        <state key="normal" title="Start over"/>
                                         <connections>
                                             <action selector="startOverButtonDidTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il0-Pa-86K"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="w5X-ic-nVh" userLabel="Counters">
-                                        <rect key="frame" x="350.5" y="4.5" width="116.5" height="41"/>
+                                        <rect key="frame" x="351.5" y="4.5" width="116.5" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round: 999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbB-v7-EVE">
                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="20.5"/>
@@ -213,7 +213,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="2K2-Qe-gDy"/>
                                         </constraints>
-                                        <state key="normal" title="hit me!"/>
+                                        <state key="normal" title="Hit me!"/>
                                         <connections>
                                             <action selector="hitMeButtonDidTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6t3-2Y-i5N"/>
                                         </connections>
