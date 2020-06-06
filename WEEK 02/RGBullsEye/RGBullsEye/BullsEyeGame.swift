@@ -28,7 +28,7 @@ class BullsEyeGame {
   var gameScore = 0
   var roundNumber = 0
   var roundScore = 0
-  var roundMessage = 0
+  var roundMessage = "N/A"
 
   
   func startNewGame() {
@@ -46,6 +46,32 @@ class BullsEyeGame {
     targetValue.r = Int.random(in: 0...255)
     targetValue.g = Int.random(in: 0...255)
     targetValue.b = Int.random(in: 0...255)
+  }
+  
+  
+  func calculateRoundResult(for rgbValues: RGB, withTarget target: RGB) {
+    let difference = rgbValues.difference(target: target)
+    print(difference)
+    
+    switch difference {
+    case 0:
+      roundScore += 100
+      roundMessage = "Perfect!"
+      
+    case 1:
+      roundScore += 50
+      roundMessage = "You almost had it!"
+      
+    case 2..<5:
+      roundMessage = "You almost had it!"
+      
+    case 5..<10:
+      roundMessage = "Pretty good!"
+      
+    default:
+      roundMessage = "Not even close..."
+    }
+
   }
   
 }

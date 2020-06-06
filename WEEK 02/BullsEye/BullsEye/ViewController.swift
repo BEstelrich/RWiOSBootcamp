@@ -29,6 +29,11 @@ class ViewController: UIViewController {
   }
   
   
+  @IBAction func sliderDidDrag(_ slider: UISlider) {
+    addColorTintHint()
+  }
+  
+  
   @IBAction func hitMeButtonDidTap() {
     gameLogic.calculateRoundResult(for: slider.value.rounded())
     
@@ -44,11 +49,6 @@ class ViewController: UIViewController {
     alert.addAction(action)
     
     present(alert, animated: true, completion: nil)
-  }
-  
-  
-  @IBAction func sliderDidDrag(_ slider: UISlider) {
-    addColorTintHint()
   }
   
   

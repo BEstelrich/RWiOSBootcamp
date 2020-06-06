@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="landscape" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.13"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -90,7 +89,7 @@
                                         <rect key="frame" x="0.0" y="10" width="66" height="30"/>
                                         <state key="normal" title="start over"/>
                                         <connections>
-                                            <action selector="startOverWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il0-Pa-86K"/>
+                                            <action selector="startOverButtonDidTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Il0-Pa-86K"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="w5X-ic-nVh" userLabel="Counters">
@@ -138,7 +137,7 @@
                                                 <color key="minimumTrackTintColor" red="0.99215686270000003" green="0.12549019610000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.99215686270000003" green="0.12549019610000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="aSliderMovedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="txM-0v-EAX"/>
+                                                    <action selector="sliderDidDragWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="txM-0v-EAX"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOj-44-CsZ">
@@ -166,7 +165,7 @@
                                                 <color key="minimumTrackTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="aSliderMovedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="3TY-Eg-Wzg"/>
+                                                    <action selector="sliderDidDragWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="3TY-Eg-Wzg"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mr6-jj-brr">
@@ -194,7 +193,7 @@
                                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <color key="thumbTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
-                                                    <action selector="aSliderMovedWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="BEn-Jd-jJS"/>
+                                                    <action selector="sliderDidDragWithSender:" destination="BYZ-38-t0r" eventType="valueChanged" id="BEn-Jd-jJS"/>
                                                 </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="255" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDi-g3-OcF">
@@ -216,7 +215,7 @@
                                         </constraints>
                                         <state key="normal" title="hit me!"/>
                                         <connections>
-                                            <action selector="showAlertWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6t3-2Y-i5N"/>
+                                            <action selector="hitMeButtonDidTapWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6t3-2Y-i5N"/>
                                         </connections>
                                     </button>
                                 </subviews>

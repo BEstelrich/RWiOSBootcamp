@@ -39,7 +39,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var scoreLabel: UILabel!
   
   let game = BullsEyeGame()
-  var rgb = RGB()
+  var userRGB = RGB()
   
   
   override func viewDidLoad() {
@@ -48,34 +48,34 @@ class ViewController: UIViewController {
   }
   
   
-  @IBAction func aSliderMoved(sender: UISlider) {
+  @IBAction func sliderDidDrag(sender: UISlider) {
     switch sender {
     case redSlider:
-      rgb.r = Int(sender.value)
-      redLabel.text = "R: \(rgb.r)"
+      userRGB.r = Int(sender.value)
+      redLabel.text = "R: \(userRGB.r)"
       
     case greenSlider:
-      rgb.g = Int(sender.value)
-      greenLabel.text = "G: \(rgb.g)"
+      userRGB.g = Int(sender.value)
+      greenLabel.text = "G: \(userRGB.g)"
       
     case blueSlider:
-      rgb.b = Int(sender.value)
-      blueLabel.text = "R: \(rgb.b)"
+      userRGB.b = Int(sender.value)
+      blueLabel.text = "R: \(userRGB.b)"
       
     default:
       break
     }
     
-    guessLabel.backgroundColor = UIColor(rgbStruct: rgb)
+    guessLabel.backgroundColor = UIColor(rgbStruct: userRGB)
   }
   
   
-  @IBAction func showAlert(sender: AnyObject) {
+  @IBAction func hitMeButtonDidTap(sender: AnyObject) {
     
   }
   
   
-  @IBAction func startOver(sender: AnyObject) {
+  @IBAction func startOverButtonDidTap(sender: AnyObject) {
     game.startNewGame()
     updateView()
     
@@ -84,6 +84,20 @@ class ViewController: UIViewController {
   
   func updateView() {
     targetTextLabel.text = "Match this color"
+    targetLabel.backgroundColor = UIColor(rgbStruct: game.targetValue)
+    
+    userRGB = RGB()
+    guessLabel.backgroundColor = UIColor(rgbStruct: userRGB)
+    redLabel.text = "R: \(userRGB.r)"
+    greenLabel.text = "G: \(userRGB.g)"
+    blueLabel.text = "B: \(userRGB.b)"
+    
+    redSlider.value = Float(userRGB.r)
+    greenSlider.value = Float(userRGB.g)
+    blueSlider.value = Float(userRGB.b)
+    
+    roundLabel.text = "Round: \(game.roundNumber)"
+    scoreLabel.text = "Score: \(game.gameScore)"
   }
   
   
