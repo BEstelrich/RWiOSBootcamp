@@ -43,10 +43,10 @@ struct RGB {
   
   
   func difference(target: RGB) -> Double {
-    let redDiff = Double(red - target.red)
-    let greenDiff = Double(green - target.green)
-    let blueDiff = Double(blue - target.blue)
-    return sqrt(redDiff * redDiff + greenDiff * greenDiff + blueDiff * blueDiff) / 255.0
+    let redDifference = Double(red - target.red)
+    let greenDifference = Double(green - target.green)
+    let blueDifference = Double(blue - target.blue)
+    return sqrt(redDifference * redDifference + greenDifference * greenDifference + blueDifference * blueDifference) / 255.0
   }
   
 }

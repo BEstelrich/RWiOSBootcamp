@@ -43,15 +43,19 @@ class BullsEyeGame {
     roundScore = 0
     roundNumber += 1
     
+    refreshRandomColor()
+  }
+  
+  func refreshRandomColor() {
     targetValue.red = Int.random(in: 0...255)
     targetValue.green = Int.random(in: 0...255)
     targetValue.blue = Int.random(in: 0...255)
   }
   
   
-  func calculateRoundResult(for rgbValues: RGB, withTarget target: RGB) {
-    let difference = rgbValues.difference(target: target)
-    print(difference)
+  func calculateRoundResult(for guess: RGB, against target: RGB) {
+    let difference = guess.difference(target: target) * 100
+    roundScore = 100 - Int(difference)
     
     switch difference {
     case 0:

@@ -40,7 +40,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var scoreLabel: UILabel!
   
   let game = BullsEyeGame()
-  var userRGB = RGB()
+  var guessRGB = RGB()
   
   
   override func viewDidLoad() {
@@ -52,29 +52,27 @@ class ViewController: UIViewController {
   @IBAction func sliderDidDrag(sender: UISlider) {
     switch sender {
     case redSlider:
-      userRGB.red = Int(sender.value)
-      redLabel.text = "R: \(userRGB.red)"
+      guessRGB.red = Int(sender.value)
+      redLabel.text = "R: \(guessRGB.red)"
       
     case greenSlider:
-      userRGB.green = Int(sender.value)
-      greenLabel.text = "G: \(userRGB.green)"
+      guessRGB.green = Int(sender.value)
+      greenLabel.text = "G: \(guessRGB.green)"
       
     case blueSlider:
-      userRGB.blue = Int(sender.value)
-      blueLabel.text = "R: \(userRGB.blue)"
+      guessRGB.blue = Int(sender.value)
+      blueLabel.text = "R: \(guessRGB.blue)"
       
     default:
       break
     }
     
-    guessLabel.backgroundColor = UIColor(rgb: userRGB)
+    guessLabel.backgroundColor = UIColor(rgb: guessRGB)
   }
   
   
   @IBAction func hitMeButtonDidTap(sender: AnyObject) {
-    targetTextLabel.text = ""
-    
-    game.calculateRoundResult(for: userRGB, withTarget: game.targetValue)
+    game.calculateRoundResult(for: guessRGB, against: game.targetValue)
     
     let alert = UIAlertController(title: game.roundMessage,
                                   message: "You scored \(game.roundScore) points",
@@ -98,18 +96,21 @@ class ViewController: UIViewController {
   
   
   func updateView() {
-    targetTextLabel.text = "Match this color"
+    game.refreshRandomColor()
+    
+    guessRGB = RGB()
+    
     targetLabel.backgroundColor = UIColor(rgb: game.targetValue)
+    targetTextLabel.text = "Match this color"
     
-    userRGB = RGB()
-    guessLabel.backgroundColor = UIColor(rgb: userRGB)
-    redLabel.text = "R: \(userRGB.red)"
-    greenLabel.text = "G: \(userRGB.green)"
-    blueLabel.text = "B: \(userRGB.blue)"
+    guessLabel.backgroundColor = UIColor(rgb: guessRGB)
+    redLabel.text = "R: \(guessRGB.red)"
+    greenLabel.text = "G: \(guessRGB.green)"
+    blueLabel.text = "B: \(guessRGB.blue)"
     
-    redSlider.value = Float(userRGB.red)
-    greenSlider.value = Float(userRGB.green)
-    blueSlider.value = Float(userRGB.blue)
+    redSlider.value = Float(guessRGB.red)
+    greenSlider.value = Float(guessRGB.green)
+    blueSlider.value = Float(guessRGB.blue)
     
     roundLabel.text = "Round: \(game.roundNumber)"
     scoreLabel.text = "Score: \(game.gameScore)"
