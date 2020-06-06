@@ -22,6 +22,30 @@
 
 import Foundation
 
-struct BullsEyeGame {  // might be class?
+class BullsEyeGame {
+  
+  var targetValue = RGB()
+  var gameScore = 0
+  var roundNumber = 0
+  var roundScore = 0
+  var roundMessage = 0
 
+  
+  func startNewGame() {
+    gameScore = 0
+    roundScore = 0
+    roundNumber = 0
+    startNewRound()
+  }
+  
+  
+  func startNewRound() {
+    roundScore = 0
+    roundNumber += 1
+    
+    targetValue.r = Int.random(in: 0...255)
+    targetValue.g = Int.random(in: 0...255)
+    targetValue.b = Int.random(in: 0...255)
+  }
+  
 }
