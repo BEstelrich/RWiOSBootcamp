@@ -16,15 +16,15 @@ class ViewController: UIViewController {
   @IBOutlet weak var roundLabel: UILabel!
   
   var quickDifference: Int {
-    return abs(gameLogic.targetValue - Int(slider.value.rounded()))
+    return abs(game.targetValue - Int(slider.value.rounded()))
   }
   
-  let gameLogic = BullsEyeGame()
+  let game = BullsEyeGame()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    gameLogic.startNewGame()
+    game.startNewGame()
     updateView()
   }
   
@@ -35,33 +35,32 @@ class ViewController: UIViewController {
   
   
   @IBAction func hitMeButtonDidTap() {
-    gameLogic.calculateRoundResult(for: slider.value.rounded())
+    game.calculateRoundResult(for: slider.value.rounded())
     
-    let alert = UIAlertController(title: gameLogic.roundMessage,
-                                  message: "You scored \(gameLogic.roundScore) points",
+    let alert = UIAlertController(title: game.roundMessage,
+                                  message: "You scored \(game.roundScore) points",
                                   preferredStyle: .alert)
     
     let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-      self.gameLogic.startNewRound()
+      self.game.startNewRound()
       self.updateView()
     })
     
     alert.addAction(action)
-    
     present(alert, animated: true, completion: nil)
   }
   
   
   @IBAction func startOverButtonDidTap() {
-    gameLogic.startNewGame()
+    game.startNewGame()
     updateView()
   }
   
   
   func updateView() {
-    targetLabel.text = String(gameLogic.targetValue)
-    scoreLabel.text = String(gameLogic.gameScore)
-    roundLabel.text = String(gameLogic.roundNumber)
+    targetLabel.text = String(game.targetValue)
+    scoreLabel.text = String(game.gameScore)
+    roundLabel.text = String(game.roundNumber)
     slider.value = 50
     addColorTintHint()
   }

@@ -11,7 +11,7 @@
 		352A679B20D171E800D5BF05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352A679A20D171E800D5BF05 /* ViewController.swift */; };
 		352A679E20D171E800D5BF05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352A679C20D171E800D5BF05 /* Main.storyboard */; };
 		352A67A020D171EA00D5BF05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352A679F20D171EA00D5BF05 /* Assets.xcassets */; };
-		352A67A320D171EA00D5BF05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352A67A120D171EA00D5BF05 /* LaunchScreen.storyboard */; };
+		C95F90E1248C529F001E2F11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C95F90E0248C529F001E2F11 /* LaunchScreen.storyboard */; };
 		C96DA6FB248AEEB1008CB531 /* BullsEyeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96DA6FA248AEEB1008CB531 /* BullsEyeGame.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,8 +21,8 @@
 		352A679A20D171E800D5BF05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		352A679D20D171E800D5BF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		352A679F20D171EA00D5BF05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		352A67A220D171EA00D5BF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		352A67A420D171EA00D5BF05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C95F90E0248C529F001E2F11 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ../../../RGBullsEye/RGBullsEye/Views/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96DA6FA248AEEB1008CB531 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,15 +56,55 @@
 		352A679720D171E800D5BF05 /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
-				352A679820D171E800D5BF05 /* AppDelegate.swift */,
-				352A679A20D171E800D5BF05 /* ViewController.swift */,
-				C96DA6FA248AEEB1008CB531 /* BullsEyeGame.swift */,
-				352A679C20D171E800D5BF05 /* Main.storyboard */,
-				352A679F20D171EA00D5BF05 /* Assets.xcassets */,
-				352A67A120D171EA00D5BF05 /* LaunchScreen.storyboard */,
-				352A67A420D171EA00D5BF05 /* Info.plist */,
+				C95F90DF248C4E6C001E2F11 /* Supporting files */,
+				C95F90DE248C4E5D001E2F11 /* Models */,
+				C95F90DC248C4E44001E2F11 /* Views */,
+				C95F90DD248C4E53001E2F11 /* Controllers */,
+				C95F90DB248C4E3C001E2F11 /* Resources */,
 			);
 			path = BullsEye;
+			sourceTree = "<group>";
+		};
+		C95F90DB248C4E3C001E2F11 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				352A679F20D171EA00D5BF05 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C95F90DC248C4E44001E2F11 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				352A679C20D171E800D5BF05 /* Main.storyboard */,
+				C95F90E0248C529F001E2F11 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C95F90DD248C4E53001E2F11 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				352A679A20D171E800D5BF05 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C95F90DE248C4E5D001E2F11 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C96DA6FA248AEEB1008CB531 /* BullsEyeGame.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C95F90DF248C4E6C001E2F11 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				352A679820D171E800D5BF05 /* AppDelegate.swift */,
+				352A67A420D171EA00D5BF05 /* Info.plist */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +166,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352A67A320D171EA00D5BF05 /* LaunchScreen.storyboard in Resources */,
+				C95F90E1248C529F001E2F11 /* LaunchScreen.storyboard in Resources */,
 				352A67A020D171EA00D5BF05 /* Assets.xcassets in Resources */,
 				352A679E20D171E800D5BF05 /* Main.storyboard in Resources */,
 			);
@@ -154,14 +194,6 @@
 				352A679D20D171E800D5BF05 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		352A67A120D171EA00D5BF05 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				352A67A220D171EA00D5BF05 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -287,7 +319,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFCNEC27GU;
-				INFOPLIST_FILE = BullsEye/Info.plist;
+				INFOPLIST_FILE = "BullsEye/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,7 +337,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KFCNEC27GU;
-				INFOPLIST_FILE = BullsEye/Info.plist;
+				INFOPLIST_FILE = "BullsEye/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

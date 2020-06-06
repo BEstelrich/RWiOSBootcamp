@@ -45,6 +45,7 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    game.startNewGame()
     updateView()
   }
   
@@ -67,12 +68,14 @@ class ViewController: UIViewController {
       break
     }
     
-    guessLabel.backgroundColor = UIColor(rgb: guessRGB)
+    guessLabel.backgroundColor = UIColor(customRGB: guessRGB)
   }
   
   
   @IBAction func hitMeButtonDidTap(sender: AnyObject) {
     game.calculateRoundResult(for: guessRGB, against: game.targetValue)
+    
+    targetTextLabel.text = "R: \(game.targetValue.red)   G: \(game.targetValue.green)   B: \(game.targetValue.blue)"
     
     let alert = UIAlertController(title: game.roundMessage,
                                   message: "You scored \(game.roundScore) points",
@@ -84,7 +87,6 @@ class ViewController: UIViewController {
     })
     
     alert.addAction(action)
-    
     present(alert, animated: true, completion: nil)
   }
   
@@ -96,14 +98,12 @@ class ViewController: UIViewController {
   
   
   func updateView() {
-    game.refreshRandomColor()
-    
     guessRGB = RGB()
     
-    targetLabel.backgroundColor = UIColor(rgb: game.targetValue)
+    targetLabel.backgroundColor = UIColor(customRGB: game.targetValue)
     targetTextLabel.text = "Match this color"
     
-    guessLabel.backgroundColor = UIColor(rgb: guessRGB)
+    guessLabel.backgroundColor = UIColor(customRGB: guessRGB)
     redLabel.text = "R: \(guessRGB.red)"
     greenLabel.text = "G: \(guessRGB.green)"
     blueLabel.text = "B: \(guessRGB.blue)"

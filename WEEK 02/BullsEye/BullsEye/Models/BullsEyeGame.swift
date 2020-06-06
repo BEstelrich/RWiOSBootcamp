@@ -20,6 +20,7 @@ class BullsEyeGame {
   
   
   func startNewRound() {
+    roundScore = 0
     roundNumber += 1
     targetValue = Int.random(in: 1...100)
   }
