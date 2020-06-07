@@ -35,7 +35,10 @@
                                                     <constraint firstAttribute="width" constant="50" id="c7F-pe-iKc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                                                <connections>
+                                                    <action selector="textFieldDidChageValue:" destination="BYZ-38-t0r" eventType="editingChanged" id="7ju-NI-5VN"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -53,9 +56,6 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="iAf-Xz-bBv">
                                                 <rect key="frame" x="36" y="0.0" width="453" height="21.5"/>
-                                                <connections>
-                                                    <action selector="sliderDidDrag:" destination="BYZ-38-t0r" eventType="valueChanged" id="96u-qN-oRb"/>
-                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3A4-Ih-jW4">
                                                 <rect key="frame" x="495" y="0.0" width="30" height="20.5"/>

@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var slider: UISlider!
-//  @IBOutlet weak var targetLabel: UILabel!
   @IBOutlet weak var userTextField: UITextField!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
@@ -20,27 +19,59 @@ class ViewController: UIViewController {
     return abs(game.targetValue - Int(slider.value.rounded()))
   }
   
+  var userGuessNumber: Float?
   let game = BullsEyeGame()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupTextField()
     game.startNewGame()
     updateView()
   }
   
   
-  @IBAction func sliderDidDrag(_ slider: UISlider) {
-    addColorTintHint()
+  @IBAction func textFieldDidChageValue(_ sender: UITextField) {
+    guard userTextField.text!.count <= 3 else {
+      userTextField.deleteBackward()
+      view.endEditing(true)
+      return
+    }
   }
   
   
   @IBAction func hitMeButtonDidTap() {
-    game.calculateRoundResult(for: slider.value.rounded())
+    
+    print(userGuessNumber)
+    
+    guard let validTextFieldText = userTextField.text else {
+      alertInvalidData()
+      return
+    }
+    
+    userGuessNumber = Float(validTextFieldText)
+    
+    guard let validatedGuessNumber = userGuessNumber else {
+      alertInvalidData()
+      return
+    }
+    
+    playANewRound(with: validatedGuessNumber)
+  }
+  
+  
+  @IBAction func startOverButtonDidTap() {
+    game.startNewGame()
+    updateView()
+  }
+  
+  
+  func playANewRound(with guessNumber: Float) {
+    game.calculateRoundResult(for: guessNumber)
     
     let alert = UIAlertController(title: game.roundMessage,
                                   message: "You scored \(game.roundScore) points",
-                                  preferredStyle: .alert)
+      preferredStyle: .alert)
     
     let action = UIAlertAction(title: "OK", style: .default, handler: { action in
       self.game.startNewRound()
@@ -52,23 +83,49 @@ class ViewController: UIViewController {
   }
   
   
-  @IBAction func startOverButtonDidTap() {
-    game.startNewGame()
-    updateView()
+  func alertInvalidData() {
+    let alert = UIAlertController(title: "Error",
+                                  message: "Entered data not valid.",
+                                  preferredStyle: .alert)
+    
+    let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+      self.updateView()
+    })
+    
+    alert.addAction(action)
+    present(alert, animated: true, completion: nil)
   }
   
   
   func updateView() {
-//    targetLabel.text = String(game.targetValue)
     scoreLabel.text = String(game.gameScore)
     roundLabel.text = String(game.roundNumber)
-    slider.value = 50
-    addColorTintHint()
+    slider.value = Float(game.targetValue)
+    slider.isEnabled = false
+    userTextField.text = nil
+    
+    print(game.targetValue)
+    //    addColorTintHint()
   }
   
   
   func addColorTintHint() {
     slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
+  }
+  
+}
+
+
+extension ViewController: UITextFieldDelegate {
+  
+  func setupTextField() {
+    userTextField.delegate = self
+  }
+  
+  
+  /// Dismisses the keyboard when a touch is done outside itself.
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    self.view.endEditing(true)
   }
   
 }
