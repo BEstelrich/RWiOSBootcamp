@@ -19,8 +19,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 import UIKit
+
 
 class ViewController: UIViewController {
   
@@ -115,7 +115,6 @@ class ViewController: UIViewController {
     roundLabel.text = "Round: \(game.roundNumber)"
     scoreLabel.text = "Score: \(game.gameScore)"
   }
-  
   
 }
 

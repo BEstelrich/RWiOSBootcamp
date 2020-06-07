@@ -35,7 +35,7 @@ extension UIColor {
 }
 
 
-class RGB {
+struct RGB {
   
   var red = 127
   var green = 127
@@ -46,11 +46,11 @@ class RGB {
     let redDifference = Double(red - target.red)
     let greenDifference = Double(green - target.green)
     let blueDifference = Double(blue - target.blue)
-    return sqrt(redDifference * redDifference + greenDifference * greenDifference + blueDifference * blueDifference) / 255.0
+    return sqrt((redDifference * redDifference + greenDifference * greenDifference + blueDifference * blueDifference)/3.0) / 255.0
   }
   
   
-  func randomColor() {
+  mutating func randomColor() {
     red = Int.random(in: 0...255)
     green = Int.random(in: 0...255)
     blue = Int.random(in: 0...255)
