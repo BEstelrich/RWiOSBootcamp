@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var slider: UISlider!
-  @IBOutlet weak var targetLabel: UILabel!
+//  @IBOutlet weak var targetLabel: UILabel!
+  @IBOutlet weak var userTextField: UITextField!
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
   
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
   
   
   func updateView() {
-    targetLabel.text = String(game.targetValue)
+//    targetLabel.text = String(game.targetValue)
     scoreLabel.text = String(game.gameScore)
     roundLabel.text = String(game.roundNumber)
     slider.value = 50
