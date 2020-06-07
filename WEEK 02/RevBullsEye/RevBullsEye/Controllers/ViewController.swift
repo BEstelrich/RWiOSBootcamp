@@ -15,9 +15,9 @@ class ViewController: UIViewController {
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
   
-  var quickDifference: Int {
-    return abs(game.targetValue - Int(slider.value.rounded()))
-  }
+//  var quickDifference: Int {
+//    return abs(game.targetValue - Int(userGuessNumber!))
+//  }
   
   var userGuessNumber: Float?
   let game = BullsEyeGame()
@@ -32,31 +32,31 @@ class ViewController: UIViewController {
   
   
   @IBAction func textFieldDidChageValue(_ sender: UITextField) {
-    guard userTextField.text!.count <= 3 else {
+    guard let userInput = userTextField.text,
+      userTextField.text!.count <= 3 else {
       userTextField.deleteBackward()
       view.endEditing(true)
       return
     }
+    
+    guard let number = Int(userInput),
+    number <= 100 else {
+      userTextField.deleteBackward()
+      return
+    }
+    
+    userGuessNumber = Float(number)
   }
   
   
   @IBAction func hitMeButtonDidTap() {
-    
-    print(userGuessNumber)
-    
-    guard let validTextFieldText = userTextField.text else {
+    guard let validatedUserInput = userGuessNumber else {
       alertInvalidData()
       return
     }
+    print(validatedUserInput)
     
-    userGuessNumber = Float(validTextFieldText)
-    
-    guard let validatedGuessNumber = userGuessNumber else {
-      alertInvalidData()
-      return
-    }
-    
-    playANewRound(with: validatedGuessNumber)
+    playANewRound(with: validatedUserInput)
   }
   
   
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     
     let alert = UIAlertController(title: game.roundMessage,
                                   message: "You scored \(game.roundScore) points",
-      preferredStyle: .alert)
+                                  preferredStyle: .alert)
     
     let action = UIAlertAction(title: "OK", style: .default, handler: { action in
       self.game.startNewRound()
@@ -105,13 +105,13 @@ class ViewController: UIViewController {
     userTextField.text = nil
     
     print(game.targetValue)
-    //    addColorTintHint()
+//        addColorTintHint()
   }
   
   
-  func addColorTintHint() {
-    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
-  }
+//  func addColorTintHint() {
+//    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
+//  }
   
 }
 
