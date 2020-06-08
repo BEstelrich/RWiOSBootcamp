@@ -1,5 +1,5 @@
 <p align="left">
-	<img src="./Assets/AppIcon.png" alt="App icon" width="60" maxHeight="60" align="right"/>
+	<img src="./Assets/AppIcon.png" alt="App icon" width="60" maxHeight="60" align="right" />
 	<h1>Week 01 | Controls, outlets and UIKit</h1>
 </p>
 
@@ -16,17 +16,36 @@
 </p>
 
 
+## Frameworks
+* UIKit
+* WebKit
+
+
+<br >
+
+## Instructions
+This is a simple app called **ColorPicker** that, by using three independent sliders based on the **RGB** [Red, Green, Blue] or **HSB** [Hue, Saturation, Brightness] color systems, allows the user to create and name a custom color. The entire application has been build using Storyboards and defining different behaviors according its screen orientation and device size using *Vary for traits*.
+
+In addition of the previous functionality there is an `Information` button that presents a new view-controller modally and displays the RGB website page on Wikipedia.
+
+In order to get a live preview of the changes made on the color sliders, the actual `Set Color` itself updates its background to the current sliders color.
+
+
+<br >
+
 ## Screenshots
 Those are the most relevant screenshots on the app.
 
-
-<p align="center">
-	<img src="./Assets/Screenshot1.png" alt="Screenshot 1" align="top" height="500" />
-	<img src="./Assets/Screenshot2.png" alt="Screenshot 2" align="top" width="500" />
+<p align="left">
+	<img src="./Assets/Screenshot1.png" alt="Screenshot 1" align="top" height="500" style="margin: 10px" />
+	<img src="./Assets/Screenshot4.png" alt="Screenshot 2" align="top" height="500" style="margin: 10px"/>
 </p>
 
 
-<p align="center">
-	<img src="./Assets/Screenshot3.png" alt="Screenshot 3" align="bottom" width="500" />
-	<img src="./Assets/Screenshot4.png" alt="Screenshot 4" align="bottom" height="500" />
+<p align="left">
+	<img src="./Assets/Screenshot2.png" alt="Screenshot 3" align="bottom" width="500" style="margin: 10px" />
+</p>
+
+<p align="left">
+	<img src="./Assets/Screenshot3.png" alt="Screenshot 3" align="bottom" width="500" style="margin: 10px" />
 </p>
