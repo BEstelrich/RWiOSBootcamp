@@ -15,9 +15,10 @@ class ViewController: UIViewController {
   @IBOutlet weak var scoreLabel: UILabel!
   @IBOutlet weak var roundLabel: UILabel!
   
-//  var quickDifference: Int {
-//    return abs(game.targetValue - Int(userGuessNumber!))
-//  }
+  var quickDifference: Int {
+    guard let nonNilUserGuessNumber = userGuessNumber else { return 100 }
+    return abs(game.targetValue - Int(nonNilUserGuessNumber))
+  }
   
   var userGuessNumber: Float?
   let game = BullsEyeGame()
@@ -32,31 +33,28 @@ class ViewController: UIViewController {
   
   
   @IBAction func textFieldDidChageValue(_ sender: UITextField) {
-    guard let userInput = userTextField.text,
-      userTextField.text!.count <= 3 else {
-      userTextField.deleteBackward()
-      view.endEditing(true)
-      return
+    guard let nonNilUserTextField = userTextField.text,
+      userTextField.text!.count <= 3,
+      let validNumber = Int(nonNilUserTextField),
+      validNumber <= 100 else {
+        userTextField.deleteBackward()
+        userGuessNumber = nil
+        addColorTintHint()
+        return
     }
     
-    guard let number = Int(userInput),
-    number <= 100 else {
-      userTextField.deleteBackward()
-      return
-    }
-    
-    userGuessNumber = Float(number)
+    userGuessNumber = Float(validNumber)
+    addColorTintHint()
   }
   
   
   @IBAction func hitMeButtonDidTap() {
-    guard let validatedUserInput = userGuessNumber else {
-      alertInvalidData()
+    guard let nonNilUserGuessNumber = userGuessNumber else {
+      displayInvalidData()
       return
     }
-    print(validatedUserInput)
     
-    playANewRound(with: validatedUserInput)
+    playANewRound(with: nonNilUserGuessNumber)
   }
   
   
@@ -71,7 +69,7 @@ class ViewController: UIViewController {
     
     let alert = UIAlertController(title: game.roundMessage,
                                   message: "You scored \(game.roundScore) points",
-                                  preferredStyle: .alert)
+      preferredStyle: .alert)
     
     let action = UIAlertAction(title: "OK", style: .default, handler: { action in
       self.game.startNewRound()
@@ -83,7 +81,7 @@ class ViewController: UIViewController {
   }
   
   
-  func alertInvalidData() {
+  func displayInvalidData() {
     let alert = UIAlertController(title: "Error",
                                   message: "Entered data not valid.",
                                   preferredStyle: .alert)
@@ -103,15 +101,13 @@ class ViewController: UIViewController {
     slider.value = Float(game.targetValue)
     slider.isEnabled = false
     userTextField.text = nil
-    
-    print(game.targetValue)
-//        addColorTintHint()
+    addColorTintHint()
   }
   
   
-//  func addColorTintHint() {
-//    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
-//  }
+  func addColorTintHint() {
+    slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
+  }
   
 }
 
