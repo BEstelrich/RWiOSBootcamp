@@ -101,12 +101,17 @@ class ViewController: UIViewController {
     slider.value = Float(game.targetValue)
     slider.isEnabled = false
     userTextField.text = nil
+    userGuessNumber = nil
     addColorTintHint()
   }
   
   
   func addColorTintHint() {
     slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
+    
+    slider.maximumTrackTintColor =   UIColor.blue.withAlphaComponent(CGFloat(quickDifference)/100.0)
+    
+    slider.thumbTintColor = quickDifference == 0 ? UIColor.blue : UIColor.white
   }
   
 }
