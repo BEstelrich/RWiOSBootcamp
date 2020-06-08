@@ -32,22 +32,6 @@ class ViewController: UIViewController {
   }
   
   
-  @IBAction func textFieldDidChageValue(_ sender: UITextField) {
-    guard let nonNilUserTextField = userTextField.text,
-      userTextField.text!.count <= 3,
-      let validNumber = Int(nonNilUserTextField),
-      validNumber <= 100 else {
-        userTextField.deleteBackward()
-        userGuessNumber = nil
-        addColorTintHint()
-        return
-    }
-    
-    userGuessNumber = Float(validNumber)
-    addColorTintHint()
-  }
-  
-  
   @IBAction func hitMeButtonDidTap() {
     guard let nonNilUserGuessNumber = userGuessNumber else {
       displayInvalidData()
@@ -121,6 +105,23 @@ extension ViewController: UITextFieldDelegate {
   
   func setupTextField() {
     userTextField.delegate = self
+  }
+  
+
+  func textFieldDidChangeSelection(_ textField: UITextField) {
+    guard let nonNilUserTextField = userTextField.text,
+      userTextField.text!.count <= 3,
+      let validNumber = Int(nonNilUserTextField),
+      validNumber <= 100 else {
+        userTextField.deleteBackward()
+        userTextField.text = nil
+        userGuessNumber = nil
+        addColorTintHint()
+        return
+    }
+    
+    userGuessNumber = Float(validNumber)
+    addColorTintHint()
   }
   
   

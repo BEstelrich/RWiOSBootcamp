@@ -36,9 +36,6 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
-                                                <connections>
-                                                    <action selector="textFieldDidChageValue:" destination="BYZ-38-t0r" eventType="editingChanged" id="7ju-NI-5VN"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
