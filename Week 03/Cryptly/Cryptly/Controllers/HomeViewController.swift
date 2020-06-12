@@ -77,6 +77,7 @@ class HomeViewController: UIViewController{
     view1.layer.shadowOffset = CGSize(width: 0, height: 2)
     view1.layer.shadowRadius = 4
     view1.layer.shadowOpacity = 0.8
+    view1.defaultRound()
     
     view2.backgroundColor = .systemGray6
     view2.layer.borderColor = UIColor.lightGray.cgColor
@@ -85,6 +86,7 @@ class HomeViewController: UIViewController{
     view2.layer.shadowOffset = CGSize(width: 0, height: 2)
     view2.layer.shadowRadius = 4
     view2.layer.shadowOpacity = 0.8
+    view2.defaultRound()
     
     view3.backgroundColor = .systemGray6
     view3.layer.borderColor = UIColor.lightGray.cgColor
@@ -93,6 +95,7 @@ class HomeViewController: UIViewController{
     view3.layer.shadowOffset = CGSize(width: 0, height: 2)
     view3.layer.shadowRadius = 4
     view3.layer.shadowOpacity = 0.8
+    view3.defaultRound()
   }
   
   
