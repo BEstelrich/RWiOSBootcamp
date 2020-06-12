@@ -29,11 +29,11 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-
 import UIKit
 
-class HomeViewController: UIViewController{
 
+class HomeViewController: UIViewController{
+  
   @IBOutlet weak var view1: UIView!
   @IBOutlet weak var view2: UIView!
   @IBOutlet weak var view3: UIView!
@@ -42,7 +42,8 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
-    
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
@@ -50,18 +51,22 @@ class HomeViewController: UIViewController{
     setView1Data()
     setView2Data()
     setView3Data()
+    let cryptoData = DataGenerator.shared.generateData()
+    print(cryptoData)
   }
+  
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
   
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
   }
-
+  
+  
   func setupViews() {
-      
     view1.backgroundColor = .systemGray6
     view1.layer.borderColor = UIColor.lightGray.cgColor
     view1.layer.borderWidth = 1.0
@@ -87,21 +92,27 @@ class HomeViewController: UIViewController{
     view3.layer.shadowOpacity = 0.8
   }
   
+  
   func setupLabels() {
     headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
     view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
     view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
   }
   
+  
   func setView1Data() {
   }
+  
   
   func setView2Data() {
   }
   
+  
   func setView3Data() {
   }
   
+  
   @IBAction func switchPressed(_ sender: Any) {
   }
+  
 }

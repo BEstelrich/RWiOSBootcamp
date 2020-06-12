@@ -29,27 +29,29 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-
-
 import Foundation
 
+
 class DataGenerator {
-    static let shared = DataGenerator()
-    private init() { }
+  
+  static let shared = DataGenerator()
+  private init() { }
+  
+  
+  func generateData() -> [CryptoCurrency]? {
     
-    func generateData() -> [CryptoCurrency]? {
-        
-        if let filePath = Bundle.main.path(forResource: "Data", ofType: "json") {
-            let fileURL = URL(fileURLWithPath: filePath)
-            do {
-                let data = try Data(contentsOf: fileURL)
-                let decoder = JSONDecoder()
-                let decodedData = try decoder.decode([CryptoCurrency].self, from: data)
-                return decodedData
-            } catch let error {
-                print("Error in parsing \(error.localizedDescription)")
-            }
-        }
-        return nil
+    if let filePath = Bundle.main.path(forResource: "Data", ofType: "json") {
+      let fileURL = URL(fileURLWithPath: filePath)
+      do {
+        let data = try Data(contentsOf: fileURL)
+        let decoder = JSONDecoder()
+        let decodedData = try decoder.decode([CryptoCurrency].self, from: data)
+        return decodedData
+      } catch let error {
+        print("Error in parsing \(error.localizedDescription)")
+      }
     }
+    return nil
+  }
+  
 }
