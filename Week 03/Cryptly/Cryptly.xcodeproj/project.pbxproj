@@ -95,6 +95,7 @@
 		A1F9E0552492697800323226 /* ThemeManager */ = {
 			isa = PBXGroup;
 			children = (
+				A1F9E0522492690B00323226 /* Theme.swift */,
 				A1F9E0502492690000323226 /* ThemeManager.swift */,
 			);
 			path = ThemeManager;
@@ -104,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				A1F9E0542492696200323226 /* Data */,
-				A1F9E0522492690B00323226 /* Theme.swift */,
 				A1F9E04E249268D200323226 /* Model.swift */,
 			);
 			path = Models;

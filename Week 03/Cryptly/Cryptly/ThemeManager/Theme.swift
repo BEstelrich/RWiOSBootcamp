@@ -38,25 +38,37 @@ protocol Theme {
   var textColor: UIColor { get set }
   var borderColor: UIColor { get set }
   var widgetBackgroundColor: UIColor { get set }
+  var statusBarTint: UIBarStyle { get set }
   
 }
 
 
 struct LightTheme: Theme {
   
-  var backgroundColor: UIColor
-  var textColor: UIColor
-  var borderColor: UIColor
-  var widgetBackgroundColor: UIColor
+  var backgroundColor: UIColor = .white
+  var textColor: UIColor = .black
+  var borderColor: UIColor = .gray
+  var widgetBackgroundColor: UIColor = .lightGray
+  var statusBarTint: UIBarStyle = .default
   
 }
 
 
 struct DarkTheme: Theme {
   
-  var backgroundColor: UIColor
-  var textColor: UIColor
-  var borderColor: UIColor
-  var widgetBackgroundColor: UIColor
+  var backgroundColor: UIColor = .black
+  var textColor: UIColor = .white
+  var borderColor: UIColor = .gray
+  var widgetBackgroundColor: UIColor = .darkGray
+  var statusBarTint: UIBarStyle = .black
+  
+}
+
+
+protocol Themable {
+  
+  func registerForTheme()
+  func unregisterForTheme()
+  func themeChanged()
   
 }
