@@ -29,9 +29,34 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+import UIKit
 
-import Foundation
 
 protocol Theme {
+  
+  var backgroundColor: UIColor { get set }
+  var textColor: UIColor { get set }
+  var borderColor: UIColor { get set }
+  var widgetBackgroundColor: UIColor { get set }
+  
+}
+
+
+struct LightTheme: Theme {
+  
+  var backgroundColor: UIColor
+  var textColor: UIColor
+  var borderColor: UIColor
+  var widgetBackgroundColor: UIColor
+  
+}
+
+
+struct DarkTheme: Theme {
+  
+  var backgroundColor: UIColor
+  var textColor: UIColor
+  var borderColor: UIColor
+  var widgetBackgroundColor: UIColor
   
 }
