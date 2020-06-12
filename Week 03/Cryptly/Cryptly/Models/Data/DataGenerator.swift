@@ -39,9 +39,9 @@ class DataGenerator {
   
   
   func generateData() -> [CryptoCurrency]? {
-    
     if let filePath = Bundle.main.path(forResource: "Data", ofType: "json") {
       let fileURL = URL(fileURLWithPath: filePath)
+      
       do {
         let data = try Data(contentsOf: fileURL)
         let decoder = JSONDecoder()
@@ -51,6 +51,7 @@ class DataGenerator {
         print("Error in parsing \(error.localizedDescription)")
       }
     }
+    
     return nil
   }
   

@@ -43,6 +43,11 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
   
+  lazy var cryptoData: [CryptoCurrency]? = {
+    guard let validGeneratedData = DataGenerator.shared.generateData() else { return nil }
+    return validGeneratedData
+  }()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -51,8 +56,6 @@ class HomeViewController: UIViewController{
     setView1Data()
     setView2Data()
     setView3Data()
-    let cryptoData = DataGenerator.shared.generateData()
-    print(cryptoData)
   }
   
   
@@ -101,14 +104,33 @@ class HomeViewController: UIViewController{
   
   
   func setView1Data() {
+    let stringData = cryptoData?.reduce(into: "", { (result, cryptocurrency) in
+      result += "\(cryptocurrency.name), "
+    })
+    
+    view1TextLabel.text = stringData
   }
   
   
   func setView2Data() {
+    let stringData = cryptoData?.reduce(into: "", { (result, cryptocurrency) in
+      if cryptocurrency.currentValue > cryptocurrency.previousValue {
+        result? += "\(cryptocurrency.name), "
+      }
+    })
+    
+    view2TextLabel.text = stringData
   }
   
   
   func setView3Data() {
+    let stringData = cryptoData?.reduce(into: "", { (result, cryptocurrency) in
+      if cryptocurrency.currentValue < cryptocurrency.previousValue {
+        result? += "\(cryptocurrency.name), "
+      }
+    })
+    
+    view3TextLabel.text = stringData
   }
   
   
