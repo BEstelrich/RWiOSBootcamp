@@ -47,8 +47,8 @@ struct LightTheme: Theme {
   
   var backgroundColor: UIColor = .white
   var textColor: UIColor = .black
-  var borderColor: UIColor = .gray
-  var widgetBackgroundColor: UIColor = .lightGray
+  var borderColor: UIColor = .black
+  var widgetBackgroundColor: UIColor = .systemGray5
   var statusBarTint: UIBarStyle = .default
   
 }
@@ -58,7 +58,7 @@ struct DarkTheme: Theme {
   
   var backgroundColor: UIColor = .black
   var textColor: UIColor = .white
-  var borderColor: UIColor = .gray
+  var borderColor: UIColor = .white
   var widgetBackgroundColor: UIColor = .darkGray
   var statusBarTint: UIBarStyle = .black
   

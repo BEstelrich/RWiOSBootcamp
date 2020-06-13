@@ -43,6 +43,8 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
   
+  lazy var userSettings = UserDefaults.standard
+  
   lazy var cryptoData: [CryptoCurrency]? = {
     guard let validGeneratedData = DataGenerator.shared.generateData() else { return nil }
     return validGeneratedData
@@ -56,12 +58,15 @@ class HomeViewController: UIViewController {
     setView1Data()
     setView2Data()
     setView3Data()
+    
   }
   
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     registerForTheme()
+    restoreStatus(for: themeSwitch)
+    setTheme(with: themeSwitch)
   }
   
   
@@ -109,52 +114,50 @@ class HomeViewController: UIViewController {
   
   
   func setView1Data() {
-    let stringData = cryptoData?.reduce(into: "", { (result, cryptocurrency) in
-      result += "\(cryptocurrency.name), "
-    })
+    let stringData = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
+      result.append(cryptoCurrency.name)
+    }).joined(separator: ", ")
 
     view1TextLabel.text = stringData
-    
-//    let stringData = cryptoData?.reduce(into: [], { (result, cryptocurrency) in
-//      result.append(cryptocurrency.name)
-//    })
-//
-//    view1TextLabel.text = stringData?.joined(separator: ", ")
   }
   
   
   func setView2Data() {
-    let stringData = cryptoData?.reduce(into: "", { (result, cryptocurrency) in
-      if cryptocurrency.currentValue > cryptocurrency.previousValue {
-        result? += "\(cryptocurrency.name), "
+    let stringData = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
+      if cryptoCurrency.currentValue > cryptoCurrency.previousValue {
+        result.append(cryptoCurrency.name)
       }
-    })
+    }).joined(separator: ", ")
     
     view2TextLabel.text = stringData
   }
   
   
   func setView3Data() {
-    let stringData = cryptoData?.reduce(into: "", { (result, cryptocurrency) in
-      if cryptocurrency.currentValue < cryptocurrency.previousValue {
-        result? += "\(cryptocurrency.name), "
+    let stringData = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
+      if cryptoCurrency.currentValue < cryptoCurrency.previousValue {
+        result.append(cryptoCurrency.name)
       }
-    })
+    }).joined(separator: ", ")
     
     view3TextLabel.text = stringData
   }
+
+  
+  func restoreStatus(for themeSwitch: UISwitch) {
+    themeSwitch.isOn = userSettings.bool(forKey: "DarkTheme")
+  }
   
   
-  func setCurrentTheme() {
-    let lightTheme = LightTheme()
-    let darkTheme = DarkTheme()
+  func setTheme(with themeSwitch: UISwitch) {
+    themeSwitch.isOn ? ThemeManager.shared.set(theme: DarkTheme()) : ThemeManager.shared.set(theme: LightTheme())
     
-    themeSwitch.isOn ? ThemeManager.shared.set(theme: darkTheme) : ThemeManager.shared.set(theme: lightTheme)
+    userSettings.set(themeSwitch.isOn, forKey: "DarkTheme")
   }
   
   
   @IBAction func switchPressed(_ sender: UISwitch) {
-    setCurrentTheme()
+    setTheme(with: sender)
   }
   
 }
@@ -163,7 +166,10 @@ class HomeViewController: UIViewController {
 extension HomeViewController: Themable {
   
   func registerForTheme() {
-    NotificationCenter.default.addObserver(self, selector: #selector(themeChanged), name: Notification.Name.init("themeChanged"), object: nil)
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(themeChanged),
+                                           name: Notification.Name.init("themeChanged"),
+                                           object: nil)
   }
   
   
@@ -183,6 +189,10 @@ extension HomeViewController: Themable {
     view2.layer.borderColor = currentTheme?.borderColor.cgColor
     view3.layer.borderColor = currentTheme?.borderColor.cgColor
     
+    view1.layer.borderWidth = 2
+    view2.layer.borderWidth = 2
+    view3.layer.borderWidth = 2
+    
     view1TextLabel.textColor = currentTheme?.textColor
     view2TextLabel.textColor = currentTheme?.textColor
     view3TextLabel.textColor = currentTheme?.textColor
@@ -190,7 +200,7 @@ extension HomeViewController: Themable {
     view.backgroundColor = currentTheme?.backgroundColor
     headingLabel.textColor = currentTheme?.textColor
     
-    navigationController?.navigationBar.barStyle = currentTheme!.statusBarTint
+    navigationController?.navigationBar.barStyle = currentTheme?.statusBarTint ?? .black
     navigationController?.navigationBar.barTintColor = currentTheme?.backgroundColor
   }
   
