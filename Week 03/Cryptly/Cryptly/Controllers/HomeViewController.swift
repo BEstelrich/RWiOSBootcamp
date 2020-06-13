@@ -63,7 +63,8 @@ class HomeViewController: UIViewController {
     setView1Data()
     setView2Data()
     setView3Data()
-    
+    setView4Data()
+    setView5Data()
   }
   
   
@@ -89,33 +90,45 @@ class HomeViewController: UIViewController {
   
   
   func setView1Data() {
-    let stringData = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
+    view1TextLabel.text = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
       result.append(cryptoCurrency.name)
     }).joined(separator: ", ")
-
-    view1TextLabel.text = stringData
   }
   
   
   func setView2Data() {
-    let stringData = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
+    view2TextLabel.text = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
       if cryptoCurrency.currentValue > cryptoCurrency.previousValue {
         result.append(cryptoCurrency.name)
       }
     }).joined(separator: ", ")
-    
-    view2TextLabel.text = stringData
   }
   
   
   func setView3Data() {
-    let stringData = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
+    view3TextLabel.text = cryptoData?.reduce(into: [], { (result, cryptoCurrency) in
       if cryptoCurrency.currentValue < cryptoCurrency.previousValue {
         result.append(cryptoCurrency.name)
       }
     }).joined(separator: ", ")
-    
-    view3TextLabel.text = stringData
+  }
+  
+  
+  func setView4Data() {
+    view4TextLabel.text = cryptoData?.filter({ cryptoCurrency -> Bool in
+      cryptoCurrency.currentValue < cryptoCurrency.previousValue
+    }).map({ (cryptoCurrency) -> Double in
+      cryptoCurrency.currentValue - cryptoCurrency.previousValue
+      }).min()?.description
+  }
+  
+  
+  func setView5Data() {
+    view5TextLabel.text = cryptoData?.filter({ cryptoCurrency -> Bool in
+      cryptoCurrency.currentValue > cryptoCurrency.previousValue
+    }).map({ (cryptoCurrency) -> Double in
+      cryptoCurrency.currentValue - cryptoCurrency.previousValue
+      }).max()?.description
   }
 
   
@@ -156,6 +169,8 @@ extension HomeViewController: Themable {
   @objc func themeChanged() {
     let currentTheme = ThemeManager.shared.currentTheme
     
+    headingLabel.textColor = currentTheme?.textColor
+    
     view1.backgroundColor = currentTheme?.widgetBackgroundColor
     view2.backgroundColor = currentTheme?.widgetBackgroundColor
     view3.backgroundColor = currentTheme?.widgetBackgroundColor
@@ -168,11 +183,11 @@ extension HomeViewController: Themable {
     view4.layer.borderColor = currentTheme?.borderColor.cgColor
     view5.layer.borderColor = currentTheme?.borderColor.cgColor
     
-    view1.layer.borderWidth = 2
-    view2.layer.borderWidth = 2
-    view3.layer.borderWidth = 2
-    view4.layer.borderWidth = 2
-    view5.layer.borderWidth = 2
+    view1.layer.borderWidth = 1.5
+    view2.layer.borderWidth = 1.5
+    view3.layer.borderWidth = 1.5
+    view4.layer.borderWidth = 1.5
+    view5.layer.borderWidth = 1.5
     
     view1TextLabel.textColor = currentTheme?.textColor
     view2TextLabel.textColor = currentTheme?.textColor
@@ -182,10 +197,7 @@ extension HomeViewController: Themable {
     view5TextLabel.textColor = currentTheme?.textColor
     view5TitleLabel.textColor = currentTheme?.textColor
     
-    
     view.backgroundColor = currentTheme?.backgroundColor
-    headingLabel.textColor = currentTheme?.textColor
-    
     navigationController?.navigationBar.barStyle = currentTheme?.statusBarTint ?? .black
     navigationController?.navigationBar.barTintColor = currentTheme?.backgroundColor
   }
