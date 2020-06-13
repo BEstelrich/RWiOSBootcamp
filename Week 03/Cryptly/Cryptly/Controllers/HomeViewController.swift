@@ -53,7 +53,6 @@ class HomeViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupViews()
     setupLabels()
     setView1Data()
     setView2Data()
@@ -73,36 +72,6 @@ class HomeViewController: UIViewController {
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     unregisterForTheme()
-  }
-  
-  
-  func setupViews() {
-    view1.backgroundColor = .systemGray6
-    view1.layer.borderColor = UIColor.lightGray.cgColor
-    view1.layer.borderWidth = 1.0
-    view1.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view1.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view1.layer.shadowRadius = 4
-    view1.layer.shadowOpacity = 0.8
-    view1.defaultRound()
-    
-    view2.backgroundColor = .systemGray6
-    view2.layer.borderColor = UIColor.lightGray.cgColor
-    view2.layer.borderWidth = 1.0
-    view2.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view2.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view2.layer.shadowRadius = 4
-    view2.layer.shadowOpacity = 0.8
-    view2.defaultRound()
-    
-    view3.backgroundColor = .systemGray6
-    view3.layer.borderColor = UIColor.lightGray.cgColor
-    view3.layer.borderWidth = 1.0
-    view3.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
-    view3.layer.shadowOffset = CGSize(width: 0, height: 2)
-    view3.layer.shadowRadius = 4
-    view3.layer.shadowOpacity = 0.8
-    view3.defaultRound()
   }
   
   
