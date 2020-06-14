@@ -20,6 +20,20 @@
 * UIKit
 
 
-<br >
+## Description
+This short project is about creating an app called Cryptly that **displays some cryptocurrencies** prices generated from an embedded JSON file.
 
-## Instructions
+Starting from a Singleton object that generates a simulated cryptocurrency data, the model object it's created to accommodate this data. To set the view up, a data parsing has been done on the model instance by using **Higher Order Functions** in order to filter the correspondent information on each view.
+
+On the order hand, **theme support** is implemented by creating a protocol that defines the theme requirements. An object that conforms to this protocol is being passed to the `Theme Manager` Singleton triggering an observer from the view-controller that takes care of the theme application itself.
+
+Finally, an additional protocol called `Roundable` is set to define any view with **rounded corners**. Also default rounded method is provided by **overloading a protocol required method**.
+
+
+## Screenshots
+Those are the most relevant screenshots on the app.
+
+<p align="left">
+	<img src="./Assets/Screenshot1.png" alt="Screenshot 1" align="top" height="500" style="margin: 10px" />
+	<img src="./Assets/Screenshot2.png" alt="Screenshot 2" align="top" width="500" style="margin: 10px"/>
+</p>

@@ -43,8 +43,7 @@ protocol Roundable: UIView {
 
 extension Roundable {
   
-  /// This method implements a default setup by overloading the original round method.
-  func round() {
+  func rounded() {
     self.cornerRadius = 20
   }
   

@@ -54,7 +54,7 @@ class WidgetView: UIView {
     layer.shadowOffset = CGSize(width: 0, height: 2)
     layer.shadowRadius = 4
     layer.shadowOpacity = 0.8
-    round()
+    rounded()
   }
   
 }
