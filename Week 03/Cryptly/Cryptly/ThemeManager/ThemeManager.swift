@@ -38,7 +38,8 @@ class ThemeManager {
   
   public var currentTheme: Theme? {
     didSet {
-      NotificationCenter.default.post(name: Notification.Name.init("themeChanged"), object: nil)
+      NotificationCenter.default.post(name: Notification.Name.init("themeChanged"),
+                                      object: nil)
     }
   }
   

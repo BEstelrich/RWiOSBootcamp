@@ -35,18 +35,13 @@ import UIKit
 extension UIView: Roundable {
 
   var cornerRadius: CGFloat {
-    get {
-      return self.layer.cornerRadius
-    }
-    
-    set {
-      self.layer.cornerRadius = newValue
-    }
+    get { return self.layer.cornerRadius }
+    set { self.layer.cornerRadius = newValue }
   }
   
   
   func round(to cornerRadius: CGFloat) {
-    self.layer.cornerRadius = cornerRadius
+    self.cornerRadius = cornerRadius
   }
   
 }

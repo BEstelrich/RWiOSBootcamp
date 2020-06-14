@@ -63,12 +63,3 @@ struct DarkTheme: Theme {
   var statusBarTint: UIBarStyle = .black
   
 }
-
-
-protocol Themable {
-  
-  func registerForTheme()
-  func unregisterForTheme()
-  func themeChanged()
-  
-}

@@ -34,7 +34,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
-  @IBOutlet weak var headingLabel: UILabel!
+//  @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1: WidgetView!
   @IBOutlet weak var view2: WidgetView!
   @IBOutlet weak var view3: WidgetView!
@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var view5TitleLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
   
+  /// This variable stores theme selection between relaunches.
   lazy var userSettings = UserDefaults.standard
   
   lazy var cryptoData: [CryptoCurrency]? = {
@@ -83,9 +84,11 @@ class HomeViewController: UIViewController {
   
   
   func setupLabels() {
-    headingLabel.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-    view1TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-    view2TextLabel.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+    view1TextLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+    view2TextLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+    view3TextLabel.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+    view4TextLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
+    view5TextLabel.font = UIFont.systemFont(ofSize: 25, weight: .black)
   }
   
   
@@ -132,6 +135,7 @@ class HomeViewController: UIViewController {
   }
 
   
+  /// Restores the ThemeSwitch last position.
   func restoreStatus(for themeSwitch: UISwitch) {
     themeSwitch.isOn = userSettings.bool(forKey: "DarkTheme")
   }
@@ -141,6 +145,42 @@ class HomeViewController: UIViewController {
     themeSwitch.isOn ? ThemeManager.shared.set(theme: DarkTheme()) : ThemeManager.shared.set(theme: LightTheme())
     
     userSettings.set(themeSwitch.isOn, forKey: "DarkTheme")
+  }
+  
+  
+  /// Defines all view parameters for any theme application.
+  func applyTheme(_ currentTheme: Theme?) {
+    navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: currentTheme?.textColor ?? .black]
+    
+    view1.backgroundColor = currentTheme?.widgetBackgroundColor
+    view2.backgroundColor = currentTheme?.widgetBackgroundColor
+    view3.backgroundColor = currentTheme?.widgetBackgroundColor
+    view4.backgroundColor = currentTheme?.widgetBackgroundColor
+    view5.backgroundColor = currentTheme?.widgetBackgroundColor
+    
+    view1.layer.borderColor = currentTheme?.borderColor.cgColor
+    view2.layer.borderColor = UIColor.systemGreen.cgColor
+    view3.layer.borderColor = UIColor.systemRed.cgColor
+    view4.layer.borderColor = UIColor.systemRed.cgColor
+    view5.layer.borderColor = UIColor.systemGreen.cgColor
+    
+    view1.layer.borderWidth = 4
+    view2.layer.borderWidth = 4
+    view3.layer.borderWidth = 4
+    view4.layer.borderWidth = 4
+    view5.layer.borderWidth = 4
+    
+    view1TextLabel.textColor = currentTheme?.textColor
+    view2TextLabel.textColor = currentTheme?.textColor
+    view3TextLabel.textColor = currentTheme?.textColor
+    view4TitleLabel.textColor = currentTheme?.textColor
+    view4TextLabel.textColor = .systemRed
+    view5TitleLabel.textColor = currentTheme?.textColor
+    view5TextLabel.textColor = .systemGreen
+    
+    view.backgroundColor = currentTheme?.backgroundColor
+    navigationController?.navigationBar.barStyle = currentTheme?.statusBarTint ?? .black
+    navigationController?.navigationBar.barTintColor = currentTheme?.backgroundColor
   }
   
   
@@ -167,39 +207,7 @@ extension HomeViewController: Themable {
 
   
   @objc func themeChanged() {
-    let currentTheme = ThemeManager.shared.currentTheme
-    
-    headingLabel.textColor = currentTheme?.textColor
-    
-    view1.backgroundColor = currentTheme?.widgetBackgroundColor
-    view2.backgroundColor = currentTheme?.widgetBackgroundColor
-    view3.backgroundColor = currentTheme?.widgetBackgroundColor
-    view4.backgroundColor = currentTheme?.widgetBackgroundColor
-    view5.backgroundColor = currentTheme?.widgetBackgroundColor
-    
-    view1.layer.borderColor = currentTheme?.borderColor.cgColor
-    view2.layer.borderColor = currentTheme?.borderColor.cgColor
-    view3.layer.borderColor = currentTheme?.borderColor.cgColor
-    view4.layer.borderColor = currentTheme?.borderColor.cgColor
-    view5.layer.borderColor = currentTheme?.borderColor.cgColor
-    
-    view1.layer.borderWidth = 1.5
-    view2.layer.borderWidth = 1.5
-    view3.layer.borderWidth = 1.5
-    view4.layer.borderWidth = 1.5
-    view5.layer.borderWidth = 1.5
-    
-    view1TextLabel.textColor = currentTheme?.textColor
-    view2TextLabel.textColor = currentTheme?.textColor
-    view3TextLabel.textColor = currentTheme?.textColor
-    view4TextLabel.textColor = currentTheme?.textColor
-    view4TitleLabel.textColor = currentTheme?.textColor
-    view5TextLabel.textColor = currentTheme?.textColor
-    view5TitleLabel.textColor = currentTheme?.textColor
-    
-    view.backgroundColor = currentTheme?.backgroundColor
-    navigationController?.navigationBar.barStyle = currentTheme?.statusBarTint ?? .black
-    navigationController?.navigationBar.barTintColor = currentTheme?.backgroundColor
+    applyTheme(ThemeManager.shared.currentTheme)
   }
   
 }

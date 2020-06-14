@@ -26,25 +26,16 @@
             </objects>
             <point key="canvasLocation" x="627.536231884058" y="38.839285714285715"/>
         </scene>
-        <!--Home View Controller-->
+        <!--CrytoCurrencies-->
         <scene sceneID="9KI-BV-L4a">
             <objects>
                 <viewController id="5r6-eT-R08" customClass="HomeViewController" customModule="Cryptly" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="mvF-6T-uLm">
+                    <view key="view" contentMode="scaleToFill" id="mvF-6T-uLm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CryptoCurrencies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zrp-g0-HX2">
-                                <rect key="frame" x="20" y="108" width="374" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="CJI-zY-xUH"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="t3U-gi-mPa">
-                                <rect key="frame" x="20" y="153" width="374" height="540"/>
+                                <rect key="frame" x="20" y="178" width="374" height="540"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oo-MW-3FZ" customClass="WidgetView" customModule="Cryptly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
@@ -60,7 +51,6 @@
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="2pP-O3-GIK" secondAttribute="bottom" constant="20" id="4P0-xe-m67"/>
                                             <constraint firstItem="2pP-O3-GIK" firstAttribute="top" secondItem="4oo-MW-3FZ" secondAttribute="top" constant="20" id="7o4-Ym-D5O"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="An4-AE-0ip"/>
                                             <constraint firstItem="2pP-O3-GIK" firstAttribute="leading" secondItem="4oo-MW-3FZ" secondAttribute="leading" constant="20" id="kqZ-7S-eKw"/>
                                             <constraint firstAttribute="trailing" secondItem="2pP-O3-GIK" secondAttribute="trailing" constant="20" id="sqv-6S-XbB"/>
                                         </constraints>
@@ -80,7 +70,6 @@
                                             <constraint firstAttribute="trailing" secondItem="tPy-T8-YB9" secondAttribute="trailing" constant="20" id="1ql-Tt-cGH"/>
                                             <constraint firstAttribute="bottom" secondItem="tPy-T8-YB9" secondAttribute="bottom" constant="20" id="359-yj-Td6"/>
                                             <constraint firstItem="tPy-T8-YB9" firstAttribute="top" secondItem="DpI-h7-D97" secondAttribute="top" constant="20" id="4Uh-7K-gtZ"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="f5J-mZ-3FK"/>
                                             <constraint firstItem="tPy-T8-YB9" firstAttribute="leading" secondItem="DpI-h7-D97" secondAttribute="leading" constant="20" id="mZE-Af-Pi5"/>
                                         </constraints>
                                     </view>
@@ -98,7 +87,6 @@
                                         <constraints>
                                             <constraint firstItem="UCh-Bb-EWS" firstAttribute="leading" secondItem="DNM-6D-sSb" secondAttribute="leading" constant="20" id="1p9-aR-qPh"/>
                                             <constraint firstAttribute="trailing" secondItem="UCh-Bb-EWS" secondAttribute="trailing" constant="20" id="IgN-uY-5HW"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="ckT-uM-no3"/>
                                             <constraint firstAttribute="bottom" secondItem="UCh-Bb-EWS" secondAttribute="bottom" constant="20" id="i6d-aW-V9D"/>
                                             <constraint firstItem="UCh-Bb-EWS" firstAttribute="top" secondItem="DNM-6D-sSb" secondAttribute="top" constant="20" id="yJk-b2-7eV"/>
                                         </constraints>
@@ -133,7 +121,6 @@
                                                     <constraint firstItem="VSw-aO-5Fr" firstAttribute="leading" secondItem="qyh-mp-yD5" secondAttribute="leading" constant="20" id="9RF-yk-zpQ"/>
                                                     <constraint firstItem="VSw-aO-5Fr" firstAttribute="top" secondItem="qyh-mp-yD5" secondAttribute="top" constant="20" id="B4F-HR-zYX"/>
                                                     <constraint firstAttribute="trailing" secondItem="VSw-aO-5Fr" secondAttribute="trailing" constant="20" id="U5H-wJ-jH5"/>
-                                                    <constraint firstAttribute="height" constant="120" id="ZhI-gT-rDv"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0tH-IJ-jiQ" customClass="WidgetView" customModule="Cryptly" customModuleProvider="target">
@@ -163,7 +150,6 @@
                                                     <constraint firstItem="KKB-5e-elU" firstAttribute="leading" secondItem="0tH-IJ-jiQ" secondAttribute="leading" constant="20" id="Upj-VO-MLE"/>
                                                     <constraint firstItem="KKB-5e-elU" firstAttribute="top" secondItem="0tH-IJ-jiQ" secondAttribute="top" constant="20" id="a4a-5D-yig"/>
                                                     <constraint firstAttribute="trailing" secondItem="KKB-5e-elU" secondAttribute="trailing" constant="20" id="aMA-dp-F2o"/>
-                                                    <constraint firstAttribute="height" constant="120" id="wCk-p6-hkA"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -175,19 +161,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="t3U-gi-mPa" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fco-UW-GoN" secondAttribute="top" constant="20" id="1a0-Uy-aEL"/>
                             <constraint firstItem="t3U-gi-mPa" firstAttribute="centerX" secondItem="mvF-6T-uLm" secondAttribute="centerX" id="7c2-e7-xNV"/>
-                            <constraint firstItem="zrp-g0-HX2" firstAttribute="top" secondItem="Fco-UW-GoN" secondAttribute="top" constant="20" id="Vgo-hI-Bkf"/>
-                            <constraint firstItem="t3U-gi-mPa" firstAttribute="trailing" secondItem="zrp-g0-HX2" secondAttribute="trailing" id="gr9-h4-OWa"/>
-                            <constraint firstItem="t3U-gi-mPa" firstAttribute="leading" secondItem="zrp-g0-HX2" secondAttribute="leading" id="hux-jW-uEe"/>
                             <constraint firstItem="t3U-gi-mPa" firstAttribute="leading" secondItem="Fco-UW-GoN" secondAttribute="leading" constant="20" id="kuw-jk-7yC"/>
-                            <constraint firstItem="t3U-gi-mPa" firstAttribute="top" secondItem="zrp-g0-HX2" secondAttribute="bottom" constant="20" id="ldl-ND-nrw"/>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="t3U-gi-mPa" secondAttribute="bottom" constant="20" id="lxT-MM-ur2"/>
                             <constraint firstItem="Fco-UW-GoN" firstAttribute="trailing" secondItem="t3U-gi-mPa" secondAttribute="trailing" constant="20" id="sBE-ZK-6oJ"/>
                             <constraint firstItem="t3U-gi-mPa" firstAttribute="centerY" secondItem="mvF-6T-uLm" secondAttribute="centerY" id="vvg-rY-6US"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fco-UW-GoN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="mL2-rx-U9s">
+                    <navigationItem key="navigationItem" title="CrytoCurrencies" id="mL2-rx-U9s">
                         <barButtonItem key="rightBarButtonItem" id="ug4-v8-lt1">
                             <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="kW6-Ms-UCP">
                                 <rect key="frame" x="343" y="6.6666666666666679" width="51" height="31.000000000000004"/>
@@ -199,7 +182,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="headingLabel" destination="zrp-g0-HX2" id="CEx-vX-zmI"/>
                         <outlet property="themeSwitch" destination="kW6-Ms-UCP" id="Vpv-W6-XtS"/>
                         <outlet property="view1" destination="4oo-MW-3FZ" id="7mY-sa-8ZH"/>
                         <outlet property="view1TextLabel" destination="2pP-O3-GIK" id="L2m-KB-P6Q"/>
