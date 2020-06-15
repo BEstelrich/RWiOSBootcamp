@@ -22,3 +22,8 @@ Switching careers from an Architecture and Design background to a full-time iOS 
 
 ### Hobbies
 Technology, Photography, Home automation and Futuristic movies. 
+
+### Course projects
+* [Week 01. ColorPicker](./Week%2001/Readme.md)
+* [Week 02. BullsEye, RGBullsEye and RevBullsEye](./Week%2002/Readme.md)
+* [Week 03. Crypty](./Week%2003/Readme.md)
