@@ -27,3 +27,4 @@ Technology, Photography, Home automation and Futuristic movies.
 * [Week 01. ColorPicker](./Week%2001/Readme.md)
 * [Week 02. BullsEye, RGBullsEye and RevBullsEye](./Week%2002/Readme.md)
 * [Week 03. Crypty](./Week%2003/Readme.md)
+* [Week 04. ComparisonShopper and CompatibilitySlider](./Week%2004/Readme.md)
