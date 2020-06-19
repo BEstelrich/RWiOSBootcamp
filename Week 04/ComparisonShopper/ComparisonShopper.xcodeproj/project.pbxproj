@@ -16,6 +16,7 @@
 		C3017BCF2498760D00B1E49A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3017BCD2498760D00B1E49A /* LaunchScreen.storyboard */; };
 		C3017BDA2498760E00B1E49A /* ComparisonShopperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017BD92498760E00B1E49A /* ComparisonShopperTests.swift */; };
 		C3017BE52498760E00B1E49A /* ComparisonShopperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3017BE42498760E00B1E49A /* ComparisonShopperUITests.swift */; };
+		C9702CFB249D56DA00B9717B /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9702CFA249D56DA00B9717B /* House.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C3017BE02498760E00B1E49A /* ComparisonShopperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComparisonShopperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3017BE42498760E00B1E49A /* ComparisonShopperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonShopperUITests.swift; sourceTree = "<group>"; };
 		C3017BE62498760E00B1E49A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9702CFA249D56DA00B9717B /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,13 +103,14 @@
 		C3017BBE2498760A00B1E49A /* ComparisonShopper */ = {
 			isa = PBXGroup;
 			children = (
+				C3017BD02498760D00B1E49A /* Info.plist */,
 				C3017BBF2498760A00B1E49A /* AppDelegate.swift */,
 				C3017BC12498760A00B1E49A /* SceneDelegate.swift */,
-				C3017BC32498760A00B1E49A /* ViewController.swift */,
-				C3017BC52498760A00B1E49A /* Main.storyboard */,
-				C3017BCB2498760D00B1E49A /* Assets.xcassets */,
 				C3017BCD2498760D00B1E49A /* LaunchScreen.storyboard */,
-				C3017BD02498760D00B1E49A /* Info.plist */,
+				C3017BC52498760A00B1E49A /* Main.storyboard */,
+				C3017BC32498760A00B1E49A /* ViewController.swift */,
+				C9702CFA249D56DA00B9717B /* House.swift */,
+				C3017BCB2498760D00B1E49A /* Assets.xcassets */,
 				C3017BC82498760A00B1E49A /* ComparisonShopper.xcdatamodeld */,
 			);
 			path = ComparisonShopper;
@@ -265,6 +268,7 @@
 				C3017BC42498760A00B1E49A /* ViewController.swift in Sources */,
 				C3017BC02498760A00B1E49A /* AppDelegate.swift in Sources */,
 				C3017BCA2498760A00B1E49A /* ComparisonShopper.xcdatamodeld in Sources */,
+				C9702CFB249D56DA00B9717B /* House.swift in Sources */,
 				C3017BC22498760A00B1E49A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
