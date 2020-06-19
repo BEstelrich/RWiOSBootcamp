@@ -103,14 +103,14 @@
 		C3017C3E2499C83A00B1E49A /* CompatibilitySlider */ = {
 			isa = PBXGroup;
 			children = (
+				C3017C502499C83B00B1E49A /* Info.plist */,
 				C3017C3F2499C83A00B1E49A /* AppDelegate.swift */,
 				C3017C412499C83A00B1E49A /* SceneDelegate.swift */,
-				C3017C432499C83A00B1E49A /* ViewController.swift */,
-				C3017C722499C91700B1E49A /* Person.swift */,
-				C3017C452499C83A00B1E49A /* Main.storyboard */,
-				C3017C4B2499C83B00B1E49A /* Assets.xcassets */,
 				C3017C4D2499C83B00B1E49A /* LaunchScreen.storyboard */,
-				C3017C502499C83B00B1E49A /* Info.plist */,
+				C3017C452499C83A00B1E49A /* Main.storyboard */,
+				C3017C722499C91700B1E49A /* Person.swift */,
+				C3017C432499C83A00B1E49A /* ViewController.swift */,
+				C3017C4B2499C83B00B1E49A /* Assets.xcassets */,
 				C3017C482499C83A00B1E49A /* CompatibilitySlider.xcdatamodeld */,
 			);
 			path = CompatibilitySlider;

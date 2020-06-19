@@ -5,8 +5,8 @@
 //  Created by Jay Strawn on 6/16/20.
 //  Copyright © 2020 Jay Strawn. All rights reserved.
 //
-
 import UIKit
+
 
 class ViewController: UIViewController {
 
@@ -21,17 +21,21 @@ class ViewController: UIViewController {
     var person2 = Person(id: 2, items: [:])
     var currentPerson: Person?
 
+  
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
+  
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         print(sender.value)
     }
 
+  
     @IBAction func didPressNextItemButton(_ sender: Any) {
     }
 
+  
     func calculateCompatibility() -> String {
         // If diff 0.0 is 100% and 5.0 is 0%, calculate match percentage
         var percentagesForAllItems: [Double] = []
