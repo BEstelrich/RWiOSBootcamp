@@ -14,10 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var compatibilityItemLabel: UILabel!
   @IBOutlet weak var slider: UISlider!
   
-  var compatibilityItems = ["Cats", "Dogs"] // Add more!
-  var compatibilityPersons: [Person] {
-    [person1, person2]
-  }
+  var compatibilityItems = ["Cats", "Dogs", "Snakes"] // Add more!
   var currentItemIndex = 0
   
   var person1 = Person(id: 1, items: [:])
@@ -33,37 +30,55 @@ class ViewController: UIViewController {
   
   
   @IBAction func sliderValueChanged(_ sender: UISlider) {
-    print(sender.value.rounded())
     slider.value.round()
   }
   
   
   @IBAction func didPressNextItemButton(_ sender: Any) {
-    
-    saveScoreForCurrentUser()
+    print("User: \(currentPerson.id), round: \(currentItemIndex + 1)")
     
     if person1.items.count < compatibilityItems.count {
-      currentItemIndex += 1
-      currentPerson = person1
-      questionLabel.text = "User \(currentPerson.id), what do you think about..."
-      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
-    } else if person2.items.isEmpty {
-      currentItemIndex = 0
-      currentPerson = person2
-      questionLabel.text = "User \(currentPerson.id), what do you think about..."
-      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
-    } else if person2.items.count < compatibilityItems.count {
-      currentItemIndex += 1
-      currentPerson = person2
-      questionLabel.text = "User \(currentPerson.id), what do you think about..."
-      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
-    } else {
-      let result = calculateCompatibility()
-      print(result)
-      resetInterface()
-      presentScoreAlert()
+      saveScoreForCurrentUser()
+      person1 = Person(id: currentPerson.id, items: currentPerson.items)
+      updateCurrentIndex()
       
-      print("Person \(currentPerson.id) | Items: \(currentPerson.items)")
+      if person1.items.count == compatibilityItems.count {
+        currentPerson = person2
+      }
+      
+      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
+      questionLabel.text = "User \(currentPerson.id), what do you think about..."
+      
+      print("👍1")
+      print("Person \(person1.id) | Items: \(person1.items)")
+      print("Person \(person2.id) | Items: \(person2.items)")
+    } else if person2.items.count < compatibilityItems.count {
+      saveScoreForCurrentUser()
+      person2 = Person(id: currentPerson.id, items: currentPerson.items)
+      updateCurrentIndex()
+      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
+      questionLabel.text = "User \(currentPerson.id), what do you think about..."
+      
+      print("👍2")
+      print("Person \(person1.id) | Items: \(person1.items)")
+      print("Person \(person2.id) | Items: \(person2.items)")
+      
+      if person2.items.count == compatibilityItems.count {
+        presentScoreAlert()
+        resetInterface()
+      }
+      
+    }
+
+    slider.value = 3.0
+  }
+  
+  
+  func updateCurrentIndex() {
+    if currentItemIndex < compatibilityItems.count - 1 {
+      currentItemIndex += 1
+    } else {
+      currentItemIndex = 0
     }
   }
   
@@ -90,9 +105,9 @@ class ViewController: UIViewController {
     person1.items.removeAll()
     person2.items.removeAll()
     currentPerson = person1
-    questionLabel.text = "User \(currentPerson?.id ?? 1), what do you think about..."
     currentItemIndex = 0
     compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
+    questionLabel.text = "User \(currentPerson?.id ?? 1), what do you think about..."
   }
   
   
@@ -103,7 +118,6 @@ class ViewController: UIViewController {
   
   func calculateCompatibility() -> String {
     // If diff 0.0 is 100% and 5.0 is 0%, calculate match percentage
-    print("Calculating!!!!")
     var percentagesForAllItems: [Double] = []
     
     for (key, person1Rating) in person1.items {
