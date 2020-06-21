@@ -24,7 +24,7 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setSilder()
+    setupSilder()
     resetInterface()
   }
   
@@ -35,44 +35,15 @@ class ViewController: UIViewController {
   
   
   @IBAction func didPressNextItemButton(_ sender: Any) {
-    print("User: \(currentPerson.id), round: \(currentItemIndex + 1)")
-    
-    if person1.items.count < compatibilityItems.count {
-      saveScoreForCurrentUser()
-//      person1 = Person(id: currentPerson.id, items: currentPerson.items)
-      person1 = currentPerson
-      updateCurrentIndex()
-      
-      if person1.items.count == compatibilityItems.count {
-        currentPerson = person2
-      }
-      
-      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
-      questionLabel.text = "User \(currentPerson.id), what do you think about..."
-      
-      print("👍1")
-      print("Person \(person1.id) | Items: \(person1.items)")
-      print("Person \(person2.id) | Items: \(person2.items)")
-    } else if person2.items.count < compatibilityItems.count {
-      saveScoreForCurrentUser()
-//      person2 = Person(id: currentPerson.id, items: currentPerson.items)
-      person2 = currentPerson
-      updateCurrentIndex()
-      compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
-      questionLabel.text = "User \(currentPerson.id), what do you think about..."
-      
-      print("👍2")
-      print("Person \(person1.id) | Items: \(person1.items)")
-      print("Person \(person2.id) | Items: \(person2.items)")
-      
-      if person2.items.count == compatibilityItems.count {
-        presentScoreAlert()
-        resetInterface()
-      }
-      
-    }
-
-    slider.value = 3.0
+    saveCurrentPersonScore()
+    updateCurrentIndex()
+    prepareGameForNextRound()
+  }
+  
+  
+  func saveCurrentPersonScore() {
+    let currentItem = compatibilityItems[currentItemIndex]
+    currentPerson.items.updateValue(slider.value.rounded(), forKey: currentItem)
   }
   
   
@@ -85,15 +56,25 @@ class ViewController: UIViewController {
   }
   
   
-  func saveScoreForCurrentUser() {
-    let currentItem = compatibilityItems[currentItemIndex]
-    currentPerson?.items.updateValue(slider.value.rounded(), forKey: currentItem)
+  func prepareGameForNextRound() {
+    if person1.items.count == compatibilityItems.count {
+      currentPerson = person2
+
+      if person2.items.count == compatibilityItems.count {
+        presentScoreAlert()
+        resetInterface()
+      }
+    }
+    
+    questionLabel.text = "User \(currentPerson.id), what do you think about..."
+    compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
+    slider.value = 3.0
   }
   
-  
+
   func presentScoreAlert() {
     let alert = UIAlertController(title: "Score",
-                                  message: "The compatibility between user is \(calculateCompatibility())",
+                                  message: "Compatibility score between users is \(calculateCompatibility())",
                                   preferredStyle: .alert)
     
     let action = UIAlertAction(title: "OK", style: .default)
@@ -108,12 +89,12 @@ class ViewController: UIViewController {
     person2.items.removeAll()
     currentPerson = person1
     currentItemIndex = 0
+    questionLabel.text = "User \(currentPerson.id), what do you think about..."
     compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
-    questionLabel.text = "User \(currentPerson?.id ?? 1), what do you think about..."
   }
   
   
-  func setSilder() {
+  func setupSilder() {
     slider.isContinuous = false
   }
   
