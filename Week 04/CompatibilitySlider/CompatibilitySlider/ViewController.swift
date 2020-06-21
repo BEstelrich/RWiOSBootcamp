@@ -39,7 +39,8 @@ class ViewController: UIViewController {
     
     if person1.items.count < compatibilityItems.count {
       saveScoreForCurrentUser()
-      person1 = Person(id: currentPerson.id, items: currentPerson.items)
+//      person1 = Person(id: currentPerson.id, items: currentPerson.items)
+      person1 = currentPerson
       updateCurrentIndex()
       
       if person1.items.count == compatibilityItems.count {
@@ -54,7 +55,8 @@ class ViewController: UIViewController {
       print("Person \(person2.id) | Items: \(person2.items)")
     } else if person2.items.count < compatibilityItems.count {
       saveScoreForCurrentUser()
-      person2 = Person(id: currentPerson.id, items: currentPerson.items)
+//      person2 = Person(id: currentPerson.id, items: currentPerson.items)
+      person2 = currentPerson
       updateCurrentIndex()
       compatibilityItemLabel.text = "\(compatibilityItems[currentItemIndex])"
       questionLabel.text = "User \(currentPerson.id), what do you think about..."
