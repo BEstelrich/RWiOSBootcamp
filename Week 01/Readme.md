@@ -1,6 +1,6 @@
 <p align="left">
 	<img src="./Assets/AppIcon.png" alt="App icon" width="60" maxHeight="60" align="right" />
-	<h1>Week 01 | Controls, outlets and UIKit</h1>
+	<h1>Week 01. Controls, outlets and UIKit</h1>
 </p>
 
 <p align="left">

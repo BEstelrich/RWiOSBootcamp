@@ -5,26 +5,30 @@
 
 # Ray Wenderlich iOS Bootcamp \[Summer 2020]
 
-### Name 
-Bartolome Estelrich
+## About me
 
-### Discord name
-TC: Bartolome Estelrich \[*BEstelrich#0357*]
+***Name*** | Bartolome Estelrich
 
-### Location
-Toronto [Canada]
+***Discord name*** | TC: Bartolome Estelrich \[*BEstelrich#0357*]
 
-### Programming experience
+***Location*** | Toronto [Canada]
+
+***Programming experience***
 Over two years ago I wrote, in Swift, my first line of code. Around 6 months later I released an app on AppStore [**Toronto2Do**](https://apps.apple.com/app/toronto2do/id1258574300). Since then I've been adding additional features to my app and used it as a motivation to keep learning Swift. Nowadays I'm working hard to learn as much as possible in order to get my first job in this field.
 
-### Goals
+***Goals***
 Switching careers from an Architecture and Design background to a full-time iOS Developer position.
 
-### Hobbies
+***Hobbies***
 Technology, Photography, Home automation and Futuristic movies. 
 
-### Course projects
-* [Week 01. ColorPicker](./Week%2001/Readme.md)
-* [Week 02. BullsEye, RGBullsEye and RevBullsEye](./Week%2002/Readme.md)
-* [Week 03. Crypty](./Week%2003/Readme.md)
-* [Week 04. ComparisonShopper and CompatibilitySlider](./Week%2004/Readme.md)
+
+## Course projects
+
+***Week 01. Controls, outlets and UIKit*** | Assignment: [ColorPicker](./Week%2001/Readme.md)
+
+***Week 02. Swift fundamentals*** | Assignment: [BullsEye, RGBullsEye and RevBullsEye](./Week%2002/Readme.md)
+
+***Week 03. Swift functions and types*** | Assignment: [Crypty](./Week%2003/Readme.md)
+
+***Week 04. Layout, testing and debugging*** | Assignment: [ComparisonShopper and CompatibilitySlider](./Week%2004/Readme.md)

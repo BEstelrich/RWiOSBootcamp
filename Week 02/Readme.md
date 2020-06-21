@@ -1,6 +1,6 @@
 <p align="left">
 	<img src="./Assets/AppIcon.png" alt="App icon" width="60" maxHeight="60" align="right"/>
-	<h1>Week 02 | Swift fundamentals</h1>
+	<h1>Week 02. Swift fundamentals</h1>
 </p>
 
 
