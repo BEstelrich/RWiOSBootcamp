@@ -5,30 +5,75 @@
 
 # Ray Wenderlich iOS Bootcamp \[Summer 2020]
 
-## About me
+## 👨‍💻 About me
 
-***Name*** | Bartolome Estelrich
+### *Name | Discord name*
+Bartolome Estelrich<br/>
+TC: Bartolome Estelrich \[*BEstelrich#0357*]
 
-***Discord name*** | TC: Bartolome Estelrich \[*BEstelrich#0357*]
 
-***Location*** | Toronto [Canada]
+### *Location*
+Toronto [Canada]
 
-***Programming experience***
+
+### *Programming experience*
 Over two years ago I wrote, in Swift, my first line of code. Around 6 months later I released an app on AppStore [**Toronto2Do**](https://apps.apple.com/app/toronto2do/id1258574300). Since then I've been adding additional features to my app and used it as a motivation to keep learning Swift. Nowadays I'm working hard to learn as much as possible in order to get my first job in this field.
 
-***Goals***
+
+### *Goals*
 Switching careers from an Architecture and Design background to a full-time iOS Developer position.
 
-***Hobbies***
+
+### *Hobbies*
 Technology, Photography, Home automation and Futuristic movies. 
 
 
-## Course projects
 
-***Week 01. Controls, outlets and UIKit*** | Assignment: [ColorPicker](./Week%2001/Readme.md)
 
-***Week 02. Swift fundamentals*** | Assignment: [BullsEye, RGBullsEye and RevBullsEye](./Week%2002/Readme.md)
+## 👨‍🎓 Curriculum
+Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/10408731-rw-bootcamp)
 
-***Week 03. Swift functions and types*** | Assignment: [Crypty](./Week%2003/Readme.md)
+<details>
+	<summary><b>Week 01. Controls, outlets and UIKit</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/5993-your-first-ios-and-uikit-app">Your First iOS and UIKit App</a><br/>
+	📱 Assignment: <a href="./Week%2001/Readme.md">ColorPicker</a>
+	</p>
+</details>
 
-***Week 04. Layout, testing and debugging*** | Assignment: [ComparisonShopper and CompatibilitySlider](./Week%2004/Readme.md)
+
+<details>
+	<summary><b>Week 02. Swift fundamentals</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/5539282-programming-in-swift-fundamentals">Programming in Swift: Fundamentals</a><br/>
+	📱 Assignment: <a href="./Week%2002/Readme.md">BullsEye, RGBullsEye and RevBullsEye</a>
+	</p>
+</details>
+
+
+<details>
+	<summary><b>Week 03. Swift functions and types</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/5429279-programming-in-swift-functions-and-types">Programming in Swift: Functions and Types</a><br/>
+	📱 Assignment: <a href="./Week%2003/Readme.md">Crypty</a>
+	</p>
+</details>
+
+
+<details>
+	<summary><b>Week 04. Layout, testing and debugging</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/4681-beginning-ios-debugging">Beginning iOS Debugging</a><br/>
+	📚 Video course: <a href="https://www.raywenderlich.com/6849561-layout-in-ios">Layout in iOS</a><br/>
+	📚 Article: <a href="https://www.raywenderlich.com/960290-ios-unit-testing-and-ui-testing-tutorial">iOS Unit Testing and UI Testing Tutorial</a><br/>
+	📱 Assignment: <a href="./Week%2004/Readme.md">ComparisonShopper and CompatibilitySlider</a>
+</details>
+
+
+<details>
+	<summary><b>Week 05. Table views</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/5995-beginning-table-views">Beginning Table Views</a><br/>
+	📱 Assignment: <a href="./Week%2005/Readme.md">Birdie</a>
+	<p>
+</details>

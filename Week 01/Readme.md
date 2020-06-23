@@ -29,7 +29,7 @@ In addition of the previous functionality there is an `Information` button that 
 In order to get a live preview of the changes made on the color sliders, the actual `Set Color` itself updates its background to the current sliders color.
 
 
-## Screenshots
+## Preview
 Those are the most relevant screenshots on the app.
 
 <p align="left">

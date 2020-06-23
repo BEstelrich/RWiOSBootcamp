@@ -30,7 +30,7 @@ On the order hand, **theme support** is implemented by creating a protocol that 
 Finally, an additional protocol called `Roundable` is set to define any view with **rounded corners**. Also default rounded method is provided by **overloading a protocol required method**.
 
 
-## Screenshots
+## Preview
 Those are the most relevant screenshots on the app.
 
 <p align="left">

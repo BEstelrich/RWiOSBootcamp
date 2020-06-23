@@ -23,14 +23,14 @@
 ## Description
 This exercise is made up of several short projects.
 
-#### *1. BullsEye*
+### *1. BullsEye*
 In order to avoid the default view-controller to become a Massive View Controllers the goal of this exercise is to **extract the game logic** out of it. To accomplish this task there is a decision to be made about if the model object would be a **Struct** or a **Class**.
 
-#### *2. RGBullsEye*
+### *2. RGBullsEye*
 Using the concepts learned on the previous exercise the logic of this project has to be created. The goal here is **matching the randomly chosen color by moving the sliders** corresponding to the RGB color system and updating the live result in another view. Finally an alert has to be presented to the user with each round's result.
 
 
-#### *3. RevBullsEye*
+### *3. RevBullsEye*
 RevBullsEye is about reversing the previous BullsEye game from moving the slider to match a displayed number to guessing the number of the slider current position. Although the UI can be slightly modified to accommodate the game new rules, **the game logic object cannot change**.
 
 
