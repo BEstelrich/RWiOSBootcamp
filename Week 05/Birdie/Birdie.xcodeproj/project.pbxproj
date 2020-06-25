@@ -21,6 +21,8 @@
 		C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D396249B346E001F55A6 /* MediaPostProtocol.swift */; };
 		C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */; };
 		C3C9D39D249B3C29001F55A6 /* MediaPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D39C249B3C29001F55A6 /* MediaPostViewModel.swift */; };
+		C9BBF92A24A4F646004F7260 /* TextPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BBF92924A4F646004F7260 /* TextPostTableViewCell.swift */; };
+		C9BBF92C24A4FD98004F7260 /* ImagePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BBF92B24A4FD98004F7260 /* ImagePostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		C3C9D396249B346E001F55A6 /* MediaPostProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostProtocol.swift; sourceTree = "<group>"; };
 		C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostsHandler.swift; sourceTree = "<group>"; };
 		C3C9D39C249B3C29001F55A6 /* MediaPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostViewModel.swift; sourceTree = "<group>"; };
+		C9BBF92924A4F646004F7260 /* TextPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPostTableViewCell.swift; sourceTree = "<group>"; };
+		C9BBF92B24A4FD98004F7260 /* ImagePostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +115,12 @@
 		C3C9D35C249B324B001F55A6 /* Birdie */ = {
 			isa = PBXGroup;
 			children = (
-				C3C9D36E249B324C001F55A6 /* Info.plist */,
-				C3C9D390249B325C001F55A6 /* AppDelegate */,
-				C3C9D399249B3484001F55A6 /* Controller */,
-				C3C9D398249B3479001F55A6 /* Model */,
-				C3C9D391249B326C001F55A6 /* View */,
-				C3C9D39E249B3C30001F55A6 /* ViewModel */,
-				C3C9D369249B324C001F55A6 /* Assets.xcassets */,
+				C3C9D390249B325C001F55A6 /* Supporting files */,
+				C3C9D398249B3479001F55A6 /* Models */,
+				C3C9D391249B326C001F55A6 /* Views */,
+				C3C9D399249B3484001F55A6 /* Controllers */,
+				C3C9D39E249B3C30001F55A6 /* ViewModels */,
+				C9BBF92824A4F21F004F7260 /* Resources */,
 				C3C9D366249B324B001F55A6 /* Birdie.xcdatamodeld */,
 			);
 			path = Birdie;
@@ -141,25 +144,27 @@
 			path = BirdieUITests;
 			sourceTree = "<group>";
 		};
-		C3C9D390249B325C001F55A6 /* AppDelegate */ = {
+		C3C9D390249B325C001F55A6 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				C3C9D36E249B324C001F55A6 /* Info.plist */,
 				C3C9D35D249B324B001F55A6 /* AppDelegate.swift */,
 				C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */,
 			);
-			path = AppDelegate;
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
-		C3C9D391249B326C001F55A6 /* View */ = {
+		C3C9D391249B326C001F55A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C3C9D363249B324B001F55A6 /* Main.storyboard */,
 				C3C9D36B249B324C001F55A6 /* LaunchScreen.storyboard */,
+				C3C9D363249B324B001F55A6 /* Main.storyboard */,
+				C9BBF92D24A4FDB3004F7260 /* Cells */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		C3C9D398249B3479001F55A6 /* Model */ = {
+		C3C9D398249B3479001F55A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C3C9D39A249B3711001F55A6 /* MediaPostsHandler.swift */,
@@ -167,23 +172,40 @@
 				C3C9D392249B3448001F55A6 /* TextPostModel.swift */,
 				C3C9D394249B3453001F55A6 /* ImagePostModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		C3C9D399249B3484001F55A6 /* Controller */ = {
+		C3C9D399249B3484001F55A6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				C3C9D361249B324B001F55A6 /* ViewController.swift */,
 			);
-			path = Controller;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C3C9D39E249B3C30001F55A6 /* ViewModel */ = {
+		C3C9D39E249B3C30001F55A6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				C3C9D39C249B3C29001F55A6 /* MediaPostViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C9BBF92824A4F21F004F7260 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C3C9D369249B324C001F55A6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C9BBF92D24A4FDB3004F7260 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C9BBF92924A4F646004F7260 /* TextPostTableViewCell.swift */,
+				C9BBF92B24A4FD98004F7260 /* ImagePostTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +341,11 @@
 			files = (
 				C3C9D393249B3448001F55A6 /* TextPostModel.swift in Sources */,
 				C3C9D395249B3453001F55A6 /* ImagePostModel.swift in Sources */,
+				C9BBF92A24A4F646004F7260 /* TextPostTableViewCell.swift in Sources */,
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
+				C9BBF92C24A4FD98004F7260 /* ImagePostTableViewCell.swift in Sources */,
 				C3C9D39D249B3C29001F55A6 /* MediaPostViewModel.swift in Sources */,
 				C3C9D368249B324B001F55A6 /* Birdie.xcdatamodeld in Sources */,
 				C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */,
@@ -500,7 +524,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = Birdie/Info.plist;
+				INFOPLIST_FILE = "Birdie/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +543,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = A9MF56EMP8;
-				INFOPLIST_FILE = Birdie/Info.plist;
+				INFOPLIST_FILE = "Birdie/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

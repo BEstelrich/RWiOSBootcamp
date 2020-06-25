@@ -12,15 +12,11 @@ class ViewController: UIViewController {
   
   @IBOutlet weak var tableview: UITableView!
   
+  var mediaPosts = MediaPostsHandler.shared.mediaPosts
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpTableView()
-  }
-  
-  
-  func setUpTableView() {
-    // Set delegates, register custom cells, set up datasource, etc.
   }
   
   
@@ -37,3 +33,21 @@ class ViewController: UIViewController {
 
 
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+  
+  func setUpTableView() {
+    tableview.delegate = self
+    tableview.dataSource = self
+  }
+  
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    return UITableViewCell()
+  }
+  
+}
