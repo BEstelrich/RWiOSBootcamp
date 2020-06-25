@@ -16,13 +16,13 @@ class MediaPostsViewModel {
   func setUpTableViewCell(for post: MediaPost, in tableview: UITableView) -> UITableViewCell {
     if let post = post as? TextPost {
       let cell = tableview.dequeueReusableCell(withIdentifier: TextPostTableViewCell.identifier) as! TextPostTableViewCell
-      cell.nameLabel.text = post.username
+      cell.usernameLabel.text = post.username
       cell.timeStampLabel.text = post.timeStamp.toString()
       cell.textBodyLabel.text = post.textBody
       return cell
     } else if let post = post as? ImagePost {
       let cell = tableview.dequeueReusableCell(withIdentifier: ImagePostTableViewCell.identifier) as! ImagePostTableViewCell
-      cell.nameLabel.text = post.username
+      cell.usernameLabel.text = post.username
       cell.timeStampLabel.text = post.timeStamp.toString()
       cell.textBodyLabel.text = post.textBody
       cell.postImageView.image = post.image
@@ -32,18 +32,6 @@ class MediaPostsViewModel {
       cell.textLabel?.text = post.textBody
       return cell
     }
-  }
-  
-}
-
-
-extension Date {
-  
-  func toString(withFormat format: String = "d MMM, HH:mm") -> String {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = format
-    let str = dateFormatter.string(from: self)
-    return str
   }
   
 }

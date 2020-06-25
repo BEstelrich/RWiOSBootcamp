@@ -18,23 +18,23 @@ class MediaPostsHandler: NSObject {
   
   
   func getPosts() {
-    let imagePost1 = ImagePost(textBody: "I love debugging software!",
-                               username: "Jay",
+    let imagePost1 = ImagePost(username: "Jay",
                                timeStamp: Date(timeIntervalSince1970: 10000),
+                               textBody: "I love debugging software!",
                                image: UIImage(named: "chop")!)
     
-    let imagePost2 = ImagePost(textBody: "Went to the Aquarium today :]",
-                               username: "Audrey",
+    let imagePost2 = ImagePost(username: "Audrey",
                                timeStamp: Date(timeIntervalSince1970: 30000),
+                               textBody: "Went to the Aquarium today :]",
                                image: UIImage(named: "octopus")!)
     
-    let textPost1 = TextPost(textBody: "Hello World!",
-                             username: "Bhagat",
-                             timeStamp: Date(timeIntervalSince1970: 20000))
+    let textPost1 = TextPost(username: "Bhagat",
+                             timeStamp: Date(timeIntervalSince1970: 20000),
+                             textBody: "Hello World!")
     
-    let textPost2 = TextPost(textBody: "This is my favorite social media app!",
-                             username: "Jeff",
-                             timeStamp: Date(timeIntervalSince1970: 40000))
+    let textPost2 = TextPost(username: "Jeff",
+                             timeStamp: Date(timeIntervalSince1970: 40000),
+                             textBody: "This is my favorite social media app!")
     
     mediaPosts = [imagePost1, imagePost2, textPost1, textPost2]
     mediaPosts = mediaPosts.sorted(by: { $0.timeStamp > $1.timeStamp })

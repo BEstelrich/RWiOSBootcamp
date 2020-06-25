@@ -17,8 +17,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stk-8k-ziE">
-                                <rect key="frame" x="178.5" y="60" width="57.5" height="38"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <rect key="frame" x="179" y="60" width="56" height="38"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -29,13 +29,14 @@
                                     <constraint firstAttribute="width" secondItem="JDO-wH-Wc3" secondAttribute="height" multiplier="1:1" id="w0r-36-G4G"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YOd-7A-7lt">
-                                <rect key="frame" x="20" y="114" width="374" height="18.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YOd-7A-7lt">
+                                <rect key="frame" x="10" y="114" width="394" height="38.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2n-Sd-aOq">
-                                        <rect key="frame" x="0.0" y="0.0" width="183" height="18.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2n-Sd-aOq" customClass="CreatePostButton" customModule="Birdie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="153.5" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title=" Create Text Post" image="textformat.size" catalog="system">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -43,10 +44,11 @@
                                             <action selector="didPressCreateTextPostButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UYq-VW-PZO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-14-JUr">
-                                        <rect key="frame" x="191" y="0.0" width="183" height="18.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDc-14-JUr" customClass="CreatePostButton" customModule="Birdie" customModuleProvider="target">
+                                        <rect key="frame" x="227" y="0.0" width="167" height="38.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                         <state key="normal" title=" Create Image Post" image="photo.fill" catalog="system">
                                             <color key="titleColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -57,7 +59,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N0R-IK-WeJ">
-                                <rect key="frame" x="0.0" y="140.5" width="414" height="755.5"/>
+                                <rect key="frame" x="0.0" y="160.5" width="414" height="735.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="textCell" rowHeight="136" id="xxP-Cs-vbg" customClass="TextPostTableViewCell" customModule="Birdie" customModuleProvider="target">
@@ -131,10 +133,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="iqe-6J-386" id="RjM-fe-doh"/>
                                             <outlet property="shapeView" destination="HoQ-4J-omE" id="CXr-0h-QPf"/>
                                             <outlet property="textBodyLabel" destination="MDO-f4-QIo" id="0fx-tG-qrF"/>
                                             <outlet property="timeStampLabel" destination="m2Y-0H-gy3" id="w6q-cX-9wo"/>
+                                            <outlet property="usernameLabel" destination="iqe-6J-386" id="RjM-fe-doh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="imageCell" rowHeight="309" id="JBM-pp-Ls3" customClass="ImagePostTableViewCell" customModule="Birdie" customModuleProvider="target">
@@ -214,11 +216,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="Fd0-pp-c5O" id="ijd-Ht-lLj"/>
                                             <outlet property="postImageView" destination="i4u-5v-rDg" id="y84-Z2-uIh"/>
                                             <outlet property="shapeView" destination="cMp-Ir-XiN" id="cLY-mz-T2t"/>
                                             <outlet property="textBodyLabel" destination="VdJ-W3-QOU" id="8ek-UE-nSc"/>
                                             <outlet property="timeStampLabel" destination="eTv-cO-8zK" id="oLa-wT-j56"/>
+                                            <outlet property="usernameLabel" destination="Fd0-pp-c5O" id="ijd-Ht-lLj"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -229,12 +231,12 @@
                             <constraint firstItem="j2n-Sd-aOq" firstAttribute="top" secondItem="Stk-8k-ziE" secondAttribute="bottom" constant="16" id="LeX-h2-HT2"/>
                             <constraint firstItem="YOd-7A-7lt" firstAttribute="top" secondItem="JDO-wH-Wc3" secondAttribute="bottom" constant="10" id="OvF-CS-MPf"/>
                             <constraint firstItem="N0R-IK-WeJ" firstAttribute="top" secondItem="YOd-7A-7lt" secondAttribute="bottom" constant="8" id="QsN-Hz-6O2"/>
-                            <constraint firstItem="YOd-7A-7lt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Vaj-m5-G42"/>
+                            <constraint firstItem="YOd-7A-7lt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Vaj-m5-G42"/>
                             <constraint firstItem="Stk-8k-ziE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Zh9-X7-ybh"/>
                             <constraint firstAttribute="bottom" secondItem="N0R-IK-WeJ" secondAttribute="bottom" id="cet-TD-bsg"/>
                             <constraint firstItem="JDO-wH-Wc3" firstAttribute="centerY" secondItem="Stk-8k-ziE" secondAttribute="centerY" id="cvj-oi-CO8"/>
                             <constraint firstItem="N0R-IK-WeJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ekE-Y2-Ya8"/>
-                            <constraint firstAttribute="trailing" secondItem="YOd-7A-7lt" secondAttribute="trailing" constant="20" id="hQA-bz-7XV"/>
+                            <constraint firstAttribute="trailing" secondItem="YOd-7A-7lt" secondAttribute="trailing" constant="10" id="hQA-bz-7XV"/>
                             <constraint firstItem="N0R-IK-WeJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hTA-hc-XA2"/>
                             <constraint firstItem="Stk-8k-ziE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o1a-v9-BXQ"/>
                             <constraint firstItem="JDO-wH-Wc3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oqk-fz-oSz"/>

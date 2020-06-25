@@ -10,8 +10,8 @@ import Foundation
 
 struct TextPost: MediaPost {
   
-  var textBody: String?
   var username: String
   var timeStamp: Date
+  var textBody: String?
   
 }

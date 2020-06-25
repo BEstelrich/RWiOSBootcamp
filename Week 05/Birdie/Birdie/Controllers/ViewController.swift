@@ -41,9 +41,9 @@ class ViewController: UIViewController {
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
     
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-      let textPost = TextPost(textBody: alert.textFields?[1].text ?? "Anonymous",
-                              username: alert.textFields?[0].text ?? "N/A",
-                              timeStamp: Date())
+      let textPost = TextPost(username: alert.textFields?[0].text ?? "N/A",
+                              timeStamp: Date(),
+                              textBody: alert.textFields?[1].text ?? "Anonymous")
       
       MediaPostsHandler.shared.addTextPost(textPost: textPost)
       self.tableview.reloadData()
@@ -69,14 +69,13 @@ class ViewController: UIViewController {
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
     
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-      let imagePost = ImagePost(textBody: alert.textFields?[1].text ?? "Anonymous",
-                                username: alert.textFields?[0].text ?? "N/A",
+      let imagePost = ImagePost(username: alert.textFields?[0].text ?? "N/A",
                                 timeStamp: Date(),
+                                textBody: alert.textFields?[1].text ?? "Anonymous",
                                 image: self.selectedImage!)
       
       MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
       self.tableview.reloadData()
-//      self.selectedImage = nil
     }))
     
     present(alert, animated: true)
@@ -94,7 +93,7 @@ class ViewController: UIViewController {
       pickerController.sourceType = .photoLibrary
       pickerController.modalPresentationStyle = .fullScreen
     }
-
+    
     present(pickerController, animated: true)
   }
   
@@ -111,7 +110,7 @@ class ViewController: UIViewController {
 }
 
 
-
+// Implements the protocols required by the TableView.
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   func setupTableView() {
@@ -134,10 +133,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 
+// Conforms to the ImagePicker required protocols.
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
     guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] else { return }
+    
     dismiss(animated: true, completion: nil)
     selectedImage = pickedImage as? UIImage
     createImagePostAlert()

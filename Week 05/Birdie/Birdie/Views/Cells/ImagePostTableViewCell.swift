@@ -6,7 +6,7 @@ class ImagePostTableViewCell: UITableViewCell {
   
   static let identifier = "imageCell"
   
-  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var timeStampLabel: UILabel!
   @IBOutlet weak var textBodyLabel: UILabel!
   @IBOutlet weak var postImageView: UIImageView!

@@ -13,7 +13,7 @@ import Foundation
 protocol MediaPost {
   
   var username: String { get set }
-  var textBody: String? { get set }
   var timeStamp: Date { get set }
+  var textBody: String? { get set }
   
 }

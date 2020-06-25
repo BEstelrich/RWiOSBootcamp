@@ -6,7 +6,7 @@ class TextPostTableViewCell: UITableViewCell {
   
   static let identifier = "textCell"
   
-  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var usernameLabel: UILabel!
   @IBOutlet weak var timeStampLabel: UILabel!
   @IBOutlet weak var textBodyLabel: UILabel!
   @IBOutlet weak var shapeView: UIView!
