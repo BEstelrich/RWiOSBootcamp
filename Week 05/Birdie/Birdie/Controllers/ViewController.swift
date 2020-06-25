@@ -100,6 +100,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func setupTableView() {
     tableview.delegate = self
     tableview.dataSource = self
+    tableview.separatorStyle = .none
   }
   
   

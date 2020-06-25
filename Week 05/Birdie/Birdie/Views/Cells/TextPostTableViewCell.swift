@@ -2,21 +2,26 @@
 import UIKit
 
 
-@IBDesignable
 class TextPostTableViewCell: UITableViewCell {
+  
+  static let identifier = "textCell"
   
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var timeStampLabel: UILabel!
   @IBOutlet weak var textBodyLabel: UILabel!
-
+  @IBOutlet weak var shapeView: UIView!
+  
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setupCell()
+  }
+
+  
+  func setupCell() {
+    shapeView.layer.cornerRadius = 15
+    shapeView.layer.masksToBounds = true
   }
   
-  
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-  }
   
 }

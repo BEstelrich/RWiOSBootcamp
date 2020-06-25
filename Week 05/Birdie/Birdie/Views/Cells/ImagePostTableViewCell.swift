@@ -4,19 +4,25 @@ import UIKit
 
 class ImagePostTableViewCell: UITableViewCell {
   
+  static let identifier = "imageCell"
+  
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var timeStampLabel: UILabel!
   @IBOutlet weak var textBodyLabel: UILabel!
   @IBOutlet weak var postImageView: UIImageView!
-
+  @IBOutlet weak var shapeView: UIView!
+  
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    setupCell()
   }
   
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
+  func setupCell() {
+    shapeView.layer.cornerRadius = 15
+    shapeView.layer.masksToBounds = true
   }
+  
   
 }
