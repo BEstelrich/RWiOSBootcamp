@@ -76,7 +76,7 @@ class ViewController: UIViewController {
       
       MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
       self.tableview.reloadData()
-      self.selectedImage = nil
+//      self.selectedImage = nil
     }))
     
     present(alert, animated: true)
