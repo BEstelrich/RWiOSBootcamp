@@ -11,22 +11,25 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var tableview: UITableView!
-  
-  var mediaPosts = MediaPostsHandler.shared.mediaPosts
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
     setUpTableView()
+    getPosts()
+  }
+  
+  
+func getPosts() {
+    MediaPostsHandler.shared.getPosts()
   }
   
   
   @IBAction func didPressCreateTextPostButton(_ sender: Any) {
-    
   }
   
   
   @IBAction func didPressCreateImagePostButton(_ sender: Any) {
-    
   }
   
 }
@@ -42,12 +45,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return MediaPostsHandler.shared.mediaPosts.count
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    return UITableViewCell()
+    let mediaPost = MediaPostsHandler.shared.mediaPosts[indexPath.row]
+    return MediaPostsViewModel.shared.setUpTableViewCell(for: mediaPost, in: tableView)
   }
   
 }
