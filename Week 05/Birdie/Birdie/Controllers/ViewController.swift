@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var tableview: UITableView!
-  
+  var selectedImage: UIImage?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -72,13 +72,30 @@ class ViewController: UIViewController {
       let imagePost = ImagePost(textBody: alert.textFields?[1].text ?? "Anonymous",
                                 username: alert.textFields?[0].text ?? "N/A",
                                 timeStamp: Date(),
-                                image: UIImage(named: "chop")!)
+                                image: self.selectedImage!)
       
       MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
       self.tableview.reloadData()
+      self.selectedImage = nil
     }))
     
     present(alert, animated: true)
+  }
+  
+  
+  func pickAnImageFromLibrary() {
+    let pickerController = UIImagePickerController()
+    pickerController.delegate = self
+    pickerController.allowsEditing = false
+    
+    if UIImagePickerController.isSourceTypeAvailable(.camera) {
+      pickerController.sourceType = .camera
+    } else {
+      pickerController.sourceType = .photoLibrary
+      pickerController.modalPresentationStyle = .fullScreen
+    }
+
+    present(pickerController, animated: true)
   }
   
   
@@ -88,7 +105,7 @@ class ViewController: UIViewController {
   
   
   @IBAction func didPressCreateImagePostButton(_ sender: UIButton) {
-    createImagePostAlert()
+    pickAnImageFromLibrary()
   }
   
 }
@@ -112,6 +129,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let mediaPost = MediaPostsHandler.shared.mediaPosts[indexPath.row]
     return MediaPostsViewModel.shared.setUpTableViewCell(for: mediaPost, in: tableView)
+  }
+  
+}
+
+
+extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] else { return }
+    dismiss(animated: true, completion: nil)
+    selectedImage = pickedImage as? UIImage
+    createImagePostAlert()
   }
   
 }
