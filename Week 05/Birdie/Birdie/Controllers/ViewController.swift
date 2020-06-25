@@ -15,12 +15,12 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setUpTableView()
-    getPosts()
+    setupTableView()
+    fetchForPosts()
   }
   
   
-  func getPosts() {
+  func fetchForPosts() {
     MediaPostsHandler.shared.getPosts()
   }
   
@@ -54,7 +54,7 @@ class ViewController: UIViewController {
   
   
   func createImagePostAlert() {
-    let alert = UIAlertController(title: "Create Text Post",
+    let alert = UIAlertController(title: "Create Image Post",
                                   message: "What do you want to post?",
                                   preferredStyle: .alert)
     
@@ -69,11 +69,12 @@ class ViewController: UIViewController {
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
     
     alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-      let textPost = TextPost(textBody: alert.textFields?[1].text ?? "Anonymous",
-                              username: alert.textFields?[0].text ?? "N/A",
-                              timeStamp: Date())
+      let imagePost = ImagePost(textBody: alert.textFields?[1].text ?? "Anonymous",
+                                username: alert.textFields?[0].text ?? "N/A",
+                                timeStamp: Date(),
+                                image: UIImage(named: "chop")!)
       
-      MediaPostsHandler.shared.addTextPost(textPost: textPost)
+      MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
       self.tableview.reloadData()
     }))
     
@@ -96,7 +97,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
-  func setUpTableView() {
+  func setupTableView() {
     tableview.delegate = self
     tableview.dataSource = self
   }
