@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var tableview: UITableView!
-
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,16 +20,74 @@ class ViewController: UIViewController {
   }
   
   
-func getPosts() {
+  func getPosts() {
     MediaPostsHandler.shared.getPosts()
   }
   
   
-  @IBAction func didPressCreateTextPostButton(_ sender: Any) {
+  func createTextPostAlert() {
+    let alert = UIAlertController(title: "Create Text Post",
+                                  message: "What do you want to post?",
+                                  preferredStyle: .alert)
+    
+    alert.addTextField { (textField) in
+      textField.placeholder = "Username"
+    }
+    
+    alert.addTextField { (textField) in
+      textField.placeholder = "Post"
+    }
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+    
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
+      let textPost = TextPost(textBody: alert.textFields?[1].text ?? "Anonymous",
+                              username: alert.textFields?[0].text ?? "N/A",
+                              timeStamp: Date())
+      
+      MediaPostsHandler.shared.addTextPost(textPost: textPost)
+      self.tableview.reloadData()
+    }))
+    
+    present(alert, animated: true)
   }
   
   
-  @IBAction func didPressCreateImagePostButton(_ sender: Any) {
+  func createImagePostAlert() {
+    let alert = UIAlertController(title: "Create Text Post",
+                                  message: "What do you want to post?",
+                                  preferredStyle: .alert)
+    
+    alert.addTextField { (textField) in
+      textField.placeholder = "Username"
+    }
+    
+    alert.addTextField { (textField) in
+      textField.placeholder = "Post"
+    }
+    
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+    
+    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
+      let textPost = TextPost(textBody: alert.textFields?[1].text ?? "Anonymous",
+                              username: alert.textFields?[0].text ?? "N/A",
+                              timeStamp: Date())
+      
+      MediaPostsHandler.shared.addTextPost(textPost: textPost)
+      self.tableview.reloadData()
+    }))
+    
+    present(alert, animated: true)
+  }
+  
+  
+  @IBAction func didPressCreateTextPostButton(_ sender: UIButton) {
+    createTextPostAlert()
+  }
+  
+  
+  @IBAction func didPressCreateImagePostButton(_ sender: UIButton) {
+    createImagePostAlert()
   }
   
 }

@@ -11,7 +11,7 @@ import Foundation
 struct TextPost: MediaPost {
   
   var textBody: String?
-  var userName: String
-  var timestamp: Date
+  var username: String
+  var timeStamp: Date
   
 }

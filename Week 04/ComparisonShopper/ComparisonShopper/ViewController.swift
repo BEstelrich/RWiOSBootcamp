@@ -73,12 +73,12 @@ class ViewController: UIViewController {
     let alert = UIAlertController(title: "Alert Title", message: "Alert Message", preferredStyle: UIAlertController.Style.alert)
     
     alert.addTextField { (textField) in
-      textField.placeholder = "address"
-    }
-    
-    alert.addTextField { (textField) in
-      textField.placeholder = "price"
-    }
+       textField.placeholder = "address"
+     }
+     
+     alert.addTextField { (textField) in
+       textField.placeholder = "price"
+     }
     
     alert.addTextField { (textField) in
       textField.placeholder = "bedrooms"

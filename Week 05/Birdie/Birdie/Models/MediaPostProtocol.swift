@@ -12,8 +12,8 @@ import Foundation
 // can be in the MediaPostsHandler.shared.mediaPosts array
 protocol MediaPost {
   
+  var username: String { get set }
   var textBody: String? { get set }
-  var userName: String { get set }
-  var timestamp: Date { get set }
+  var timeStamp: Date { get set }
   
 }

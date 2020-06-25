@@ -16,14 +16,14 @@ class MediaPostsViewModel {
   func setUpTableViewCell(for post: MediaPost, in tableview: UITableView) -> UITableViewCell {
     if let post = post as? TextPost {
       let cell = tableview.dequeueReusableCell(withIdentifier: "textCell") as! TextPostTableViewCell
-      cell.nameLabel.text = post.userName
-      cell.timeStampLabel.text = post.timestamp.toString()
+      cell.nameLabel.text = post.username
+      cell.timeStampLabel.text = post.timeStamp.toString()
       cell.textBodyLabel.text = post.textBody
       return cell
     } else if let post = post as? ImagePost {
       let cell = tableview.dequeueReusableCell(withIdentifier: "imageCell") as! ImagePostTableViewCell
-      cell.nameLabel.text = post.userName
-      cell.timeStampLabel.text = post.timestamp.toString()
+      cell.nameLabel.text = post.username
+      cell.timeStampLabel.text = post.timeStamp.toString()
       cell.textBodyLabel.text = post.textBody
       cell.postImageView.image = post.image
       return cell
