@@ -1,33 +1,28 @@
-<p align="center">
-	<img src="./Assets/Bootcamp.png" alt="App icon"/>
-</p>
+<!-- Header -->
+<img src="./Assets/Bootcamp.png"/>
+<h1>Ray Wenderlich iOS Bootcamp \[Summer 2020]</h1>
+
+[![](https://img.shields.io/badge/Contact-@BEstelrichS-00ACEE.svg?style=flatl&logo=twitter)](https://twitter.com/BEstelrichS)
 
 
-# Ray Wenderlich iOS Bootcamp \[Summer 2020]
-
-## 👨‍💻 About me
+<!-- Body -->
+## 👨‍💻 About
 
 ### *Name | Discord name*
 Bartolome Estelrich<br/>
 TC: Bartolome Estelrich \[*BEstelrich#0357*]
 
-
 ### *Location*
 Toronto [Canada]
-
 
 ### *Programming experience*
 Over two years ago I wrote, in Swift, my first line of code. Around 6 months later I released an app on AppStore [**Toronto2Do**](https://apps.apple.com/app/toronto2do/id1258574300). Since then I've been adding additional features to my app and used it as a motivation to keep learning Swift. Nowadays I'm working hard to learn as much as possible in order to get my first job in this field.
 
-
 ### *Goals*
 Switching careers from an Architecture and Design background to a full-time iOS Developer position.
 
-
 ### *Hobbies*
 Technology, Photography, Home automation and Futuristic movies. 
-
-
 
 
 ## 👨‍🎓 Curriculum
@@ -41,7 +36,6 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	</p>
 </details>
 
-
 <details>
 	<summary><b>Week 02. Swift fundamentals</b></summary>
 	<p>
@@ -50,7 +44,6 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	</p>
 </details>
 
-
 <details>
 	<summary><b>Week 03. Swift functions and types</b></summary>
 	<p>
@@ -58,7 +51,6 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	📱 Assignment: <a href="./Week%2003/Readme.md">Crypty</a>
 	</p>
 </details>
-
 
 <details>
 	<summary><b>Week 04. Layout, testing and debugging</b></summary>
@@ -69,7 +61,6 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	📱 Assignment: <a href="./Week%2004/Readme.md">ComparisonShopper and CompatibilitySlider</a>
 </details>
 
-
 <details>
 	<summary><b>Week 05. Table views</b></summary>
 	<p>
@@ -77,3 +68,6 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	📱 Assignment: <a href="./Week%2005/Readme.md">Birdie</a>
 	<p>
 </details>
+
+
+<!-- Footer -->

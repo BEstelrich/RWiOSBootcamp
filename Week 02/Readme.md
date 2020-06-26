@@ -1,23 +1,16 @@
-<p align="left">
-	<img src="./Assets/AppIcon.png" alt="App icon" width="60" maxHeight="60" align="right"/>
-	<h1>Week 02. Swift fundamentals</h1>
-</p>
+<!-- Header -->
+<img src="./Assets/AppIcon.png" width="60" align="right"/>
+<h1>Week 02. Swift fundamentals</h1>
+
+[![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg?longCache=true&style=flat&logo=swift)](https://www.swift.org)
+[![iOS](https://img.shields.io/badge/iOS-13.5+-lightgrey.svg?longCache=true&?style=flat&logo=apple)](https://developer.apple.com/ios/)
+[![](https://img.shields.io/badge/Contact-@BEstelrichS-00ACEE.svg?style=flatl&logo=twitter)](https://twitter.com/BEstelrichS)
 
 
-<p align="left">
-  <a href="https://www.swift.org">
-		<img src=https://img.shields.io/badge/Swift-5.0-green.svg?longCache=true&style=flat-square] alt="Swift version">
-  </a>
-  <a href="https://developer.apple.com/ios/">
-		<img src="https://img.shields.io/badge/iOS-13.5+-blue.svg?longCache=true&style=flat-square]" alt="iOS version" />
-  </a>
-  <a href="https://twitter.com/BEstelrichS">
-	<img src="https://img.shields.io/badge/Contact-@BEstelrichS-lightgrey.svg?style=flat" alt="Twitter: @BEstelrichS" />
-  </a>
-</p>
-
-## Frameworks
-* UIKit
+<!-- Body -->
+## Frameworks/External dependencies
+- Foundation
+- UIKit
 
 
 ## Description
@@ -40,3 +33,6 @@ On this exercise my decision was to use a **Class** to define the BullsEyeGame o
 However on this specific scenario, where there is only one instance of the object in a single view-controller, I don't believe there is much difference between a value type/reference type approach on the overall result. Because of those facts there **will never be more than one instance of the object**, so there are no additional copies anyway in case of a Struct is chosen.
 
 Nonetheless, by using a Class there is **no need to set most of the object methods as mutable** in order to change its properties. Also when a project grows in functionality a Class has always the possibility of inheriting from another Class making it **more flexible**.
+
+
+<!-- Footer -->
