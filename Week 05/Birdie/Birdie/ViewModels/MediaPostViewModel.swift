@@ -70,7 +70,7 @@ class MediaPostsViewModel {
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
       
       alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-        let textPost = TextPost(username: alert.textFields?[1].text ?? "Anonymous",
+        let textPost = TextPost(username: alert.textFields?[0].text ?? "Anonymous",
                                 timeStamp: Date(),
                                 textBody: alert.textFields?[1].text)
         
@@ -102,7 +102,7 @@ class MediaPostsViewModel {
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
       
       alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-        let imagePost = ImagePost(username: alert.textFields?[1].text ?? "Anonymous",
+        let imagePost = ImagePost(username: alert.textFields?[0].text ?? "Anonymous",
                                   timeStamp: Date(),
                                   textBody: alert.textFields?[1].text,
                                   image: image)

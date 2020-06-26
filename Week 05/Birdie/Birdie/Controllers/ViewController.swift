@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-
+  @IBOutlet weak var tableViewEditButton: UIButton!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,15 +26,33 @@ class ViewController: UIViewController {
   }
   
   
+  func updateViewToStartEditing() {
+    tableViewEditButton.setTitle("Done", for: .normal)
+    tableView.setEditing(true, animated: true)
+  }
+  
+  
+  func updateViewToFinishEditing() {
+    tableViewEditButton.setTitle("Edit", for: .normal)
+    tableView.setEditing(false, animated: true)
+  }
+  
+  
   @IBAction func didPressCreateTextPostButton(_ sender: UIButton) {
+    updateViewToFinishEditing()
     MediaPostsViewModel.shared.createTextPost(for: tableView, in: self)
   }
   
   
   @IBAction func didPressCreateImagePostButton(_ sender: UIButton) {
+    updateViewToFinishEditing()
     MediaPostsViewModel.shared.presentImagePicker(in: self)
   }
   
+  
+  @IBAction func didPressTableViewEditingMode(_ sender: UIButton) {
+    tableView.isEditing ? updateViewToFinishEditing() : updateViewToStartEditing()
+  }
 }
 
 
@@ -68,8 +87,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   
+  func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    MediaPostsHandler.shared.movePost(MediaPostsHandler.shared.mediaPosts[sourceIndexPath.row],
+                                      from: sourceIndexPath.row,
+                                      to: destinationIndexPath.row)
+    tableView.reloadData()
+    
+  }
+  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+  }
+  
+  
+  override func setEditing(_ editing: Bool, animated: Bool) {
+    super.setEditing(tableView.isEditing, animated: true)
   }
   
 }
@@ -82,9 +114,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     guard let pickedImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
     
     dismiss(animated: true, completion: {
-      MediaPostsViewModel.shared.createImagePost(for: self.tableView,
-                                                 with: pickedImage,
-                                                 in: self)
+      MediaPostsViewModel.shared.createImagePost(for: self.tableView, with: pickedImage, in: self)
     })
   }
   

@@ -57,4 +57,10 @@ class MediaPostsHandler: NSObject {
     mediaPosts.remove(at: index)
   }
   
+  
+  func movePost(_ post: MediaPost, from sourceIndex: Int, to destinationIndex: Int) {
+    mediaPosts.remove(at: sourceIndex)
+    mediaPosts.insert(post, at: destinationIndex)
+  }
+  
 }
