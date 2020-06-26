@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  @IBOutlet weak var tableview: UITableView!
-  var selectedImage: UIImage?
+  @IBOutlet weak var tableView: UITableView!
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,86 +25,13 @@ class ViewController: UIViewController {
   }
   
   
-  func createTextPostAlert() {
-    let alert = UIAlertController(title: "Create Text Post",
-                                  message: "What do you want to post?",
-                                  preferredStyle: .alert)
-    
-    alert.addTextField { (textField) in
-      textField.placeholder = "Username"
-    }
-    
-    alert.addTextField { (textField) in
-      textField.placeholder = "Post"
-    }
-    
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
-    
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-      let textPost = TextPost(username: alert.textFields?[0].text ?? "N/A",
-                              timeStamp: Date(),
-                              textBody: alert.textFields?[1].text ?? "Anonymous")
-      
-      MediaPostsHandler.shared.addTextPost(textPost: textPost)
-      self.tableview.reloadData()
-    }))
-    
-    present(alert, animated: true)
-  }
-  
-  
-  func createImagePostAlert() {
-    let alert = UIAlertController(title: "Create Image Post",
-                                  message: "What do you want to post?",
-                                  preferredStyle: .alert)
-    
-    alert.addTextField { (textField) in
-      textField.placeholder = "Username"
-    }
-    
-    alert.addTextField { (textField) in
-      textField.placeholder = "Post"
-    }
-    
-    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
-    
-    alert.addAction(UIAlertAction(title: "OK", style: .default, handler:{ (UIAlertAction) in
-      let imagePost = ImagePost(username: alert.textFields?[0].text ?? "N/A",
-                                timeStamp: Date(),
-                                textBody: alert.textFields?[1].text ?? "Anonymous",
-                                image: self.selectedImage!)
-      
-      MediaPostsHandler.shared.addImagePost(imagePost: imagePost)
-      self.tableview.reloadData()
-    }))
-    
-    present(alert, animated: true)
-  }
-  
-  
-  func pickAnImageFromLibrary() {
-    let pickerController = UIImagePickerController()
-    pickerController.delegate = self
-    pickerController.allowsEditing = false
-    
-    if UIImagePickerController.isSourceTypeAvailable(.camera) {
-      pickerController.sourceType = .camera
-    } else {
-      pickerController.sourceType = .photoLibrary
-      pickerController.modalPresentationStyle = .fullScreen
-    }
-    
-    present(pickerController, animated: true)
-  }
-  
-  
   @IBAction func didPressCreateTextPostButton(_ sender: UIButton) {
-    createTextPostAlert()
+    MediaPostsViewModel.shared.createTextPost(for: tableView, in: self)
   }
   
   
   @IBAction func didPressCreateImagePostButton(_ sender: UIButton) {
-    pickAnImageFromLibrary()
+    MediaPostsViewModel.shared.presentImagePicker(in: self)
   }
   
 }
@@ -114,9 +41,9 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   func setupTableView() {
-    tableview.delegate = self
-    tableview.dataSource = self
-    tableview.separatorStyle = .none
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.separatorStyle = .none
   }
   
   
@@ -131,7 +58,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   
-  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView,
+                 commit editingStyle: UITableViewCell.EditingStyle,
+                 forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
       MediaPostsHandler.shared.removePost(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -150,11 +79,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] else { return }
+    guard let pickedImage: UIImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
     
-    dismiss(animated: true, completion: nil)
-    selectedImage = pickedImage as? UIImage
-    createImagePostAlert()
+    dismiss(animated: true, completion: {
+      MediaPostsViewModel.shared.createImagePost(for: self.tableView,
+                                                 with: pickedImage,
+                                                 in: self)
+    })
   }
   
 }
