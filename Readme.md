@@ -1,6 +1,6 @@
 <!-- Header -->
 <img src="./Assets/Bootcamp.png"/>
-<h1>Ray Wenderlich iOS Bootcamp \[Summer 2020]</h1>
+<h1>Ray Wenderlich iOS Bootcamp [Summer 2020]</h1>
 
 [![](https://img.shields.io/badge/Contact-@BEstelrichS-00ACEE.svg?style=flatl&logo=twitter)](https://twitter.com/BEstelrichS)
 
@@ -68,6 +68,14 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	📱 Assignment: <a href="./Week%2005/Readme.md">Birdie</a>
 	<p>
 </details>
+
+<details>
+	<summary><b>Week 06. Collection views</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/5429927-beginning-collection-views">Beginning Collection Views</a><br/>
+	📱 Assignment: <a href="./Week%2006/Readme.md">Pokemon</a>
+	<p>
+	</details>
 
 
 <!-- Footer -->
