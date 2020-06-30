@@ -73,7 +73,7 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	<summary><b>Week 06. Collection views</b></summary>
 	<p>
 	📚 Video course: <a href="https://www.raywenderlich.com/5429927-beginning-collection-views">Beginning Collection Views</a><br/>
-	📱 Assignment: <a href="./Week%2006/Readme.md">Pokemon</a>
+	📱 Assignment: <a href="./Week%2006/Readme.md">Pokedex</a>
 	<p>
 	</details>
 
