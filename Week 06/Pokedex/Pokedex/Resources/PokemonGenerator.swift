@@ -29,38 +29,48 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-
 import Foundation
+
 
 class PokemonGenerator {
   
   public static let shared = PokemonGenerator()
   
+  
   private init () { }
+  
   
   func generatePokemons() -> [Pokemon] {
     var pokemons: [Pokemon] = []
-    let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")
+    
+    let path = Bundle.main.path(forResource: "Pokemon", ofType: "csv")
+    
     do {
       let csv = try CSV(contentsOfURL: path ?? "")
       let rows = csv.rows
+      
       for row in rows {
-        let pokeID = Int(row["id"] ?? "") ?? 0
+        let id = Int(row["id"] ?? "") ?? 0
         let name = row["identifier"] ?? ""
         let weight = Int(row["weight"] ?? "") ?? 0
         let height = Int(row["height"] ?? "") ?? 0
-        let baseExp = Int(row["base_experience"] ?? "") ?? 0
+        let baseExperience = Int(row["base_experience"] ?? "") ?? 0
         
-        /*
-        let pokemon = Pokemon(pokemonID: pokeID, pokemonName: name.capitalized, baseExp: baseExp, height: height, weight: weight)
-        */
+        let pokemon = Pokemon(id: id,
+                              name: name.capitalized,
+                              weight: weight,
+                              height: height,
+                              baseExperience: baseExperience)
         
-        //pokemons.append(pokemon)
+        pokemons.append(pokemon)
       }
+      
       return pokemons
     } catch let error {
       print("\(error.localizedDescription)")
     }
+    
     return pokemons
   }
+  
 }
