@@ -32,47 +32,15 @@
 import UIKit
 
 
-class CompactViewController: UIViewController {
+class LargeViewController: UIViewController {
+  
+  static let reuseIdentifier = String(describing: LargeViewController.self)
   
   @IBOutlet weak var collectionView: UICollectionView!
-  
-  var pokemons: [Pokemon]!
-  let collectionViewDelegate = CompactPokemonCollectionViewDelegate(interitemSpacing: 20, lineSpacing: 20)
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    generatePokemons()
-    configureCollectionView()
-  }
-  
-  
-  func generatePokemons() {
-    pokemons = PokemonGenerator.shared.generatePokemons()
-  }
-  
-  
-  func configureCollectionView() {
-    collectionView.delegate = collectionViewDelegate
-    collectionView.dataSource = self
-  }
-  
-}
-
-
-extension CompactViewController: UICollectionViewDataSource {
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    pokemons.count
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return UICollectionViewCell() }
-    
-    let pokemon = pokemons[indexPath.row]
-    cell.populate(with: pokemon)
-    return cell
   }
   
 }

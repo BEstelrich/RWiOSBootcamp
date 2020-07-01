@@ -32,17 +32,35 @@
 import UIKit
 
 
-class PokemonCollectionViewCell: UICollectionViewCell {
+@IBDesignable
+class CompactPokemonCollectionViewCell: UICollectionViewCell {
   
-  static let reuseIdentifier = String(describing: PokemonCollectionViewCell.self)
+  static let reuseIdentifier = String(describing: CompactPokemonCollectionViewCell.self)
     
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var idImageView: UIImageView!
+  @IBOutlet weak var thumbnailImageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    configure()
+  }
+  
+  
+  required init?(coder: NSCoder) {
+    super.init(coder: coder)
+    configure()
+  }
   
   
   func populate(with pokemon: Pokemon) {
-    titleLabel.text = pokemon.name
-    idImageView.image = UIImage(named: "\(pokemon.id)")
+    nameLabel.text = pokemon.name
+    thumbnailImageView.image = UIImage(named: "\(pokemon.id)")
   }
   
+  
+  private func configure() {
+    layer.cornerRadius = 15
+  }
+
 }

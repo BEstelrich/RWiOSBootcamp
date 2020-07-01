@@ -64,13 +64,17 @@ class PokemonGenerator {
         
         pokemons.append(pokemon)
       }
-      
       return pokemons
     } catch let error {
       print("\(error.localizedDescription)")
     }
     
     return pokemons
+  }
+  
+  
+  func test() -> [Pokemon] {
+    return generatePokemons()
   }
   
 }

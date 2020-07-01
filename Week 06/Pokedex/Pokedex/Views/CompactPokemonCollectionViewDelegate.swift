@@ -32,47 +32,35 @@
 import UIKit
 
 
-class CompactViewController: UIViewController {
+class CompactPokemonCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
   
-  @IBOutlet weak var collectionView: UICollectionView!
+  let layout = UICollectionViewFlowLayout()
+  let numberOfItemsPerRow: CGFloat = 3
+  var interitemSpacing: CGFloat
+//  var lineSpacing: CGFloat
   
-  var pokemons: [Pokemon]!
-  let collectionViewDelegate = CompactPokemonCollectionViewDelegate(interitemSpacing: 20, lineSpacing: 20)
-  
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    generatePokemons()
-    configureCollectionView()
+  init(interitemSpacing: CGFloat, lineSpacing: CGFloat) {
+    layout.minimumInteritemSpacing = interitemSpacing
+    layout.minimumLineSpacing = lineSpacing
+    self.interitemSpacing = interitemSpacing
   }
   
   
-  func generatePokemons() {
-    pokemons = PokemonGenerator.shared.generatePokemons()
-  }
-  
-  
-  func configureCollectionView() {
-    collectionView.delegate = collectionViewDelegate
-    collectionView.dataSource = self
-  }
-  
-}
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let maxWidth = UIScreen.main.bounds.width
+    let totalSpacing = interitemSpacing * numberOfItemsPerRow
 
-
-extension CompactViewController: UICollectionViewDataSource {
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    pokemons.count
+    let itemWidth = (maxWidth - totalSpacing)/numberOfItemsPerRow
+    return CGSize(width: itemWidth, height: itemWidth)
   }
   
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return UICollectionViewCell() }
-    
-    let pokemon = pokemons[indexPath.row]
-    cell.populate(with: pokemon)
-    return cell
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return interitemSpacing
   }
   
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+      return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+  }
 }

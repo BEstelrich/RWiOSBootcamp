@@ -32,47 +32,23 @@
 import UIKit
 
 
-class CompactViewController: UIViewController {
+class LargePokemonCollectionViewCell: UICollectionViewCell {
   
-  @IBOutlet weak var collectionView: UICollectionView!
+  static let reuseIdentifer = String(describing: LargePokemonCollectionViewCell.self)
   
-  var pokemons: [Pokemon]!
-  let collectionViewDelegate = CompactPokemonCollectionViewDelegate(interitemSpacing: 20, lineSpacing: 20)
-  
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    generatePokemons()
-    configureCollectionView()
-  }
+  @IBOutlet weak var idImageView: UIImageView!
+  @IBOutlet weak var nameLabel: UILabel!
+  @IBOutlet weak var baseExperienceLabel: UILabel!
+  @IBOutlet weak var heightLabel: UILabel!
+  @IBOutlet weak var weightLabel: UILabel!
   
   
-  func generatePokemons() {
-    pokemons = PokemonGenerator.shared.generatePokemons()
-  }
-  
-  
-  func configureCollectionView() {
-    collectionView.delegate = collectionViewDelegate
-    collectionView.dataSource = self
-  }
-  
-}
-
-
-extension CompactViewController: UICollectionViewDataSource {
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    pokemons.count
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return UICollectionViewCell() }
-    
-    let pokemon = pokemons[indexPath.row]
-    cell.populate(with: pokemon)
-    return cell
+  func populateDetails(with pokemon: Pokemon) {
+    idImageView.image = UIImage(named: "\(pokemon.id)")
+    nameLabel.text = pokemon.name
+    baseExperienceLabel.text = String(describing: pokemon.baseExperience)
+    heightLabel.text = String(describing: pokemon.height)
+    weightLabel.text = String(describing: pokemon.weight)
   }
   
 }
