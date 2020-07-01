@@ -32,17 +32,63 @@
 import UIKit
 
 
-class PokemonCollectionViewCell: UICollectionViewCell {
+class CompactViewController: UIViewController {
   
-  static let reuseIdentifier = String(describing: PokemonCollectionViewCell.self)
-    
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var idImageView: UIImageView!
+  @IBOutlet weak var collectionView: UICollectionView!
+  
+  var pokemons: [Pokemon]!
   
   
-  func populate(with pokemon: Pokemon) {
-    titleLabel.text = pokemon.name
-    idImageView.image = UIImage(named: "\(pokemon.id)")
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    generatePokemons()
+    configureCollectionView()
+  }
+  
+  
+  func generatePokemons() {
+    pokemons = PokemonGenerator.shared.generatePokemons()
+  }
+  
+  
+  func configureCollectionView() {
+    collectionView.delegate = self
+    collectionView.dataSource = self
   }
   
 }
+
+
+extension CompactViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let maxWidth = UIScreen.main.bounds.width
+    let totalSpacing = 10 * 3
+    let itemWidth = (Int(maxWidth) - totalSpacing)/3
+
+    return CGSize(width: itemWidth, height: itemWidth)
+  }
+  
+}
+
+
+extension CompactViewController: UICollectionViewDataSource {
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    pokemons.count
+  }
+  
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokemonCollectionViewCell.reuseIdentifier,
+                                                        for: indexPath) as? PokemonCollectionViewCell else {
+      return UICollectionViewCell()
+    }
+    
+    let pokemon = pokemons[indexPath.row]
+    cell.populate(with: pokemon)
+    return cell
+  }
+  
+}
+
