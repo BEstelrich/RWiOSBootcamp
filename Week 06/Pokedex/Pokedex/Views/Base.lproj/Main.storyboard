@@ -230,17 +230,18 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kD-3S-1rX">
                                                     <rect key="frame" x="0.0" y="133" width="177" height="35"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c77-RZ-22R">
-                                                            <rect key="frame" x="72.5" y="8.5" width="32" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c77-RZ-22R">
+                                                            <rect key="frame" x="5" y="9" width="167" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="c77-RZ-22R" firstAttribute="centerX" secondItem="3kD-3S-1rX" secondAttribute="centerX" id="Hxo-cV-Nes"/>
                                                         <constraint firstAttribute="height" constant="35" id="JjD-uW-7mR"/>
+                                                        <constraint firstAttribute="trailing" secondItem="c77-RZ-22R" secondAttribute="trailing" constant="5" id="VYf-Q0-iPC"/>
+                                                        <constraint firstItem="c77-RZ-22R" firstAttribute="leading" secondItem="3kD-3S-1rX" secondAttribute="leading" constant="5" id="ZyW-Ix-Bfc"/>
                                                         <constraint firstItem="c77-RZ-22R" firstAttribute="centerY" secondItem="3kD-3S-1rX" secondAttribute="centerY" id="cgO-Tk-CgK"/>
                                                     </constraints>
                                                 </view>

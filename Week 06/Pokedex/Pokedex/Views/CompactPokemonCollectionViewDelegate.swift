@@ -34,33 +34,54 @@ import UIKit
 
 class CompactPokemonCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
   
-  let layout = UICollectionViewFlowLayout()
-  let numberOfItemsPerRow: CGFloat = 3
+  var numberOfItemsPerRow: CGFloat
   var interitemSpacing: CGFloat
-//  var lineSpacing: CGFloat
+  var lineSpacing: CGFloat
+  var sectionInsetSpacing: CGFloat
   
-  init(interitemSpacing: CGFloat, lineSpacing: CGFloat) {
-    layout.minimumInteritemSpacing = interitemSpacing
-    layout.minimumLineSpacing = lineSpacing
-    self.interitemSpacing = interitemSpacing
+  var cellSize: CGSize {
+    calculateCellSize()
   }
   
   
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let maxWidth = UIScreen.main.bounds.width
-    let totalSpacing = interitemSpacing * numberOfItemsPerRow
+  init(interitemSpacing: CGFloat = 10,
+       lineSpacing: CGFloat = 10,
+       sectionInsetSpacing: CGFloat = 10,
+       numberOfItemsPerRow: CGFloat = 3) {
+    self.interitemSpacing = interitemSpacing
+    self.lineSpacing = lineSpacing
+    self.sectionInsetSpacing = sectionInsetSpacing
+    self.numberOfItemsPerRow = numberOfItemsPerRow
+  }
+  
+  
+  func calculateCellSize() -> CGSize {
+    let maximumWidth = UIScreen.main.bounds.width
 
-    let itemWidth = (maxWidth - totalSpacing)/numberOfItemsPerRow
+    let interitemTotalSpacing = interitemSpacing * (numberOfItemsPerRow - 1)
+    let insetForSectionTotalSpacing = sectionInsetSpacing * 2
+    let totalSpacing = interitemTotalSpacing + insetForSectionTotalSpacing
+    
+    let itemWidth = (maximumWidth - totalSpacing)/numberOfItemsPerRow
     return CGSize(width: itemWidth, height: itemWidth)
   }
   
   
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return cellSize
+  }
+  
+  
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return interitemSpacing
+    return lineSpacing
   }
   
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-      return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+      return UIEdgeInsets(top: sectionInsetSpacing,
+                          left: sectionInsetSpacing,
+                          bottom: sectionInsetSpacing,
+                          right: sectionInsetSpacing)
   }
+  
 }

@@ -36,9 +36,8 @@ class CompactViewController: UIViewController {
   
   @IBOutlet weak var collectionView: UICollectionView!
   
-  var pokemons: [Pokemon]!
-  let collectionViewDelegate = CompactPokemonCollectionViewDelegate(interitemSpacing: 20, lineSpacing: 20)
-  
+  var dataSource: [Pokemon]!
+  let delegate = CompactPokemonCollectionViewDelegate()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -48,13 +47,20 @@ class CompactViewController: UIViewController {
   
   
   func generatePokemons() {
-    pokemons = PokemonGenerator.shared.generatePokemons()
+    dataSource = PokemonGenerator.shared.generatePokemons()
   }
   
   
   func configureCollectionView() {
-    collectionView.delegate = collectionViewDelegate
+    collectionView.delegate = delegate
     collectionView.dataSource = self
+  }
+  
+  
+  /// This method guaranties that are only three columns in the collection-view when the device rotates.
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+    flowLayout.invalidateLayout()
   }
   
 }
@@ -63,14 +69,14 @@ class CompactViewController: UIViewController {
 extension CompactViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    pokemons.count
+    dataSource.count
   }
   
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return UICollectionViewCell() }
     
-    let pokemon = pokemons[indexPath.row]
+    let pokemon = dataSource[indexPath.row]
     cell.populate(with: pokemon)
     return cell
   }
