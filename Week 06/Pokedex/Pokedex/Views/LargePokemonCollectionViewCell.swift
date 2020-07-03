@@ -35,7 +35,7 @@ import UIKit
 @IBDesignable
 class LargePokemonCollectionViewCell: UICollectionViewCell {
   
-  static let reuseIdentifer = String(describing: LargePokemonCollectionViewCell.self)
+  static let reuseIdentifier = String(describing: LargePokemonCollectionViewCell.self)
   
   @IBOutlet weak var thumbnailImageView: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
@@ -56,7 +56,7 @@ class LargePokemonCollectionViewCell: UICollectionViewCell {
   }
   
   
-  func populateDetails(with pokemon: Pokemon) {
+  func populate(with pokemon: Pokemon) {
     thumbnailImageView.image = UIImage(named: "\(pokemon.id)")
     nameLabel.text = pokemon.name
     baseExperienceLabel.text = String(describing: pokemon.baseExperience)

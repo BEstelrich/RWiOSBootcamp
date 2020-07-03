@@ -32,13 +32,23 @@
 import Foundation
 
 
-struct Pokemon {
+struct Pokemon: Decodable, Hashable {
   
   let id: Int
   let name: String
   let weight: Int
   let height: Int
   let baseExperience: Int
+  
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
+  
+  
+  static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
+    return lhs.id == rhs.id
+  }
   
 }
 
