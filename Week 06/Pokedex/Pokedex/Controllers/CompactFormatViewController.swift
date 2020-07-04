@@ -32,53 +32,77 @@
 import UIKit
 
 
+//class CompactFormatViewController: UIViewController {
+//
+//  @IBOutlet weak var collectionView: UICollectionView!
+//
+//  var dataSource: [Pokemon]!
+//  let delegate = CompactPokemonCollectionViewDelegate()
+//
+//  override func viewDidLoad() {
+//    super.viewDidLoad()
+//    generatePokemons()
+//    configureCollectionView()
+//  }
+//
+//
+//  func generatePokemons() {
+//    dataSource = PokemonGenerator.shared.generatePokemons()
+//  }
+//
+//
+//  func configureCollectionView() {
+//    collectionView.delegate = delegate
+//    collectionView.dataSource = self
+//  }
+//
+//
+//  /// This method guaranties that are only three columns in the collection-view when the device rotates.
+//  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//    guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+//    flowLayout.invalidateLayout()
+//  }
+//
+//}
+//
+//
+//extension CompactFormatViewController: UICollectionViewDataSource {
+//
+//  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//    dataSource.count
+//  }
+//
+//
+//  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return UICollectionViewCell() }
+//
+//    let pokemon = dataSource[indexPath.row]
+//    cell.populate(with: pokemon)
+//    return cell
+//  }
+//
+//}
+
+
 class CompactFormatViewController: UIViewController {
-  
+
   @IBOutlet weak var collectionView: UICollectionView!
   
-  var dataSource: [Pokemon]!
-  let delegate = CompactPokemonCollectionViewDelegate()
+  private var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
+  private lazy var pokemons = {
+    PokemonGenerator.shared.generatePokemons()
+  }()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    generatePokemons()
     configureCollectionView()
   }
   
   
-  func generatePokemons() {
-    dataSource = PokemonGenerator.shared.generatePokemons()
-  }
-  
-  
   func configureCollectionView() {
-    collectionView.delegate = delegate
-    collectionView.dataSource = self
-  }
-  
-  
-  /// This method guaranties that are only three columns in the collection-view when the device rotates.
-  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-    guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-    flowLayout.invalidateLayout()
-  }
-  
-}
-
-
-extension CompactFormatViewController: UICollectionViewDataSource {
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    dataSource.count
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return UICollectionViewCell() }
-    
-    let pokemon = dataSource[indexPath.row]
-    cell.populate(with: pokemon)
-    return cell
+    collectionView.collectionViewLayout = LayoutCoordinator.configureCompactFormat()
+    dataSource = DataManager.configure(with: pokemons, in: collectionView, format: .compact)
   }
   
 }

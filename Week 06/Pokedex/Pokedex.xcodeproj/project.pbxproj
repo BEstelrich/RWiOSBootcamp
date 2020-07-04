@@ -18,6 +18,8 @@
 		A125200A24AAAB71008F7E2E /* Pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = A125200824AAAB71008F7E2E /* Pokemon.csv */; };
 		A125200B24AAAB71008F7E2E /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = A125200924AAAB71008F7E2E /* csv.swift */; };
 		A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A125200C24AAABA0008F7E2E /* PokemonGenerator.swift */; };
+		C956F52D24B1350F00FA9BBC /* LayoutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956F52C24B1350F00FA9BBC /* LayoutCoordinator.swift */; };
+		C956F52F24B146BA00FA9BBC /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956F52E24B146BA00FA9BBC /* DataManager.swift */; };
 		C999C0F724AE9BF200C76518 /* CompactPokemonCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C999C0F624AE9BF200C76518 /* CompactPokemonCollectionViewDelegate.swift */; };
 		C9EE631124AD37F60065BC84 /* CompactFormatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE631024AD37F60065BC84 /* CompactFormatViewController.swift */; };
 		C9EE631324AD394E0065BC84 /* CompactPokemonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE631224AD394E0065BC84 /* CompactPokemonCollectionViewCell.swift */; };
@@ -39,6 +41,8 @@
 		A125200824AAAB71008F7E2E /* Pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Pokemon.csv; sourceTree = "<group>"; };
 		A125200924AAAB71008F7E2E /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 		A125200C24AAABA0008F7E2E /* PokemonGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonGenerator.swift; sourceTree = "<group>"; };
+		C956F52C24B1350F00FA9BBC /* LayoutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutCoordinator.swift; sourceTree = "<group>"; };
+		C956F52E24B146BA00FA9BBC /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		C999C0F624AE9BF200C76518 /* CompactPokemonCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactPokemonCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		C9EE631024AD37F60065BC84 /* CompactFormatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactFormatViewController.swift; sourceTree = "<group>"; };
 		C9EE631224AD394E0065BC84 /* CompactPokemonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactPokemonCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -116,8 +120,9 @@
 				180DC61423C78D9800486B1A /* LaunchScreen.storyboard */,
 				185CB20123C78CE6009F7571 /* Main.storyboard */,
 				C9EE631224AD394E0065BC84 /* CompactPokemonCollectionViewCell.swift */,
-				C999C0F624AE9BF200C76518 /* CompactPokemonCollectionViewDelegate.swift */,
 				C9EE631624AD4C320065BC84 /* LargePokemonCollectionViewCell.swift */,
+				C999C0F624AE9BF200C76518 /* CompactPokemonCollectionViewDelegate.swift */,
+				C956F52C24B1350F00FA9BBC /* LayoutCoordinator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				A10D04F824ABC8DB00DE5D14 /* Pokemon.swift */,
+				C956F52E24B146BA00FA9BBC /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,11 +241,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9EE631124AD37F60065BC84 /* CompactFormatViewController.swift in Sources */,
+				C956F52F24B146BA00FA9BBC /* DataManager.swift in Sources */,
 				A10D04F924ABC8DB00DE5D14 /* Pokemon.swift in Sources */,
 				A125200B24AAAB71008F7E2E /* csv.swift in Sources */,
 				C9EE631324AD394E0065BC84 /* CompactPokemonCollectionViewCell.swift in Sources */,
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,
 				185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */,
+				C956F52D24B1350F00FA9BBC /* LayoutCoordinator.swift in Sources */,
 				C9EE631724AD4C320065BC84 /* LargePokemonCollectionViewCell.swift in Sources */,
 				C9EE631524AD4A800065BC84 /* LargeFormatViewController.swift in Sources */,
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,

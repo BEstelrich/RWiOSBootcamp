@@ -32,60 +32,56 @@
 import UIKit
 
 
-class CompactPokemonCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
-  
-  var numberOfItemsPerRow: CGFloat
-  var interitemSpacing: CGFloat
-  var lineSpacing: CGFloat
-  var sectionInsetSpacing: CGFloat
-  
-  var cellSize: CGSize {
-    calculateCellSize()
-  }
-  
-  
-  init(interitemSpacing: CGFloat = 10,
-       lineSpacing: CGFloat = 10,
-       sectionInsetSpacing: CGFloat = 10,
-       numberOfItemsPerRow: CGFloat = 3) {
-    self.interitemSpacing = interitemSpacing
-    self.lineSpacing = lineSpacing
-    self.sectionInsetSpacing = sectionInsetSpacing
-    self.numberOfItemsPerRow = numberOfItemsPerRow
-  }
-  
-  
-  func calculateCellSize() -> CGSize {
-    let maximumWidth = UIScreen.main.bounds.width
-
-    let interitemTotalSpacing = interitemSpacing * (numberOfItemsPerRow - 1)
-    let insetForSectionTotalSpacing = sectionInsetSpacing * 2
-    let totalSpacing = interitemTotalSpacing + insetForSectionTotalSpacing
-    
-    let itemWidth = (maximumWidth - totalSpacing)/numberOfItemsPerRow
-    return CGSize(width: itemWidth, height: itemWidth)
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return cellSize
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return lineSpacing
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-      return UIEdgeInsets(top: sectionInsetSpacing,
-                          left: sectionInsetSpacing,
-                          bottom: sectionInsetSpacing,
-                          right: sectionInsetSpacing)
-  }
-  
+enum Section {
+  case main
 }
 
 
+enum Format {
+  case compact
+  case large
+}
 
 
+class DataManager {
+  
+  typealias PokemonDataSource = UICollectionViewDiffableDataSource<Section, Pokemon>
+  typealias PokemonSnapshot = NSDiffableDataSourceSnapshot<Section, Pokemon>
+
+  
+  private static func configureDataSource(for collectionView: UICollectionView, format: Format) -> PokemonDataSource {
+
+    let dataSource = UICollectionViewDiffableDataSource<Section, Pokemon>(collectionView: collectionView) { (collectionView, indexPath, pokemon) -> UICollectionViewCell? in
+      
+      #warning("Make a switch to alternate between cells.")
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return nil }
+      
+      cell.populate(with: pokemon)
+      return cell
+    }
+    
+    return dataSource
+  }
+  
+  
+  private static func configureSnapshot(of pokemons: [Pokemon], with dataSource: PokemonDataSource) -> PokemonSnapshot {
+    var currentSnapshot = NSDiffableDataSourceSnapshot<Section, Pokemon>()
+    currentSnapshot.appendSections([.main])
+    currentSnapshot.appendItems(pokemons)
+    
+    return currentSnapshot
+  }
+  
+  
+  static func configure(with pokemons: [Pokemon], in collectionView: UICollectionView, format: Format) -> PokemonDataSource {
+    var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
+    var snapshot: NSDiffableDataSourceSnapshot<Section, Pokemon>!
+    
+    dataSource = configureDataSource(for: collectionView, format: format)
+    snapshot = configureSnapshot(of: pokemons, with: dataSource)
+    dataSource.apply(snapshot, animatingDifferences: true)
+    
+    return dataSource
+  }
+  
+}
