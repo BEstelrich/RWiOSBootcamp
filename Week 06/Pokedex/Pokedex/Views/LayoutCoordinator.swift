@@ -34,7 +34,7 @@ import UIKit
 
 class LayoutCoordinator {
   
-  static func configureLayout(cell cellFormat: Format) -> UICollectionViewCompositionalLayout {
+  static func configureLayout(_ cellFormat: Format) -> UICollectionViewCompositionalLayout {
     switch cellFormat {
     case .compactCell:
       return configureCompactCell()
@@ -73,7 +73,7 @@ class LayoutCoordinator {
                                             heightDimension: .fractionalHeight(1.0))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
       item.contentInsets = NSDirectionalEdgeInsets(top: 50, leading: 10, bottom: 50, trailing: 10)
-
+      
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75),
                                              heightDimension: .fractionalHeight(1.0))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])

@@ -46,7 +46,7 @@ class CompactFormatViewController: UIViewController {
   
   
   func configureCollectionView() {
-    collectionView.collectionViewLayout = LayoutCoordinator.configureLayout(cell: .compactCell)
+    collectionView.collectionViewLayout = LayoutCoordinator.configureLayout(.compactCell)
     dataSource = DataManager.configureDataSource(for: collectionView, with: .compactCell)
     dataSource.apply(DataManager.configureSnapshot(), animatingDifferences: true)
   }

@@ -46,7 +46,7 @@ class LargeFormatViewController: UIViewController {
   
   
   func configureCollectionView() {
-    collectionView.collectionViewLayout = LayoutCoordinator.configureLayout(cell: .largeCell)
+    collectionView.collectionViewLayout = LayoutCoordinator.configureLayout(.largeCell)
     dataSource = DataManager.configureDataSource(for: collectionView, with: .largeCell)
     dataSource.apply(DataManager.configureSnapshot(), animatingDifferences: true)
   }

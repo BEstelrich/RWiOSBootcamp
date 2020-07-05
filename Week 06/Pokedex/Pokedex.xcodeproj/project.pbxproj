@@ -132,9 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				A10D04F824ABC8DB00DE5D14 /* Pokemon.swift */,
-				C956F52E24B146BA00FA9BBC /* DataManager.swift */,
-				C96D504C24B269C6009BBE95 /* Format.swift */,
 				C96D504E24B26A28009BBE95 /* Section.swift */,
+				C96D504C24B269C6009BBE95 /* Format.swift */,
+				C956F52E24B146BA00FA9BBC /* DataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
