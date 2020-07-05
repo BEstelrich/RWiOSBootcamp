@@ -1,8 +1,8 @@
 <!-- Header -->
-<img src="./Assets/Bootcamp.png"/>
+<img src="./Assets/W00_Bootcamp.png"/>
 <h1>Ray Wenderlich iOS Bootcamp [Summer 2020]</h1>
 
-[![](https://img.shields.io/badge/Contact-@BEstelrichS-00ACEE.svg?style=flatl&logo=twitter)](https://twitter.com/BEstelrichS)
+[![](https://img.shields.io/badge/-@BEstelrichS-00ACEE.svg?style=social&logo=twitter)](https://twitter.com/BEstelrichS)
 
 
 <!-- Body -->

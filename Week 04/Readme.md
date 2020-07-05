@@ -1,10 +1,10 @@
 <!-- Header -->
-<img src="./Assets/AppIcon.png" width="60" align="right"/>
+<img src="../Assets/W04_AppIcon.png" width="60" align="right"/>
 <h1>Week 04. Layout, testing and debugging</h1>
 
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg?longCache=true&style=flat&logo=swift)](https://www.swift.org)
 [![iOS](https://img.shields.io/badge/iOS-13.5+-lightgrey.svg?longCache=true&?style=flat&logo=apple)](https://developer.apple.com/ios/)
-[![](https://img.shields.io/badge/Contact-@BEstelrichS-00ACEE.svg?style=flatl&logo=twitter)](https://twitter.com/BEstelrichS)
+[![](https://img.shields.io/badge/-@BEstelrichS-00ACEE.svg?style=social&logo=twitter)](https://twitter.com/BEstelrichS)
 
 
 <!-- Body -->
@@ -29,17 +29,17 @@ Those are the most relevant screenshots on the app.
 ### *1. ComparisonShopper*
 
 <p align="left">
-	<img src="./Assets/Screenshot1.png" height="500"/>
-	<img src="./Assets/Screenshot2.png" height="500"/>
-	<img src="./Assets/Screenshot3.png" height="500"/>
+	<img src="../Assets/W04_Screenshot1.png" height="500"/>
+	<img src="../Assets/W04_Screenshot2.png" height="500"/>
+	<img src="../Assets/W04_Screenshot3.png" height="500"/>
 </p>
 
 ### *2. CompatibilitySlider*
 
 <p align="left">
-	<img src="./Assets/Screenshot4.png" height="500"/>
-	<img src="./Assets/Screenshot5.png" height="500"/>
-	<img src="./Assets/Screenshot6.png" height="500"/>
+	<img src="../Assets/W04_Screenshot4.png" height="500"/>
+	<img src="../Assets/W04_Screenshot5.png" height="500"/>
+	<img src="../Assets/W04_Screenshot6.png" height="500"/>
 </p>
 
 
