@@ -29,63 +29,10 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-import UIKit
+import Foundation
 
 
-class CompactPokemonCollectionViewDelegate: NSObject, UICollectionViewDelegateFlowLayout {
-  
-  var numberOfItemsPerRow: CGFloat
-  var interitemSpacing: CGFloat
-  var lineSpacing: CGFloat
-  var sectionInsetSpacing: CGFloat
-  
-  var cellSize: CGSize {
-    calculateCellSize()
-  }
-  
-  
-  init(interitemSpacing: CGFloat = 10,
-       lineSpacing: CGFloat = 10,
-       sectionInsetSpacing: CGFloat = 10,
-       numberOfItemsPerRow: CGFloat = 3) {
-    self.interitemSpacing = interitemSpacing
-    self.lineSpacing = lineSpacing
-    self.sectionInsetSpacing = sectionInsetSpacing
-    self.numberOfItemsPerRow = numberOfItemsPerRow
-  }
-  
-  
-  func calculateCellSize() -> CGSize {
-    let maximumWidth = UIScreen.main.bounds.width
-
-    let interitemTotalSpacing = interitemSpacing * (numberOfItemsPerRow - 1)
-    let insetForSectionTotalSpacing = sectionInsetSpacing * 2
-    let totalSpacing = interitemTotalSpacing + insetForSectionTotalSpacing
-    
-    let itemWidth = (maximumWidth - totalSpacing)/numberOfItemsPerRow
-    return CGSize(width: itemWidth, height: itemWidth)
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return cellSize
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return lineSpacing
-  }
-  
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-      return UIEdgeInsets(top: sectionInsetSpacing,
-                          left: sectionInsetSpacing,
-                          bottom: sectionInsetSpacing,
-                          right: sectionInsetSpacing)
-  }
-  
+enum Format {
+  case compact
+  case large
 }
-
-
-
-

@@ -29,26 +29,9 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-import UIKit
+import Foundation
 
 
-class CompactFormatViewController: UIViewController {
-  
-  @IBOutlet weak var collectionView: UICollectionView!
-  
-  private var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
-
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    configureCollectionView()
-  }
-  
-  
-  func configureCollectionView() {
-    collectionView.collectionViewLayout = LayoutCoordinator.configureLayout(cell: .compactCell)
-    dataSource = DataManager.configureDataSource(for: collectionView, with: .compactCell)
-    dataSource.apply(DataManager.configureSnapshot(), animatingDifferences: true)
-  }
-  
+enum Section {
+  case main
 }

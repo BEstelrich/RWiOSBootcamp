@@ -32,56 +32,43 @@
 import UIKit
 
 
-enum Section {
-  case main
-}
-
-
-enum Format {
-  case compact
-  case large
-}
-
-
 class DataManager {
   
   typealias PokemonDataSource = UICollectionViewDiffableDataSource<Section, Pokemon>
   typealias PokemonSnapshot = NSDiffableDataSourceSnapshot<Section, Pokemon>
+  
+  private static var pokemons: [Pokemon] {
+    PokemonGenerator.shared.generatePokemons()
+  }
 
   
-  private static func configureDataSource(for collectionView: UICollectionView, format: Format) -> PokemonDataSource {
-
+  static func configureDataSource(for collectionView: UICollectionView, with cellFormat: Format) -> PokemonDataSource {
     let dataSource = UICollectionViewDiffableDataSource<Section, Pokemon>(collectionView: collectionView) { (collectionView, indexPath, pokemon) -> UICollectionViewCell? in
       
-      #warning("Make a switch to alternate between cells.")
-      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return nil }
-      
-      cell.populate(with: pokemon)
-      return cell
+      switch cellFormat {
+      case .compactCell:
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactPokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactPokemonCollectionViewCell else { return nil }
+        
+        cell.populate(with: pokemon)
+        return cell
+        
+      case .largeCell:
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LargePokemonCollectionViewCell.reuseIdentifier, for: indexPath) as? LargePokemonCollectionViewCell else { return nil }
+        
+        cell.populate(with: pokemon)
+        return cell
+      }
     }
-    
     return dataSource
   }
   
   
-  private static func configureSnapshot(of pokemons: [Pokemon], with dataSource: PokemonDataSource) -> PokemonSnapshot {
+  static func configureSnapshot() -> PokemonSnapshot {
     var currentSnapshot = NSDiffableDataSourceSnapshot<Section, Pokemon>()
     currentSnapshot.appendSections([.main])
     currentSnapshot.appendItems(pokemons)
     
     return currentSnapshot
   }
-  
-  
-  static func configure(with pokemons: [Pokemon], in collectionView: UICollectionView, format: Format) -> PokemonDataSource {
-    var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
-    var snapshot: NSDiffableDataSourceSnapshot<Section, Pokemon>!
-    
-    dataSource = configureDataSource(for: collectionView, format: format)
-    snapshot = configureSnapshot(of: pokemons, with: dataSource)
-    dataSource.apply(snapshot, animatingDifferences: true)
-    
-    return dataSource
-  }
-  
+
 }

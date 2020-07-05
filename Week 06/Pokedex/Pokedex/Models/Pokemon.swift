@@ -44,8 +44,8 @@ struct Pokemon: Decodable, Hashable {
   func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }
-  
-  
+
+
   static func == (lhs: Pokemon, rhs: Pokemon) -> Bool {
     return lhs.id == rhs.id
   }

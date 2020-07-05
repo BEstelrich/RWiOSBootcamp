@@ -37,9 +37,6 @@ class LargeFormatViewController: UIViewController {
   @IBOutlet weak var collectionView: UICollectionView!
   
   private var dataSource: UICollectionViewDiffableDataSource<Section, Pokemon>!
-  private lazy var pokemons = {
-    PokemonGenerator.shared.generatePokemons()
-  }()
   
   
   override func viewDidLoad() {
@@ -49,8 +46,9 @@ class LargeFormatViewController: UIViewController {
   
   
   func configureCollectionView() {
-    collectionView.collectionViewLayout = LayoutCoordinator.configureLargeFormat()
-    dataSource = DataManager.configure(with: pokemons, in: collectionView, format: .large)
+    collectionView.collectionViewLayout = LayoutCoordinator.configureLayout(cell: .largeCell)
+    dataSource = DataManager.configureDataSource(for: collectionView, with: .largeCell)
+    dataSource.apply(DataManager.configureSnapshot(), animatingDifferences: true)
   }
   
 }

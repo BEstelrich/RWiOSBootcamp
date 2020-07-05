@@ -224,7 +224,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="oXO-Fe-xcc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="177" height="133"/>
+                                                    <rect key="frame" x="10" y="10" width="157" height="123"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kD-3S-1rX">
@@ -246,14 +246,15 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="3kD-3S-1rX" secondAttribute="trailing" id="2Sd-IA-t5I"/>
-                                                <constraint firstItem="oXO-Fe-xcc" firstAttribute="leading" secondItem="RKW-Ry-eWH" secondAttribute="leading" id="4BH-ML-nFZ"/>
+                                                <constraint firstItem="oXO-Fe-xcc" firstAttribute="leading" secondItem="RKW-Ry-eWH" secondAttribute="leading" constant="10" id="4BH-ML-nFZ"/>
                                                 <constraint firstItem="3kD-3S-1rX" firstAttribute="top" secondItem="oXO-Fe-xcc" secondAttribute="bottom" id="DCb-Fm-vib"/>
                                                 <constraint firstAttribute="bottom" secondItem="3kD-3S-1rX" secondAttribute="bottom" id="I84-14-488"/>
-                                                <constraint firstAttribute="trailing" secondItem="oXO-Fe-xcc" secondAttribute="trailing" id="P51-3C-2Hk"/>
+                                                <constraint firstAttribute="trailing" secondItem="oXO-Fe-xcc" secondAttribute="trailing" constant="10" id="P51-3C-2Hk"/>
                                                 <constraint firstItem="3kD-3S-1rX" firstAttribute="leading" secondItem="RKW-Ry-eWH" secondAttribute="leading" id="b8f-P0-Azr"/>
-                                                <constraint firstItem="oXO-Fe-xcc" firstAttribute="top" secondItem="RKW-Ry-eWH" secondAttribute="top" id="bMx-ZC-KFe"/>
+                                                <constraint firstItem="oXO-Fe-xcc" firstAttribute="top" secondItem="RKW-Ry-eWH" secondAttribute="top" constant="10" id="bMx-ZC-KFe"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="177" height="168"/>

@@ -32,33 +32,41 @@
 import UIKit
 
 
-
-
 class LayoutCoordinator {
   
-  static func configureLargeFormat() -> UICollectionViewCompositionalLayout {
+  static func configureLayout(cell cellFormat: Format) -> UICollectionViewCompositionalLayout {
+    switch cellFormat {
+    case .compactCell:
+      return configureCompactCell()
+    
+    case .largeCell:
+      return configureLargeCell()
+    }
+  }
+  
+  
+  private static func configureCompactCell() -> UICollectionViewCompositionalLayout {
     let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-      
-      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+
+      let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1/3),
                                             heightDimension: .fractionalHeight(1.0))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      item.contentInsets = NSDirectionalEdgeInsets(top: 50, leading: 10, bottom: 50, trailing: 10)
+      item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
 
-      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75),
-                                             heightDimension: .fractionalHeight(1.0))
+      let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .fractionalWidth(1/3))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
       let section = NSCollectionLayoutSection(group: group)
-      section.orthogonalScrollingBehavior = .groupPagingCentered
-      section.interGroupSpacing = 10
+      section.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
       return section
     }
-    
+
     return UICollectionViewCompositionalLayout(sectionProvider: sectionProvider)
   }
   
   
-  static func configureCompactFormat() -> UICollectionViewCompositionalLayout {
+  private static func configureLargeCell() -> UICollectionViewCompositionalLayout {
     let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
       
       let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
