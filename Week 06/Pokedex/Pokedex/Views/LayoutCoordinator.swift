@@ -29,6 +29,7 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+
 import UIKit
 
 
@@ -44,7 +45,7 @@ class LayoutCoordinator {
     }
   }
   
-  
+
   private static func configureCompactCell() -> UICollectionViewCompositionalLayout {
     let sectionProvider = { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
 
@@ -72,11 +73,13 @@ class LayoutCoordinator {
       let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                             heightDimension: .fractionalHeight(1.0))
       let item = NSCollectionLayoutItem(layoutSize: itemSize)
-      item.contentInsets = NSDirectionalEdgeInsets(top: 50, leading: 10, bottom: 50, trailing: 10)
+      item.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
       
       let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75),
-                                             heightDimension: .fractionalHeight(1.0))
+                                             heightDimension: .fractionalHeight(0.75))
       let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+      group.edgeSpacing = NSCollectionLayoutEdgeSpacing(leading: nil, top: .flexible(0),
+                                                       trailing: nil, bottom: .flexible(0))
 
       let section = NSCollectionLayoutSection(group: group)
       section.orthogonalScrollingBehavior = .groupPagingCentered

@@ -29,6 +29,7 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+
 import Foundation
 
 
@@ -68,13 +69,7 @@ class PokemonGenerator {
     } catch let error {
       print("\(error.localizedDescription)")
     }
-    
     return pokemons
-  }
-  
-  
-  func test() -> [Pokemon] {
-    return generatePokemons()
   }
   
 }
