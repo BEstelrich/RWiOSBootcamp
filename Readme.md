@@ -75,6 +75,17 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	📚 Video course: <a href="https://www.raywenderlich.com/5429927-beginning-collection-views">Beginning Collection Views</a><br/>
 	📱 Assignment: <a href="./Week%2006/Readme.md">Pokedex</a>
 	<p>
+</details>
+
+<details>
+	<summary><b>Week 07. SwiftUI</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/4919757-your-first-ios-and-swiftui-app">Your First iOS and SwiftUI App</a><br/>
+	📚 Video course: <a href="https://www.raywenderlich.com/5662524-your-second-ios-and-swiftui-app">Your Second iOS and SwiftUI App</a><br/>
+	📚 Video course: <a href="https://www.raywenderlich.com/4001741-swiftui">SwiftUI</a><br/>
+	📚 Article: <a href="https://www.raywenderlich.com/393-rwdevcon-2017-inspiration-talk-finding-freedom-through-freelancing-by-lyndsey-scott">Finding Freedom Through Freelancing by Lyndsey Scott</a><br/>
+	📱 Assignment: <a href="./Week%2007/Readme.md">Birdui</a>
+	<p>
 	</details>
 
 
