@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9BF097A24B9089900AD5307 /* NewPostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF097924B9089900AD5307 /* NewPostButton.swift */; };
+		C9BF097D24B908E900AD5307 /* NavigationBarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF097C24B908E900AD5307 /* NavigationBarImage.swift */; };
+		C9DAE0DC24B651D90017F5D6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAE0DB24B651D90017F5D6 /* Date+Ext.swift */; };
 		CD7798B924AF0799004D6A6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798B824AF0799004D6A6B /* AppDelegate.swift */; };
 		CD7798BB24AF0799004D6A6B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */; };
 		CD7798BF24AF079C004D6A6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD7798BE24AF079C004D6A6B /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9BF097924B9089900AD5307 /* NewPostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostButton.swift; sourceTree = "<group>"; };
+		C9BF097C24B908E900AD5307 /* NavigationBarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarImage.swift; sourceTree = "<group>"; };
+		C9DAE0DB24B651D90017F5D6 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		CD7798B524AF0799004D6A6B /* Birdui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Birdui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7798B824AF0799004D6A6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,7 +34,7 @@
 		CD7798C124AF079C004D6A6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD7798C424AF079C004D6A6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD7798C624AF079C004D6A6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD7798CD24AF0B23004D6A6B /* MediaPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPost.swift; sourceTree = "<group>"; };
+		CD7798CD24AF0B23004D6A6B /* MediaPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPost.swift; path = ../MediaPost.swift; sourceTree = "<group>"; };
 		CD7798D524B040C9004D6A6B /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		CD7798D724B04BEC004D6A6B /* PostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		CD7798D924B04C01004D6A6B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -47,6 +53,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C994442B24B9125700295EDA /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				CD7798DD24B05896004D6A6B /* ImagePicker.swift */,
+			);
+			path = ImagePicker;
+			sourceTree = "<group>";
+		};
+		C9BF097824B8FB7A00AD5307 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C9DAE0DB24B651D90017F5D6 /* Date+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C9BF097B24B908AF00AD5307 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C9BF097924B9089900AD5307 /* NewPostButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		C9BF097E24B9090B00AD5307 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				C9BF097C24B908E900AD5307 /* NavigationBarImage.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		C9DAE0D624B640850017F5D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CD7798CD24AF0B23004D6A6B /* MediaPost.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C9DAE0D724B6409A0017F5D6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CD7798BE24AF079C004D6A6B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C9DAE0D824B640AF0017F5D6 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				CD7798C624AF079C004D6A6B /* Info.plist */,
+				CD7798B824AF0799004D6A6B /* AppDelegate.swift */,
+				CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */,
+				CD7798C324AF079C004D6A6B /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		C9DAE0D924B640DE0017F5D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CD7798D724B04BEC004D6A6B /* PostListView.swift */,
+				CD7798D924B04C01004D6A6B /* PostView.swift */,
+				CD7798D524B040C9004D6A6B /* NewPostView.swift */,
+				C994442B24B9125700295EDA /* ImagePicker */,
+				C9BF097B24B908AF00AD5307 /* Buttons */,
+				C9BF097E24B9090B00AD5307 /* Images */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C9DAE0DA24B640EB0017F5D6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CD7798DB24B04C1A004D6A6B /* PostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		CD7798AC24AF0799004D6A6B = {
 			isa = PBXGroup;
 			children = (
@@ -66,17 +152,12 @@
 		CD7798B724AF0799004D6A6B /* Birdui */ = {
 			isa = PBXGroup;
 			children = (
-				CD7798B824AF0799004D6A6B /* AppDelegate.swift */,
-				CD7798BA24AF0799004D6A6B /* SceneDelegate.swift */,
-				CD7798D724B04BEC004D6A6B /* PostListView.swift */,
-				CD7798D924B04C01004D6A6B /* PostView.swift */,
-				CD7798D524B040C9004D6A6B /* NewPostView.swift */,
-				CD7798DD24B05896004D6A6B /* ImagePicker.swift */,
-				CD7798DB24B04C1A004D6A6B /* PostViewModel.swift */,
-				CD7798CD24AF0B23004D6A6B /* MediaPost.swift */,
-				CD7798BE24AF079C004D6A6B /* Assets.xcassets */,
-				CD7798C324AF079C004D6A6B /* LaunchScreen.storyboard */,
-				CD7798C624AF079C004D6A6B /* Info.plist */,
+				C9DAE0D824B640AF0017F5D6 /* Supporting files */,
+				C9DAE0D924B640DE0017F5D6 /* Views */,
+				C9DAE0D624B640850017F5D6 /* Models */,
+				C9DAE0DA24B640EB0017F5D6 /* ViewModels */,
+				C9DAE0D724B6409A0017F5D6 /* Resources */,
+				C9BF097824B8FB7A00AD5307 /* Extensions */,
 				CD7798C024AF079C004D6A6B /* Preview Content */,
 			);
 			path = Birdui;
@@ -161,7 +242,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9DAE0DC24B651D90017F5D6 /* Date+Ext.swift in Sources */,
 				CD7798B924AF0799004D6A6B /* AppDelegate.swift in Sources */,
+				C9BF097A24B9089900AD5307 /* NewPostButton.swift in Sources */,
 				CD7798D124AF0B23004D6A6B /* MediaPost.swift in Sources */,
 				CD7798DA24B04C01004D6A6B /* PostView.swift in Sources */,
 				CD7798BB24AF0799004D6A6B /* SceneDelegate.swift in Sources */,
@@ -169,6 +252,7 @@
 				CD7798DE24B05896004D6A6B /* ImagePicker.swift in Sources */,
 				CD7798DC24B04C1A004D6A6B /* PostViewModel.swift in Sources */,
 				CD7798D824B04BEC004D6A6B /* PostListView.swift in Sources */,
+				C9BF097D24B908E900AD5307 /* NavigationBarImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,10 +389,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Birdui/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 35ERK77LXE;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Birdui/Info.plist;
+				INFOPLIST_FILE = "Birdui/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -325,10 +409,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Birdui/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 35ERK77LXE;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Birdui/Info.plist;
+				INFOPLIST_FILE = "Birdui/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
