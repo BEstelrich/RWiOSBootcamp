@@ -11,17 +11,15 @@ import SwiftUI
 struct PostListView: View {
   
   @Environment(\.presentationMode) var presentationMode
-  @Environment(\.verticalSizeClass) var verticalSizeClass: UserInterfaceSizeClass?
-  
   var postViewModel = PostViewModel()
   
   
   var body: some View {
     NavigationView {
-        Section {
-          // Posts list
-          PostView(postViewModel: postViewModel)
-        }
+      Section {
+        // Posts list
+        PostView(postViewModel: postViewModel)
+      }
       // Navigation view
       .navigationBarTitle(Text("Home"), displayMode: .automatic)
       .navigationBarItems(leading: NavigationBarImage(),

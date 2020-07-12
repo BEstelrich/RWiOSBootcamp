@@ -8,7 +8,7 @@
 import UIKit
 
 
-struct MediaPost: Identifiable {
+struct MediaPost: Identifiable, Hashable {
   
   let id = UUID()
   let textBody: String?

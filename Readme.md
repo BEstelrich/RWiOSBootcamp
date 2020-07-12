@@ -2,7 +2,7 @@
 <img src="./Assets/W00_Bootcamp.png"/>
 <h1>Ray Wenderlich iOS Bootcamp [Summer 2020]</h1>
 
-[![](https://img.shields.io/badge/-@BEstelrichS-00ACEE.svg?style=social&logo=twitter)](https://twitter.com/BEstelrichS)
+[![](https://img.shields.io/badge/@BEstelrichS-1A94E0.svg?logoColor=white&logo=twitter)](https://twitter.com/BEstelrichS)
 
 
 <!-- Body -->
