@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9BE4E1F24BCF0DB00D1736A /* MediaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BE4E1E24BCF0DB00D1736A /* MediaPost.swift */; };
 		C9BF097A24B9089900AD5307 /* NewPostButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF097924B9089900AD5307 /* NewPostButton.swift */; };
 		C9BF097D24B908E900AD5307 /* NavigationBarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BF097C24B908E900AD5307 /* NavigationBarImage.swift */; };
 		C9DAE0DC24B651D90017F5D6 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DAE0DB24B651D90017F5D6 /* Date+Ext.swift */; };
@@ -15,7 +16,6 @@
 		CD7798BF24AF079C004D6A6B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD7798BE24AF079C004D6A6B /* Assets.xcassets */; };
 		CD7798C224AF079C004D6A6B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD7798C124AF079C004D6A6B /* Preview Assets.xcassets */; };
 		CD7798C524AF079C004D6A6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD7798C324AF079C004D6A6B /* LaunchScreen.storyboard */; };
-		CD7798D124AF0B23004D6A6B /* MediaPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798CD24AF0B23004D6A6B /* MediaPost.swift */; };
 		CD7798D624B040C9004D6A6B /* NewPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798D524B040C9004D6A6B /* NewPostView.swift */; };
 		CD7798D824B04BEC004D6A6B /* PostListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798D724B04BEC004D6A6B /* PostListView.swift */; };
 		CD7798DA24B04C01004D6A6B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7798D924B04C01004D6A6B /* PostView.swift */; };
@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C9BE4E1E24BCF0DB00D1736A /* MediaPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPost.swift; path = Birdui/Models/MediaPost.swift; sourceTree = SOURCE_ROOT; };
 		C9BF097924B9089900AD5307 /* NewPostButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostButton.swift; sourceTree = "<group>"; };
 		C9BF097C24B908E900AD5307 /* NavigationBarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarImage.swift; sourceTree = "<group>"; };
 		C9DAE0DB24B651D90017F5D6 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		CD7798C124AF079C004D6A6B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD7798C424AF079C004D6A6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD7798C624AF079C004D6A6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD7798CD24AF0B23004D6A6B /* MediaPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaPost.swift; path = ../MediaPost.swift; sourceTree = "<group>"; };
 		CD7798D524B040C9004D6A6B /* NewPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostView.swift; sourceTree = "<group>"; };
 		CD7798D724B04BEC004D6A6B /* PostListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListView.swift; sourceTree = "<group>"; };
 		CD7798D924B04C01004D6A6B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		C9DAE0D624B640850017F5D6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CD7798CD24AF0B23004D6A6B /* MediaPost.swift */,
+				C9BE4E1E24BCF0DB00D1736A /* MediaPost.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,7 +245,7 @@
 				C9DAE0DC24B651D90017F5D6 /* Date+Ext.swift in Sources */,
 				CD7798B924AF0799004D6A6B /* AppDelegate.swift in Sources */,
 				C9BF097A24B9089900AD5307 /* NewPostButton.swift in Sources */,
-				CD7798D124AF0B23004D6A6B /* MediaPost.swift in Sources */,
+				C9BE4E1F24BCF0DB00D1736A /* MediaPost.swift in Sources */,
 				CD7798DA24B04C01004D6A6B /* PostView.swift in Sources */,
 				CD7798BB24AF0799004D6A6B /* SceneDelegate.swift in Sources */,
 				CD7798D624B040C9004D6A6B /* NewPostView.swift in Sources */,

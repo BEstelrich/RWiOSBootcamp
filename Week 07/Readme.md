@@ -8,7 +8,7 @@
 
 
 <!-- Body -->
-## Frameworks
+## Frameworks/External dependencies
 - SwiftUI
 
 

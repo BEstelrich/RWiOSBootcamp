@@ -7,7 +7,7 @@
 [![](https://img.shields.io/badge/@BEstelrichS-1A94E0.svg?logoColor=white&logo=twitter)](https://twitter.com/BEstelrichS)
 
 <!-- Body -->
-## Frameworks
+## Frameworks/External dependencies
 - Foundation
 - UIKit
 
