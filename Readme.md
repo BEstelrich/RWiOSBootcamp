@@ -84,9 +84,18 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	📚 Video course: <a href="https://www.raywenderlich.com/5662524-your-second-ios-and-swiftui-app">Your Second iOS and SwiftUI App</a><br/>
 	📚 Video course: <a href="https://www.raywenderlich.com/4001741-swiftui">SwiftUI</a><br/>
 	📚 Article: <a href="https://www.raywenderlich.com/393-rwdevcon-2017-inspiration-talk-finding-freedom-through-freelancing-by-lyndsey-scott">Finding Freedom Through Freelancing by Lyndsey Scott</a><br/>
-	📱 Assignment: <a href="./Week%2007/Readme.md">Birdui</a>
+	📱 Assignment: <a href="./Week%2007/Readme.md">BirdUI</a>
 	<p>
 	</details>
+	
+<details>
+	<summary><b>Week 08. Saving data</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/5429634-saving-data-in-ios">Saving Data in iOS</a><br/>
+	📚 Video course: <a href="https://www.raywenderlich.com/7104-beginning-core-data">Beginning Core Data</a><br/>
+	📱 Assignment: <a href="./Week%2008/Readme.md">SandwichSaturation</a>
+	<p>
+</details>
 
 
 <!-- Footer -->
