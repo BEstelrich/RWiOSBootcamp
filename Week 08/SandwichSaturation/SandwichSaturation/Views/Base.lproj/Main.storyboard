@@ -88,7 +88,13 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sandwiches" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Sandwiches" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="B6x-CO-dB4">
+                            <connections>
+                                <action selector="presentAddView:" destination="7bK-jq-Zjz" id="gkx-7t-F69"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="Gwi-TV-UMp" kind="presentation" identifier="AddSandwichSegue" id="jN9-hL-25V"/>
                     </connections>

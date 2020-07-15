@@ -17,7 +17,7 @@
 		1255799324AFCBD7004C616F /* SandwichCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1255799224AFCBD7004C616F /* SandwichCell.swift */; };
 		12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */; };
 		12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791324AFDD8E0097F149 /* SandwichData.swift */; };
-		12A0791824B2CC9A0097F149 /* sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* sandwiches.json */; };
+		12A0791824B2CC9A0097F149 /* Sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* Sandwiches.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		1255799224AFCBD7004C616F /* SandwichCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichCell.swift; sourceTree = "<group>"; };
 		12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSandwichViewController.swift; sourceTree = "<group>"; };
 		12A0791324AFDD8E0097F149 /* SandwichData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichData.swift; sourceTree = "<group>"; };
-		12A0791724B2CC9A0097F149 /* sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sandwiches.json; sourceTree = "<group>"; };
+		12A0791724B2CC9A0097F149 /* Sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Sandwiches.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 		12A0791224AFDD810097F149 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				12A0791724B2CC9A0097F149 /* sandwiches.json */,
+				12A0791724B2CC9A0097F149 /* Sandwiches.json */,
 				12A0791324AFDD8E0097F149 /* SandwichData.swift */,
 			);
 			path = Models;
@@ -181,7 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1255799124AFC717004C616F /* SandwichArt.xcassets in Resources */,
-				12A0791824B2CC9A0097F149 /* sandwiches.json in Resources */,
+				12A0791824B2CC9A0097F149 /* Sandwiches.json in Resources */,
 				1255798924AFB8FC004C616F /* LaunchScreen.storyboard in Resources */,
 				1255798624AFB8FC004C616F /* Assets.xcassets in Resources */,
 				1255798424AFB8FA004C616F /* Main.storyboard in Resources */,
