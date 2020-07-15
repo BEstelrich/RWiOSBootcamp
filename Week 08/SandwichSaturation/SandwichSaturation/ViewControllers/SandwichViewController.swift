@@ -6,7 +6,7 @@
 //  Copyright © 2020 Jeff Rames. All rights reserved.
 //
 import UIKit
-
+import CoreData
 
 protocol SandwichDataSource {
   func saveSandwich(_: SandwichData)
@@ -18,6 +18,9 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [SandwichData]()
   var filteredSandwiches = [SandwichData]()
+  
+  private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+  private let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
   
   override func viewDidLoad() {
@@ -33,12 +36,16 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   
   func loadSandwiches() {
-    sandwiches = SandwitchSamples.sandwichArray
+    sandwiches = SandwichSamples.sandwichArray
   }
 
   
   func saveSandwich(_ sandwich: SandwichData) {
-    sandwiches.append(sandwich)
+    let newSandwich = Sandwich(context: self.managedObjectContext)
+    newSandwich.name = sandwich.name
+    newSandwich.sauceAmount = sandwich.sauceAmount.rawValue
+    newSandwich.imageName = sandwich.imageName
+    appDelegate.saveContext()
     tableView.reloadData()
   }
 
@@ -58,12 +65,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
       let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
 
-      if isSearchBarEmpty {
-        return doesSauceAmountMatch
-      } else {
-        return doesSauceAmountMatch && sandwhich.name.lowercased()
-          .contains(searchText.lowercased())
-      }
+      return isSearchBarEmpty ? doesSauceAmountMatch : doesSauceAmountMatch && sandwhich.name.lowercased().contains(searchText.lowercased())
     }
     tableView.reloadData()
   }

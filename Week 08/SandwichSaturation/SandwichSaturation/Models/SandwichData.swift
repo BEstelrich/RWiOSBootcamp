@@ -37,7 +37,7 @@ struct SandwichData: Decodable {
 }
 
 
-struct SandwitchSamples {
+struct SandwichSamples {
   
   static let sandwichArray = [SandwichData(name: "Bagel Toast", sauceAmount: .none, imageName: "sandwich1"),
                        SandwichData(name: "Bologna", sauceAmount: .none, imageName: "sandwich2"),

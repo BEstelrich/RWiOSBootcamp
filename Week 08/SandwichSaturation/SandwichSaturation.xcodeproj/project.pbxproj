@@ -18,6 +18,9 @@
 		12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */; };
 		12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791324AFDD8E0097F149 /* SandwichData.swift */; };
 		12A0791824B2CC9A0097F149 /* Sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* Sandwiches.json */; };
+		C910170A24BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */; };
+		C910170D24BFBC7F00C80C43 /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910170B24BFBC7F00C80C43 /* Sandwich+CoreDataClass.swift */; };
+		C910170E24BFBC7F00C80C43 /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C910170C24BFBC7F00C80C43 /* Sandwich+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSandwichViewController.swift; sourceTree = "<group>"; };
 		12A0791324AFDD8E0097F149 /* SandwichData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichData.swift; sourceTree = "<group>"; };
 		12A0791724B2CC9A0097F149 /* Sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Sandwiches.json; sourceTree = "<group>"; };
+		C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SandwitchSaturation.xcdatamodel; sourceTree = "<group>"; };
+		C910170B24BFBC7F00C80C43 /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C910170C24BFBC7F00C80C43 /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,9 @@
 			children = (
 				12A0791724B2CC9A0097F149 /* Sandwiches.json */,
 				12A0791324AFDD8E0097F149 /* SandwichData.swift */,
+				C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */,
+				C910170B24BFBC7F00C80C43 /* Sandwich+CoreDataClass.swift */,
+				C910170C24BFBC7F00C80C43 /* Sandwich+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,7 +208,10 @@
 				12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */,
 				1255797B24AFB8FA004C616F /* AppDelegate.swift in Sources */,
 				1255797D24AFB8FA004C616F /* SceneDelegate.swift in Sources */,
+				C910170D24BFBC7F00C80C43 /* Sandwich+CoreDataClass.swift in Sources */,
 				1255797F24AFB8FA004C616F /* SandwichViewController.swift in Sources */,
+				C910170E24BFBC7F00C80C43 /* Sandwich+CoreDataProperties.swift in Sources */,
+				C910170A24BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +410,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */,
+			);
+			currentVersion = C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */;
+			path = SandwitchSaturation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1255796F24AFB8FA004C616F /* Project object */;
 }
