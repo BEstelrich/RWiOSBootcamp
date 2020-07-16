@@ -19,6 +19,12 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   var sandwiches = [SandwichData]()
   var filteredSandwiches = [SandwichData]()
   
+  private var lastFilterSelectedIndex: Int {
+    get { return UserDefaults.standard.object(forKey: "LastFilterSelectedIndex") as? Int ?? 0 }
+    set(newValue) { UserDefaults.standard.set(newValue, forKey: "LastFilterSelectedIndex") }
+  }
+
+  
   private let appDelegate = UIApplication.shared.delegate as! AppDelegate
   private let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -122,13 +128,15 @@ extension SandwichViewController: UISearchBarDelegate {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
+    searchController.searchBar.selectedScopeButtonIndex = lastFilterSelectedIndex
     searchController.searchBar.delegate = self
   }
   
+  
   func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-    let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![selectedScope])
+    lastFilterSelectedIndex = selectedScope
+    let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![lastFilterSelectedIndex])
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
   }
   
 }
-
