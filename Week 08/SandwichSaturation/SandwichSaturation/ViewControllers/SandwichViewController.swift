@@ -42,9 +42,20 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   
   func loadSandwiches() {
-    sandwiches = SandwichSamples.sandwichArray
+    guard let sandwichJSONURL = Bundle.main.url(forResource: "Sandwiches", withExtension: "json") else { return }
+    
+    let decoder = JSONDecoder()
+    
+    do {
+      let sandwichData = try Data(contentsOf: sandwichJSONURL)
+      let sandwiches = try decoder.decode([SandwichData].self, from: sandwichData)
+      self.sandwiches = sandwiches
+      print(sandwiches)
+    } catch let error {
+      print(error)
+    }
   }
-
+  
   
   func saveSandwich(_ sandwich: SandwichData) {
     let newSandwich = Sandwich(context: self.managedObjectContext)
