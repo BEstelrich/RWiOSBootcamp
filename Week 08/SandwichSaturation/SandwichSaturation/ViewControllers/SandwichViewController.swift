@@ -17,7 +17,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [SandwichData]()
-  var filteredSandwiches = [SandwichData]()
+  var savedSandwiches = [Sandwich]()
+  var filteredSandwiches = [Sandwich]()
   
   private var lastFilterSelectedIndex: Int {
     get { return UserDefaults.standard.object(forKey: "LastFilterSelectedIndex") as? Int ?? 0 }
@@ -42,15 +43,31 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   
   func loadSandwiches() {
-    guard let sandwichJSONURL = Bundle.main.url(forResource: "Sandwiches", withExtension: "json") else { return }
+    fetchSavedSandwiches()
     
-    let decoder = JSONDecoder()
+    if savedSandwiches.isEmpty {
+      guard let sandwichJSONURL = Bundle.main.url(forResource: "Sandwiches", withExtension: "json") else { return }
+      
+      let decoder = JSONDecoder()
+      
+      do {
+        let sandwichData = try Data(contentsOf: sandwichJSONURL)
+        let sandwiches = try decoder.decode([SandwichData].self, from: sandwichData)
+        for sandwich in sandwiches {
+          saveSandwich(sandwich)
+        }
+        fetchSavedSandwiches()
+      } catch let error {
+        print(error)
+      }
+    }
     
+  }
+  
+  
+  func fetchSavedSandwiches() {
     do {
-      let sandwichData = try Data(contentsOf: sandwichJSONURL)
-      let sandwiches = try decoder.decode([SandwichData].self, from: sandwichData)
-      self.sandwiches = sandwiches
-      print(sandwiches)
+      savedSandwiches = try managedObjectContext.fetch(Sandwich.fetchRequest())
     } catch let error {
       print(error)
     }
@@ -63,6 +80,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     newSandwich.sauceAmount = sandwich.sauceAmount.rawValue
     newSandwich.imageName = sandwich.imageName
     appDelegate.saveContext()
+    fetchSavedSandwiches()
     tableView.reloadData()
   }
 
@@ -79,8 +97,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   
   func filterContentForSearchText(_ searchText: String, sauceAmount: SauceAmount? = nil) {
-    filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
+    filteredSandwiches = savedSandwiches.filter { (sandwhich: Sandwich) -> Bool in
+      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount!.rawValue
 
       return isSearchBarEmpty ? doesSauceAmountMatch : doesSauceAmountMatch && sandwhich.name.lowercased().contains(searchText.lowercased())
     }
@@ -101,14 +119,14 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return isFiltering ? filteredSandwiches.count : sandwiches.count
+    return isFiltering ? filteredSandwiches.count : savedSandwiches.count
   }
 
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: "sandwichCell", for: indexPath) as? SandwichCell else { return UITableViewCell() }
     
-    let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
+    let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : savedSandwiches[indexPath.row]
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
     cell.sauceLabel.text = sandwich.sauceAmount.description
@@ -151,3 +169,5 @@ extension SandwichViewController: UISearchBarDelegate {
   }
   
 }
+
+
