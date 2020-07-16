@@ -6,5 +6,7 @@ import CoreData
 
 @objc(Sandwich)
 public class Sandwich: NSManagedObject {
-
+  
+  
+  
 }

@@ -6,84 +6,63 @@
 //  Copyright © 2020 Jeff Rames. All rights reserved.
 //
 import UIKit
-import CoreData
+//import CoreData
+
 
 protocol SandwichDataSource {
   func saveSandwich(_: SandwichData)
 }
 
 
-class SandwichViewController: UITableViewController, SandwichDataSource {
+class SandwichViewController: UITableViewController {
   
-  let searchController = UISearchController(searchResultsController: nil)
-  var sandwiches = [SandwichData]()
-  var savedSandwiches = [Sandwich]()
-  var filteredSandwiches = [Sandwich]()
+  @IBOutlet weak var sortSandwichesButton: UIBarButtonItem!
   
-  private var lastFilterSelectedIndex: Int {
-    get { return UserDefaults.standard.object(forKey: "LastFilterSelectedIndex") as? Int ?? 0 }
-    set(newValue) { UserDefaults.standard.set(newValue, forKey: "LastFilterSelectedIndex") }
-  }
+  private let searchController = UISearchController(searchResultsController: nil)
+  private var sandwiches = [Sandwich]()
+  private var filteredSandwiches = [Sandwich]()
+  private let coreDataManager = CoreDataManager()
 
-  
-  private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-  private let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-  
   override func viewDidLoad() {
     super.viewDidLoad()
-    loadSandwiches()
+    setupTableView()
     setupSearchController()
+    setupSandwiches()
   }
 
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-  }
-  
-  
-  func loadSandwiches() {
-    fetchSavedSandwiches()
+  func setupSandwiches() {
+    sandwiches = coreDataManager.fetchSandwiches()
     
-    if savedSandwiches.isEmpty {
-      guard let sandwichJSONURL = Bundle.main.url(forResource: "Sandwiches", withExtension: "json") else { return }
-      
-      let decoder = JSONDecoder()
-      
-      do {
-        let sandwichData = try Data(contentsOf: sandwichJSONURL)
-        let sandwiches = try decoder.decode([SandwichData].self, from: sandwichData)
-        for sandwich in sandwiches {
-          saveSandwich(sandwich)
-        }
-        fetchSavedSandwiches()
-      } catch let error {
-        print(error)
-      }
-    }
-    
-  }
-  
-  
-  func fetchSavedSandwiches() {
-    do {
-      savedSandwiches = try managedObjectContext.fetch(Sandwich.fetchRequest())
-    } catch let error {
-      print(error)
+    if sandwiches.isEmpty {
+      sandwiches = coreDataManager.saveSandwichesFromJSONToCoreData()
     }
   }
   
-  
-  func saveSandwich(_ sandwich: SandwichData) {
-    let newSandwich = Sandwich(context: self.managedObjectContext)
-    newSandwich.name = sandwich.name
-    newSandwich.sauceAmount = sandwich.sauceAmount.rawValue
-    newSandwich.imageName = sandwich.imageName
-    appDelegate.saveContext()
-    fetchSavedSandwiches()
-    tableView.reloadData()
-  }
 
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    guard let viewController = segue.destination as? AddSandwichViewController else { return }
+    viewController.delegate = self
+  }
+  
+  
+  @IBAction func sortSandwichesTapped(_ sender: UIBarButtonItem) {
+//    switch sender.title {
+//    case "Name":
+//      sortSandwichesButton.title = "Sauce Amount"
+//      sortTypeSelection = SortSelection.sauceAmount
+//    case "Sauce Amount":
+//      sortSandwichesButton.title = "Name"
+//      sortTypeSelection = SortSelection.name
+//    default:
+//      sortSandwichesButton.title = "Name"
+//      sortTypeSelection = SortSelection.name
+//    }
+//    savedSandwiches = SortSelection.sorted(savedSandwiches, by: sortTypeSelection)
+//    tableView.reloadData()
+  }
+  
   
   @IBAction func presentAddView(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "AddSandwichSegue", sender: self)
@@ -97,7 +76,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   
   
   func filterContentForSearchText(_ searchText: String, sauceAmount: SauceAmount? = nil) {
-    filteredSandwiches = savedSandwiches.filter { (sandwhich: Sandwich) -> Bool in
+    filteredSandwiches = sandwiches.filter { (sandwhich: Sandwich) -> Bool in
       let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount!.rawValue
 
       return isSearchBarEmpty ? doesSauceAmountMatch : doesSauceAmountMatch && sandwhich.name.lowercased().contains(searchText.lowercased())
@@ -116,22 +95,37 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   override func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
+  
+  
+  func setupTableView() {
+    tableView.delegate = self
+    tableView.dataSource = self
+  }
 
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return isFiltering ? filteredSandwiches.count : savedSandwiches.count
+    return isFiltering ? filteredSandwiches.count : sandwiches.count
   }
 
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    guard let cell = tableView.dequeueReusableCell(withIdentifier: "sandwichCell", for: indexPath) as? SandwichCell else { return UITableViewCell() }
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: SandwichCell.reuseIdentifier, for: indexPath) as? SandwichCell else { return UITableViewCell() }
     
-    let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : savedSandwiches[indexPath.row]
-    cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
-    cell.nameLabel.text = sandwich.name
-    cell.sauceLabel.text = sandwich.sauceAmount.description
+    let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
+    cell.populate(with: sandwich)
     return cell
   }
+  
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+      let selectedSandwich = sandwiches[indexPath.row]
+      sandwiches.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .automatic)
+      coreDataManager.delete(selectedSandwich)
+    }
+  }
+  
 }
 
 
@@ -157,17 +151,27 @@ extension SandwichViewController: UISearchBarDelegate {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
-    searchController.searchBar.selectedScopeButtonIndex = lastFilterSelectedIndex
+    searchController.searchBar.selectedScopeButtonIndex = UserSettings.lastFilterSelectedIndex
     searchController.searchBar.delegate = self
   }
   
   
   func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-    lastFilterSelectedIndex = selectedScope
-    let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![lastFilterSelectedIndex])
+    UserSettings.lastFilterSelectedIndex = selectedScope
+    let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![UserSettings.lastFilterSelectedIndex])
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
   }
   
 }
 
 
+// MARK: - SandwichDataSource
+extension SandwichViewController: SandwichDataSource {
+  
+  func saveSandwich(_ sandwich: SandwichData) {
+    coreDataManager.save(sandwich)
+    sandwiches = coreDataManager.fetchSandwiches()
+    tableView.reloadData()
+  }
+  
+}

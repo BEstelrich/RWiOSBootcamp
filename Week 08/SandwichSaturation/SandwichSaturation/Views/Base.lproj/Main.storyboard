@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RMx-3f-FxP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sandwichCell" id="yHH-sU-cam" customClass="SandwichCell" customModule="SandwichSaturation" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SandwichCell" id="yHH-sU-cam" customClass="SandwichCell" customModule="SandwichSaturation" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="65.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yHH-sU-cam" id="Pqm-h9-zIo">
@@ -83,12 +83,13 @@
                             </tableViewCell>
                         </prototypes>
                         <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="7bK-jq-Zjz" id="Gho-Na-rnu"/>
-                            <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sandwiches" id="Zdf-7t-Un8">
+                        <barButtonItem key="leftBarButtonItem" title="Name" id="bQo-9g-uNu">
+                            <connections>
+                                <action selector="sortSandwichesTapped:" destination="7bK-jq-Zjz" id="9dp-xK-2zW"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="B6x-CO-dB4">
                             <connections>
                                 <action selector="presentAddView:" destination="7bK-jq-Zjz" id="gkx-7t-F69"/>
@@ -96,6 +97,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="sortSandwichesButton" destination="bQo-9g-uNu" id="sM4-ri-hCg"/>
                         <segue destination="Gwi-TV-UMp" kind="presentation" identifier="AddSandwichSegue" id="jN9-hL-25V"/>
                     </connections>
                 </tableViewController>
@@ -184,6 +186,7 @@
                     <connections>
                         <outlet property="imageView" destination="glQ-Xw-Cis" id="QyS-3S-BCa"/>
                         <outlet property="nameField" destination="kIl-fS-O8c" id="0Ca-Xv-Cb3"/>
+                        <outlet property="sauceAmountSegmentedControl" destination="htE-UV-vTK" id="rMM-48-JMu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUR-fy-AeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

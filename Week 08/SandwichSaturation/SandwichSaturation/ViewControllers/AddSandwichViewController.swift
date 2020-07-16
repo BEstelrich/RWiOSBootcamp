@@ -12,20 +12,29 @@ class AddSandwichViewController: UIViewController {
   
   @IBOutlet weak var nameField: UITextField!
   @IBOutlet weak var imageView: UIImageView!
+  @IBOutlet weak var sauceAmountSegmentedControl: UISegmentedControl!
   
-  let imageName = SandwichSamples.randomImageName()
-  var sauceAmount = SauceAmount.none
+  private var sauceAmount = SauceAmount.none
+  private var randomImageName: String!
+  private var coreDataManager = CoreDataManager()
+  
+  var delegate: SandwichDataSource?
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    sauceAmount = SauceAmount.none
-    imageView.image = UIImage.init(imageLiteralResourceName: imageName)
+    setupView()
   }
   
   
+  func setupView() {
+    randomImageName = "sandwich\(Int.random(in: 1...15))"
+    imageView.image = UIImage.init(imageLiteralResourceName: randomImageName)
+  }
+
+  
   @IBAction func sauceAmountChanged(_ sender: UISegmentedControl) {
-    sauceAmount = SauceAmount(rawValue: sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "None") ?? .none
+    sauceAmount = sauceAmountSegmentedControl.selectedSegmentIndex == 0 ? .none : .tooMuch
   }
   
   
@@ -49,25 +58,15 @@ class AddSandwichViewController: UIViewController {
     
     let newSandwich = SandwichData(name: sandwichName,
                                    sauceAmount: sauceAmount,
-                                   imageName: imageName)
-    saveSandwich(sandwich: newSandwich)
-    
+                                   imageName: randomImageName)
+    delegate?.saveSandwich(newSandwich)
     dismiss(animated: true, completion: nil)
   }
-  
-  
-  func saveSandwich(sandwich: SandwichData) {
-    guard let navController = presentingViewController as? UINavigationController,
-      let dataSource = navController.topViewController as? SandwichDataSource else {
-        print("Oh noes! The datasource is missing and I don't know where to put these sandwiches!")
-        fatalError()
-    }
-    dataSource.saveSandwich(sandwich)
-  }
-  
+
 }
 
 
+// MARK: - UITextFieldDelegate
 extension AddSandwichViewController: UITextFieldDelegate {
   
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
