@@ -98,7 +98,7 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sandwiches" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" title="Name" image="arrow.up.arrow.down.circle" catalog="system" id="bQo-9g-uNu">
+                        <barButtonItem key="leftBarButtonItem" title="Name" image="arrow.up.arrow.down.circle" catalog="system" id="bQo-9g-uNu" customClass="SortingBarButtonItem" customModule="SandwichSaturation" customModuleProvider="target">
                             <connections>
                                 <action selector="sortSandwichesTapped:" destination="7bK-jq-Zjz" id="9dp-xK-2zW"/>
                             </connections>

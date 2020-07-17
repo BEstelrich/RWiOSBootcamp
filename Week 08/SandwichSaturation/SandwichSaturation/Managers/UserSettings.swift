@@ -10,9 +10,9 @@ enum UserSettings {
   }
   
   
-  static var sortingSelection: String {
-    get { return UserDefaults.standard.object(forKey: "SortingSelection") as? String ?? "Name" }
-    set(newValue) { UserDefaults.standard.set(newValue, forKey: "SortingSelection") }
+  static var sortingSelection: SortingSelection {
+    get { return SortingSelection(rawValue: UserDefaults.standard.object(forKey: "SortingSelection") as? String ?? "Name") ?? .name }
+    set(newValue) { UserDefaults.standard.set(newValue.rawValue, forKey: "SortingSelection") }
   }
   
 }
@@ -29,6 +29,17 @@ enum SortingSelection: Decodable {
       return "Name"
     case .sauceAmount:
       return "Sauce amount"
+    }
+  }
+  
+  
+  mutating func toggle() {
+    switch self {
+    case .name:
+      self = .sauceAmount
+      
+    case .sauceAmount:
+      self = .name
     }
   }
   

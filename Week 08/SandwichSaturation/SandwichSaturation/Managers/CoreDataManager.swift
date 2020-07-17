@@ -28,9 +28,9 @@ class CoreDataManager {
     var savedSandwiches = [Sandwich]()
     do {
       savedSandwiches = try appDelegate.persistentContainer.viewContext.fetch(Sandwich.fetchRequest())
-      savedSandwiches = sorted(savedSandwiches, by: SortingSelection(rawValue: UserSettings.sortingSelection) ?? .name)
+      savedSandwiches = sorted(savedSandwiches, by: UserSettings.sortingSelection)
     } catch let error {
-      print(error)
+      print(error.localizedDescription)
     }
     
     return savedSandwiches

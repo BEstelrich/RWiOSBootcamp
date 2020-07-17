@@ -21,6 +21,7 @@
 		C910170A24BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */; };
 		C94B1B3324C22B8C00A9002B /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B1B3224C22B8C00A9002B /* MainTextField.swift */; };
 		C94B1B3524C2347B00A9002B /* CellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B1B3424C2347B00A9002B /* CellBackgroundView.swift */; };
+		C99CDB4724C26196003E28F9 /* SortingBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */; };
 		C9C0C11324C229A20045B89A /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0C11224C229A20045B89A /* View+Ext.swift */; };
 		C9D05CF624C0F4CA00696C9B /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D05CF424C0F4CA00696C9B /* Sandwich+CoreDataClass.swift */; };
 		C9D05CF724C0F4CA00696C9B /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D05CF524C0F4CA00696C9B /* Sandwich+CoreDataProperties.swift */; };
@@ -45,6 +46,7 @@
 		C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SandwitchSaturation.xcdatamodel; sourceTree = "<group>"; };
 		C94B1B3224C22B8C00A9002B /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		C94B1B3424C2347B00A9002B /* CellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBackgroundView.swift; sourceTree = "<group>"; };
+		C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingBarButtonItem.swift; sourceTree = "<group>"; };
 		C9C0C11224C229A20045B89A /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		C9D05CF424C0F4CA00696C9B /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C9D05CF524C0F4CA00696C9B /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				1255798224AFB8FA004C616F /* Main.storyboard */,
+				C99CDB4824C261D7003E28F9 /* UIBarButtonItems */,
 				C94B1B3724C2398300A9002B /* UITableViewCells */,
 				C94B1B3624C2349400A9002B /* UIViews */,
 			);
@@ -139,6 +142,14 @@
 				1255799224AFCBD7004C616F /* SandwichCell.swift */,
 			);
 			path = UITableViewCells;
+			sourceTree = "<group>";
+		};
+		C99CDB4824C261D7003E28F9 /* UIBarButtonItems */ = {
+			isa = PBXGroup;
+			children = (
+				C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */,
+			);
+			path = UIBarButtonItems;
 			sourceTree = "<group>";
 		};
 		C9C0C11424C229A60045B89A /* Extensions */ = {
@@ -263,6 +274,7 @@
 				C910170A24BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld in Sources */,
 				C9C0C11324C229A20045B89A /* View+Ext.swift in Sources */,
 				C9FBE59224C1FAAA00CECF06 /* CoreDataManager.swift in Sources */,
+				C99CDB4724C26196003E28F9 /* SortingBarButtonItem.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
 				C9FBE59424C1FBC600CECF06 /* UserSettings.swift in Sources */,
 			);

@@ -15,6 +15,8 @@ struct SandwichData: Decodable {
   let sauceAmount: SauceAmount
   let imageName: String
   
+
+  
 }
 
 

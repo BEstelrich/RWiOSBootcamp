@@ -27,7 +27,7 @@ class SandwichViewController: UITableViewController {
     setupSearchController()
     setupSandwiches()
   }
-
+  
   
   func setupSandwiches() {
     sandwiches = coreDataManager.fetchSandwiches()
@@ -41,19 +41,10 @@ class SandwichViewController: UITableViewController {
   }
   
   
-  @IBAction func sortSandwichesTapped(_ sender: UIBarButtonItem) {
-    switch sender.title {
-    case "Name":
-      sender.title = "Sauce amount"
-      UserSettings.sortingSelection = "Sauce amount"
-    case "Sauce Amount":
-      sender.title = "Name"
-      UserSettings.sortingSelection = "Name"
-    default:
-      sender.title = "Name"
-      UserSettings.sortingSelection = "Name"
-    }
-    sandwiches = coreDataManager.fetchSandwiches()
+  @IBAction func sortSandwichesTapped(_ sender: SortingBarButtonItem) {
+    UserSettings.sortingSelection.toggle()
+    sender.updateSortingImageButton()
+    sandwiches = coreDataManager.sorted(sandwiches, by: UserSettings.sortingSelection)
     tableView.reloadData()
   }
   
