@@ -22,6 +22,7 @@ enum SortingSelection: Decodable {
   
   case name
   case sauceAmount
+  case rating
   
   var description: String {
     switch self {
@@ -29,6 +30,8 @@ enum SortingSelection: Decodable {
       return "Name"
     case .sauceAmount:
       return "Sauce amount"
+    case .rating:
+      return "Rating"
     }
   }
   
@@ -39,6 +42,9 @@ enum SortingSelection: Decodable {
       self = .sauceAmount
       
     case .sauceAmount:
+      self = .rating
+      
+    case .rating:
       self = .name
     }
   }
@@ -56,6 +62,9 @@ extension SortingSelection: CaseIterable, RawRepresentable {
     case "Sauce amount":
       self = .sauceAmount
       
+    case "Rating":
+      self = .rating
+      
     default:
       return nil
     }
@@ -68,25 +77,28 @@ extension SortingSelection: CaseIterable, RawRepresentable {
       
     case .sauceAmount:
       return "Sauce amount"
+      
+    case .rating:
+      return "Rating"
     }
   }
   
 }
 
 
-extension String {
-  
-  func convertToSortingSelection() -> SortingSelection {
-    switch self {
-    case "Name":
-      return .name
-      
-    case "Sauce amount":
-      return .sauceAmount
-      
-    default:
-      return .name
-    }
-  }
-  
-}
+//extension String {
+//
+//  func convertToSortingSelection() -> SortingSelection {
+//    switch self {
+//    case "Name":
+//      return .name
+//
+//    case "Sauce amount":
+//      return .sauceAmount
+//
+//    default:
+//      return .name
+//    }
+//  }
+//
+//}

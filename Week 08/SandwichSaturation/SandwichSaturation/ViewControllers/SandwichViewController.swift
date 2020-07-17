@@ -85,7 +85,6 @@ class SandwichViewController: UITableViewController {
   func setupTableView() {
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.separatorStyle = .none
   }
 
   
@@ -110,6 +109,11 @@ class SandwichViewController: UITableViewController {
       sandwiches = coreDataManager.fetchSandwiches()
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
+  }
+  
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
   }
   
 }

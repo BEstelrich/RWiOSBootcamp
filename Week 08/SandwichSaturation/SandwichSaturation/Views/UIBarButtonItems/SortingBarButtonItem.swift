@@ -18,10 +18,13 @@ class SortingBarButtonItem: UIBarButtonItem {
   func updateSortingImageButton() {
     switch UserSettings.sortingSelection {
     case .name:
-      self.image = UIImage(systemName: "arrow.up.arrow.down.circle")!
+      self.image = UIImage(systemName: "textformat.abc")!
       
     case .sauceAmount:
-      self.image = UIImage(systemName: "arrow.up.arrow.down.circle.fill")!
+      self.image = UIImage(systemName: "staroflife")!
+      
+    case .rating:
+      self.image = UIImage(systemName: "star")!
     }
   }
   

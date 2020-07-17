@@ -42,6 +42,7 @@ class CoreDataManager {
     newSandwich.name = sandwich.name
     newSandwich.sauceAmount = sandwich.sauceAmount.rawValue
     newSandwich.imageName = sandwich.imageName
+    newSandwich.rating = sandwich.rating
     appDelegate.saveContext()
   }
   
@@ -59,6 +60,9 @@ class CoreDataManager {
 
     case .sauceAmount:
       return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }.sorted { $0.sauceAmount.lowercased() < $1.sauceAmount.lowercased() }
+      
+    case .rating:
+      return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }.sorted { $0.rating > $1.rating }
     }
   }
 

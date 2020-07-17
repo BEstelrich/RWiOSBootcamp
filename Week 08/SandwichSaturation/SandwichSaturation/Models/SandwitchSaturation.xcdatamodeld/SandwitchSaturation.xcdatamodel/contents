@@ -3,9 +3,10 @@
     <entity name="Sandwich" representedClassName="Sandwich" syncable="YES">
         <attribute name="imageName" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="rating" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="sauceAmount" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Sandwich" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="Sandwich" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>
