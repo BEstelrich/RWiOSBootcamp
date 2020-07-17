@@ -6,7 +6,6 @@
 //  Copyright © 2020 Jeff Rames. All rights reserved.
 //
 import UIKit
-//import CoreData
 
 
 protocol SandwichDataSource {
@@ -16,11 +15,9 @@ protocol SandwichDataSource {
 
 class SandwichViewController: UITableViewController {
   
-  @IBOutlet weak var sortingSandwichesButton: UIBarButtonItem!
-  
-  private let searchController = UISearchController(searchResultsController: nil)
   private var sandwiches = [Sandwich]()
   private var filteredSandwiches = [Sandwich]()
+  private let searchController = UISearchController(searchResultsController: nil)
   private let coreDataManager = CoreDataManager()
 
 
@@ -34,10 +31,7 @@ class SandwichViewController: UITableViewController {
   
   func setupSandwiches() {
     sandwiches = coreDataManager.fetchSandwiches()
-    
-    if sandwiches.isEmpty {
-      sandwiches = coreDataManager.saveSandwichesFromJSONToCoreData()
-    }
+    sandwiches = sandwiches.isEmpty ? coreDataManager.saveSandwichesFromJSONToCoreData() : sandwiches
   }
   
 
@@ -50,13 +44,13 @@ class SandwichViewController: UITableViewController {
   @IBAction func sortSandwichesTapped(_ sender: UIBarButtonItem) {
     switch sender.title {
     case "Name":
-      sortingSandwichesButton.title = "Sauce amount"
+      sender.title = "Sauce amount"
       UserSettings.sortingSelection = "Sauce amount"
     case "Sauce Amount":
-      sortingSandwichesButton.title = "Name"
+      sender.title = "Name"
       UserSettings.sortingSelection = "Name"
     default:
-      sortingSandwichesButton.title = "Name"
+      sender.title = "Name"
       UserSettings.sortingSelection = "Name"
     }
     sandwiches = coreDataManager.fetchSandwiches()
@@ -100,6 +94,7 @@ class SandwichViewController: UITableViewController {
   func setupTableView() {
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.separatorStyle = .none
   }
 
   
@@ -120,9 +115,9 @@ class SandwichViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     if editingStyle == .delete {
       let selectedSandwich = sandwiches[indexPath.row]
-      sandwiches.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .automatic)
       coreDataManager.delete(selectedSandwich)
+      sandwiches = coreDataManager.fetchSandwiches()
+      tableView.deleteRows(at: [indexPath], with: .automatic)
     }
   }
   
