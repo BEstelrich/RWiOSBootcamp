@@ -16,7 +16,7 @@ protocol SandwichDataSource {
 
 class SandwichViewController: UITableViewController {
   
-  @IBOutlet weak var sortSandwichesButton: UIBarButtonItem!
+  @IBOutlet weak var sortingSandwichesButton: UIBarButtonItem!
   
   private let searchController = UISearchController(searchResultsController: nil)
   private var sandwiches = [Sandwich]()
@@ -48,19 +48,19 @@ class SandwichViewController: UITableViewController {
   
   
   @IBAction func sortSandwichesTapped(_ sender: UIBarButtonItem) {
-//    switch sender.title {
-//    case "Name":
-//      sortSandwichesButton.title = "Sauce Amount"
-//      sortTypeSelection = SortSelection.sauceAmount
-//    case "Sauce Amount":
-//      sortSandwichesButton.title = "Name"
-//      sortTypeSelection = SortSelection.name
-//    default:
-//      sortSandwichesButton.title = "Name"
-//      sortTypeSelection = SortSelection.name
-//    }
-//    savedSandwiches = SortSelection.sorted(savedSandwiches, by: sortTypeSelection)
-//    tableView.reloadData()
+    switch sender.title {
+    case "Name":
+      sortingSandwichesButton.title = "Sauce amount"
+      UserSettings.sortingSelection = "Sauce amount"
+    case "Sauce Amount":
+      sortingSandwichesButton.title = "Name"
+      UserSettings.sortingSelection = "Name"
+    default:
+      sortingSandwichesButton.title = "Name"
+      UserSettings.sortingSelection = "Name"
+    }
+    sandwiches = coreDataManager.fetchSandwiches()
+    tableView.reloadData()
   }
   
   

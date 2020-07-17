@@ -28,7 +28,7 @@ class CoreDataManager {
     var savedSandwiches = [Sandwich]()
     do {
       savedSandwiches = try appDelegate.persistentContainer.viewContext.fetch(Sandwich.fetchRequest())
-//      savedSandwiches = sorted(savedSandwiches, by: UserSet)
+      savedSandwiches = sorted(savedSandwiches, by: SortingSelection(rawValue: UserSettings.sortingSelection) ?? .name)
     } catch let error {
       print(error)
     }
@@ -55,10 +55,10 @@ class CoreDataManager {
   func sorted(_ sandwiches: [Sandwich], by sortingSelection: SortingSelection) -> [Sandwich] {
     switch sortingSelection {
     case .name:
-      return sandwiches.sorted { $0.name < $1.name }
+      return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }
 
     case .sauceAmount:
-      return sandwiches.sorted { $0.sauceAmount < $1.sauceAmount }
+      return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }.sorted { $0.sauceAmount.lowercased() < $1.sauceAmount.lowercased() }
     }
   }
 

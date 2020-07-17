@@ -85,7 +85,7 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Sandwiches" id="Zdf-7t-Un8">
-                        <barButtonItem key="leftBarButtonItem" title="Name" id="bQo-9g-uNu">
+                        <barButtonItem key="leftBarButtonItem" title="Name" image="arrow.up.arrow.down.square" catalog="system" id="bQo-9g-uNu">
                             <connections>
                                 <action selector="sortSandwichesTapped:" destination="7bK-jq-Zjz" id="9dp-xK-2zW"/>
                             </connections>
@@ -97,7 +97,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="sortSandwichesButton" destination="bQo-9g-uNu" id="sM4-ri-hCg"/>
+                        <outlet property="sortingSandwichesButton" destination="bQo-9g-uNu" id="sM4-ri-hCg"/>
                         <segue destination="Gwi-TV-UMp" kind="presentation" identifier="AddSandwichSegue" id="jN9-hL-25V"/>
                     </connections>
                 </tableViewController>
@@ -138,6 +138,7 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sandwich Name" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="kIl-fS-O8c">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
                                         <connections>
@@ -194,4 +195,7 @@
             <point key="canvasLocation" x="-813.04347826086962" y="866.51785714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.up.arrow.down.square" catalog="system" width="128" height="114"/>
+    </resources>
 </document>
