@@ -17,8 +17,8 @@ class CoreDataManager {
       let sandwichData = try Data(contentsOf: sandwichJSONURL)
       let sandwiches = try decoder.decode([SandwichData].self, from: sandwichData)
       sandwiches.forEach { save($0) }
-    } catch let error {
-      print(error.localizedDescription)
+    } catch let error as NSError {
+      print("Could not save from JSON: \(error), \(error.userInfo)")
     }
     
     return fetchSandwiches()
@@ -26,15 +26,15 @@ class CoreDataManager {
   
   
   func fetchSandwiches() -> [Sandwich] {
-    var savedSandwiches = [Sandwich]()
+    var fetchedSandwiches = [Sandwich]()
     do {
-      savedSandwiches = try appDelegate.persistentContainer.viewContext.fetch(Sandwich.fetchRequest())
-      savedSandwiches = sorted(savedSandwiches, by: UserSettings.sortingSelection)
-    } catch let error {
-      print(error.localizedDescription)
+      fetchedSandwiches = try appDelegate.persistentContainer.viewContext.fetch(Sandwich.fetchRequest())
+      fetchedSandwiches = sorted(fetchedSandwiches, by: SettingsManager.sortingSelection)
+    } catch let error as NSError {
+      print("Could not fetch: \(error), \(error.userInfo)")
     }
     
-    return savedSandwiches
+    return fetchedSandwiches
   }
   
   
@@ -54,6 +54,22 @@ class CoreDataManager {
   }
   
   
+  func editRating(for sandwich: Sandwich, with rating: Double) {
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sandwich")
+    fetchRequest.predicate = NSPredicate(format: "name = %@", sandwich.name)
+    
+    do {
+      let results = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+      
+      let result = results[0] as! NSManagedObject
+      result.setValue(rating, forKey: "rating")
+      appDelegate.saveContext()
+    } catch let error as NSError {
+      print("Could not edit: \(error), \(error.userInfo)")
+    }
+  }
+  
+  
   func sorted(_ sandwiches: [Sandwich], by sortingSelection: SortingSelection) -> [Sandwich] {
     switch sortingSelection {
     case .name:
@@ -66,24 +82,5 @@ class CoreDataManager {
       return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }.sorted { $0.rating > $1.rating }
     }
   }
-  
-  
-  func edit(_ sandwich: Sandwich, _ rating: Double) {
-    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sandwich")
-    fetchRequest.predicate = NSPredicate(format: "name = %@", sandwich.name)
-    
-    do {
-      let results = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
-      
-      let result = results[0] as! NSManagedObject
-      result.setValue(rating, forKey: "rating")
-      print(result)
-      appDelegate.saveContext()
-      
-    } catch let error as NSError {
-      print("Could not fetch. \(error), \(error.userInfo)")
-    }
-  }
-  
   
 }

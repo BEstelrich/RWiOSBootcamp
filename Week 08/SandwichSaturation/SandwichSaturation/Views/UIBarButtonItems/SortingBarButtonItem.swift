@@ -16,7 +16,7 @@ class SortingBarButtonItem: UIBarButtonItem {
   
   
   func updateSortingImageButton() {
-    switch UserSettings.sortingSelection {
+    switch SettingsManager.sortingSelection {
     case .name:
       self.image = UIImage(systemName: "textformat.abc")!
       

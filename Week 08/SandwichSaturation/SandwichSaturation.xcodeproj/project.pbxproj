@@ -26,7 +26,7 @@
 		C99CDB4724C26196003E28F9 /* SortingBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */; };
 		C9C0C11324C229A20045B89A /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0C11224C229A20045B89A /* View+Ext.swift */; };
 		C9FBE59224C1FAAA00CECF06 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE59124C1FAAA00CECF06 /* CoreDataManager.swift */; };
-		C9FBE59424C1FBC600CECF06 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE59324C1FBC600CECF06 /* UserSettings.swift */; };
+		C9FBE59424C1FBC600CECF06 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE59324C1FBC600CECF06 /* SettingsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +51,7 @@
 		C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingBarButtonItem.swift; sourceTree = "<group>"; };
 		C9C0C11224C229A20045B89A /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		C9FBE59124C1FAAA00CECF06 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		C9FBE59324C1FBC600CECF06 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		C9FBE59324C1FBC600CECF06 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				C9FBE59124C1FAAA00CECF06 /* CoreDataManager.swift */,
-				C9FBE59324C1FBC600CECF06 /* UserSettings.swift */,
+				C9FBE59324C1FBC600CECF06 /* SettingsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -276,7 +276,7 @@
 				C927ABD624C3FDE60010402A /* Sandwich+CoreDataClass.swift in Sources */,
 				C99CDB4724C26196003E28F9 /* SortingBarButtonItem.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
-				C9FBE59424C1FBC600CECF06 /* UserSettings.swift in Sources */,
+				C9FBE59424C1FBC600CECF06 /* SettingsManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

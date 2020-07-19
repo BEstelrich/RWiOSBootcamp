@@ -1,8 +1,8 @@
-// 2020.07.17 | SandwichSaturation - UserSettings.swift | Copyright © 2020 Jeff Rames. All rights reserved.
+// 2020.07.17 | SandwichSaturation - SettingsManager.swift | Copyright © 2020 Jeff Rames. All rights reserved.
 import UIKit
 
 
-enum UserSettings {
+enum SettingsManager {
   
   static var lastFilterSelectedIndex: Int {
     get { return UserDefaults.standard.object(forKey: "LastFilterSelectedIndex") as? Int ?? 0 }
@@ -28,8 +28,10 @@ enum SortingSelection: Decodable {
     switch self {
     case .name:
       return "Name"
+      
     case .sauceAmount:
       return "Sauce amount"
+      
     case .rating:
       return "Rating"
     }
@@ -84,21 +86,3 @@ extension SortingSelection: CaseIterable, RawRepresentable {
   }
   
 }
-
-
-//extension String {
-//
-//  func convertToSortingSelection() -> SortingSelection {
-//    switch self {
-//    case "Name":
-//      return .name
-//
-//    case "Sauce amount":
-//      return .sauceAmount
-//
-//    default:
-//      return .name
-//    }
-//  }
-//
-//}

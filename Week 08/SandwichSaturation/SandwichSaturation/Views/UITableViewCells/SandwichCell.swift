@@ -12,15 +12,15 @@ class SandwichCell: UITableViewCell {
   
   static let reuseIdentifier = "SandwichCell"
   
-  @IBOutlet weak var thumbnail: UIImageView!
   @IBOutlet weak var nameLabel: UILabel!
   @IBOutlet weak var sauceLabel: UILabel!
   @IBOutlet weak var ratingLabel: UILabel!
   @IBOutlet weak var ratingNumberLabel: UILabel!
+  @IBOutlet weak var thumbnailImageView: UIImageView!
   
   
   func populate(with sandwich: Sandwich) {
-    thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
+    thumbnailImageView.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     nameLabel.text = sandwich.name
     sauceLabel.text = sandwich.sauceAmount.description
     ratingLabel.text = setRating(sandwich.rating)

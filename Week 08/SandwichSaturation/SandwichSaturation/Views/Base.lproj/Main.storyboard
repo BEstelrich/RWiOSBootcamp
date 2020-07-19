@@ -28,7 +28,7 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="Sandwiches View Controller" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="SandwichViewController" customModule="SandwichSaturation" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r7i-6Z-zg0">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -100,8 +100,8 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="wB0-AH-tKb" firstAttribute="leading" secondItem="Pqm-h9-zIo" secondAttribute="leading" constant="10" id="0qL-6f-fuL"/>
-                                        <constraint firstAttribute="bottom" secondItem="wB0-AH-tKb" secondAttribute="bottom" constant="5" id="bdm-7V-isg"/>
-                                        <constraint firstItem="wB0-AH-tKb" firstAttribute="top" secondItem="Pqm-h9-zIo" secondAttribute="top" constant="5" id="dS9-hR-4qj"/>
+                                        <constraint firstAttribute="bottom" secondItem="wB0-AH-tKb" secondAttribute="bottom" priority="900" constant="5" id="bdm-7V-isg"/>
+                                        <constraint firstItem="wB0-AH-tKb" firstAttribute="top" secondItem="Pqm-h9-zIo" secondAttribute="top" priority="900" constant="5" id="dS9-hR-4qj"/>
                                         <constraint firstAttribute="trailing" secondItem="wB0-AH-tKb" secondAttribute="trailing" constant="10" id="mya-6h-MXD"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -110,7 +110,7 @@
                                     <outlet property="ratingLabel" destination="Fqw-G7-Gel" id="dKA-xg-XIc"/>
                                     <outlet property="ratingNumberLabel" destination="QaS-Yx-MBo" id="YH5-Vr-GSr"/>
                                     <outlet property="sauceLabel" destination="4cL-eV-Ita" id="Ove-QS-LKK"/>
-                                    <outlet property="thumbnail" destination="auk-N2-xpd" id="mLt-MB-zrZ"/>
+                                    <outlet property="thumbnailImageView" destination="auk-N2-xpd" id="mLt-MB-zrZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -197,9 +197,6 @@
                                                     <segment title="None"/>
                                                     <segment title="Too Much"/>
                                                 </segments>
-                                                <connections>
-                                                    <action selector="sauceAmountChanged:" destination="Gwi-TV-UMp" eventType="valueChanged" id="bae-ya-VaP"/>
-                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
@@ -250,11 +247,12 @@
                         <viewLayoutGuide key="safeArea" id="8C6-Nv-Voz"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="glQ-Xw-Cis" id="QyS-3S-BCa"/>
-                        <outlet property="nameField" destination="kIl-fS-O8c" id="0Ca-Xv-Cb3"/>
+                        <outlet property="nameTextField" destination="kIl-fS-O8c" id="0Ca-Xv-Cb3"/>
                         <outlet property="ratingLabel" destination="Edo-9N-R0U" id="HFY-wT-W94"/>
+                        <outlet property="ratingStepper" destination="gl5-Cj-thX" id="nNH-eX-qMV"/>
                         <outlet property="sauceAmountSegmentedControl" destination="htE-UV-vTK" id="rMM-48-JMu"/>
                         <outlet property="saveButton" destination="byn-f7-IXT" id="GdS-mG-NUp"/>
+                        <outlet property="thumbnailImageView" destination="glQ-Xw-Cis" id="QyS-3S-BCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUR-fy-AeX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

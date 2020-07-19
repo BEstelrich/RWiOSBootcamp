@@ -10,14 +10,15 @@ import UIKit
 
 protocol SandwichDataSource {
   func saveSandwich(_: SandwichData)
+  func editSandwich(_: Sandwich, rating: Double)
 }
 
 
 class SandwichViewController: UITableViewController {
   
+  private let searchController = UISearchController(searchResultsController: nil)
   private var sandwiches = [Sandwich]()
   private var filteredSandwiches = [Sandwich]()
-  private let searchController = UISearchController(searchResultsController: nil)
   private let coreDataManager = CoreDataManager()
 
 
@@ -42,9 +43,9 @@ class SandwichViewController: UITableViewController {
   
   
   @IBAction func sortSandwichesTapped(_ sender: SortingBarButtonItem) {
-    UserSettings.sortingSelection.toggle()
+    SettingsManager.sortingSelection.toggle()
     sender.updateSortingImageButton()
-    sandwiches = coreDataManager.sorted(sandwiches, by: UserSettings.sortingSelection)
+    sandwiches = coreDataManager.sorted(sandwiches, by: SettingsManager.sortingSelection)
     tableView.reloadData()
   }
   
@@ -77,11 +78,6 @@ class SandwichViewController: UITableViewController {
   
   
   // MARK: - Table View
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
-  }
-  
-  
   func setupTableView() {
     tableView.delegate = self
     tableView.dataSource = self
@@ -110,52 +106,36 @@ class SandwichViewController: UITableViewController {
       tableView.deleteRows(at: [indexPath], with: .automatic)
     }
   }
-  
 
-  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
-  }
-  
   
   override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
     let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
     
-    return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
-      
+    return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+
       let oneStar = UIAction(title: "★☆☆☆☆", image: UIImage(systemName: "1.circle")) { action in
-        self.coreDataManager.edit(sandwich, 1.0)
-        self.sandwiches = self.coreDataManager.fetchSandwiches()
-        tableView.reloadData()
+        self.editSandwich(sandwich, rating: 1.0)
       }
-      
+
       let twoStars = UIAction(title: "★★☆☆☆", image: UIImage(systemName: "2.circle")) { action in
-        self.coreDataManager.edit(sandwich, 2.0)
-        self.sandwiches = self.coreDataManager.fetchSandwiches()
-        tableView.reloadData()
+        self.editSandwich(sandwich, rating: 2.0)
       }
-      
+
       let threeStars = UIAction(title: "★★★☆☆", image: UIImage(systemName: "3.circle")) { action in
-        self.coreDataManager.edit(sandwich, 3.0)
-        self.sandwiches = self.coreDataManager.fetchSandwiches()
-        tableView.reloadData()
+        self.editSandwich(sandwich, rating: 3.0)
       }
-      
+
       let fourStars = UIAction(title: "★★★★☆", image: UIImage(systemName: "4.circle")) { action in
-        self.coreDataManager.edit(sandwich, 4.0)
-        self.sandwiches = self.coreDataManager.fetchSandwiches()
-        tableView.reloadData()
+        self.editSandwich(sandwich, rating: 4.0)
       }
-      
+
       let fiveStars = UIAction(title: "★★★★★", image: UIImage(systemName: "5.circle")) { action in
-        self.coreDataManager.edit(sandwich, 5.0)
-        self.sandwiches = self.coreDataManager.fetchSandwiches()
-        tableView.reloadData()
+        self.editSandwich(sandwich, rating: 5.0)
       }
-      
       return UIMenu(title: "Rating", children: [fiveStars, fourStars, threeStars, twoStars, oneStar])
     }
   }
-  
+
 }
 
 
@@ -175,20 +155,20 @@ extension SandwichViewController: UISearchResultsUpdating {
 extension SandwichViewController: UISearchBarDelegate {
   
   func setupSearchController() {
+    searchController.searchBar.delegate = self
     searchController.searchResultsUpdater = self
     searchController.obscuresBackgroundDuringPresentation = false
     searchController.searchBar.placeholder = "Filter Sandwiches"
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
-    searchController.searchBar.selectedScopeButtonIndex = UserSettings.lastFilterSelectedIndex
-    searchController.searchBar.delegate = self
+    searchController.searchBar.selectedScopeButtonIndex = SettingsManager.lastFilterSelectedIndex
   }
   
   
   func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-    UserSettings.lastFilterSelectedIndex = selectedScope
-    let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![UserSettings.lastFilterSelectedIndex])
+    SettingsManager.lastFilterSelectedIndex = selectedScope
+    let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![SettingsManager.lastFilterSelectedIndex])
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
   }
   
@@ -201,6 +181,13 @@ extension SandwichViewController: SandwichDataSource {
   func saveSandwich(_ sandwich: SandwichData) {
     coreDataManager.save(sandwich)
     sandwiches = coreDataManager.fetchSandwiches()
+    tableView.reloadData()
+  }
+  
+  
+  func editSandwich(_ sandwich: Sandwich, rating: Double) {
+    self.coreDataManager.editRating(for: sandwich, with: rating)
+    self.sandwiches = self.coreDataManager.fetchSandwiches()
     tableView.reloadData()
   }
   
