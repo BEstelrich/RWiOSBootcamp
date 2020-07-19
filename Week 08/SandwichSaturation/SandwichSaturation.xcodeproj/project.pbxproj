@@ -18,12 +18,12 @@
 		12A0791124AFDC5C0097F149 /* AddSandwichViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791024AFDC5C0097F149 /* AddSandwichViewController.swift */; };
 		12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0791324AFDD8E0097F149 /* SandwichData.swift */; };
 		12A0791824B2CC9A0097F149 /* Sandwiches.json in Resources */ = {isa = PBXBuildFile; fileRef = 12A0791724B2CC9A0097F149 /* Sandwiches.json */; };
-		C910170A24BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */; };
+		C910170A24BFBBC200C80C43 /* SandwichSaturation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C910170824BFBBC200C80C43 /* SandwichSaturation.xcdatamodeld */; };
+		C927ABD624C3FDE60010402A /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927ABD424C3FDE60010402A /* Sandwich+CoreDataClass.swift */; };
+		C927ABD724C3FDE60010402A /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C927ABD524C3FDE60010402A /* Sandwich+CoreDataProperties.swift */; };
 		C94B1B3324C22B8C00A9002B /* MainTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B1B3224C22B8C00A9002B /* MainTextField.swift */; };
 		C94B1B3524C2347B00A9002B /* CellBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B1B3424C2347B00A9002B /* CellBackgroundView.swift */; };
 		C99CDB4724C26196003E28F9 /* SortingBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */; };
-		C9BFB35424C394FF00C35180 /* Sandwich+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BFB35224C394FF00C35180 /* Sandwich+CoreDataClass.swift */; };
-		C9BFB35524C394FF00C35180 /* Sandwich+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BFB35324C394FF00C35180 /* Sandwich+CoreDataProperties.swift */; };
 		C9C0C11324C229A20045B89A /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9C0C11224C229A20045B89A /* View+Ext.swift */; };
 		C9FBE59224C1FAAA00CECF06 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE59124C1FAAA00CECF06 /* CoreDataManager.swift */; };
 		C9FBE59424C1FBC600CECF06 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FBE59324C1FBC600CECF06 /* UserSettings.swift */; };
@@ -44,11 +44,11 @@
 		12A0791324AFDD8E0097F149 /* SandwichData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichData.swift; sourceTree = "<group>"; };
 		12A0791724B2CC9A0097F149 /* Sandwiches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Sandwiches.json; sourceTree = "<group>"; };
 		C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SandwitchSaturation.xcdatamodel; sourceTree = "<group>"; };
+		C927ABD424C3FDE60010402A /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C927ABD524C3FDE60010402A /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C94B1B3224C22B8C00A9002B /* MainTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextField.swift; sourceTree = "<group>"; };
 		C94B1B3424C2347B00A9002B /* CellBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellBackgroundView.swift; sourceTree = "<group>"; };
 		C99CDB4624C26196003E28F9 /* SortingBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingBarButtonItem.swift; sourceTree = "<group>"; };
-		C9BFB35224C394FF00C35180 /* Sandwich+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C9BFB35324C394FF00C35180 /* Sandwich+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sandwich+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C9C0C11224C229A20045B89A /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 		C9FBE59124C1FAAA00CECF06 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C9FBE59324C1FBC600CECF06 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -120,9 +120,9 @@
 			children = (
 				12A0791324AFDD8E0097F149 /* SandwichData.swift */,
 				12A0791724B2CC9A0097F149 /* Sandwiches.json */,
-				C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */,
-				C9BFB35224C394FF00C35180 /* Sandwich+CoreDataClass.swift */,
-				C9BFB35324C394FF00C35180 /* Sandwich+CoreDataProperties.swift */,
+				C910170824BFBBC200C80C43 /* SandwichSaturation.xcdatamodeld */,
+				C927ABD424C3FDE60010402A /* Sandwich+CoreDataClass.swift */,
+				C927ABD524C3FDE60010402A /* Sandwich+CoreDataProperties.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,12 +268,12 @@
 				1255797B24AFB8FA004C616F /* AppDelegate.swift in Sources */,
 				1255797D24AFB8FA004C616F /* SceneDelegate.swift in Sources */,
 				C94B1B3524C2347B00A9002B /* CellBackgroundView.swift in Sources */,
-				C9BFB35524C394FF00C35180 /* Sandwich+CoreDataProperties.swift in Sources */,
+				C927ABD724C3FDE60010402A /* Sandwich+CoreDataProperties.swift in Sources */,
 				1255797F24AFB8FA004C616F /* SandwichViewController.swift in Sources */,
-				C910170A24BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld in Sources */,
+				C910170A24BFBBC200C80C43 /* SandwichSaturation.xcdatamodeld in Sources */,
 				C9C0C11324C229A20045B89A /* View+Ext.swift in Sources */,
 				C9FBE59224C1FAAA00CECF06 /* CoreDataManager.swift in Sources */,
-				C9BFB35424C394FF00C35180 /* Sandwich+CoreDataClass.swift in Sources */,
+				C927ABD624C3FDE60010402A /* Sandwich+CoreDataClass.swift in Sources */,
 				C99CDB4724C26196003E28F9 /* SortingBarButtonItem.swift in Sources */,
 				12A0791424AFDD8E0097F149 /* SandwichData.swift in Sources */,
 				C9FBE59424C1FBC600CECF06 /* UserSettings.swift in Sources */,
@@ -421,7 +421,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9Y8CR6448;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SandwichSaturation/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -439,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V9Y8CR6448;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SandwichSaturation/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -476,13 +476,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C910170824BFBBC200C80C43 /* SandwitchSaturation.xcdatamodeld */ = {
+		C910170824BFBBC200C80C43 /* SandwichSaturation.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */,
 			);
 			currentVersion = C910170924BFBBC200C80C43 /* SandwitchSaturation.xcdatamodel */;
-			path = SandwitchSaturation.xcdatamodeld;
+			path = SandwichSaturation.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

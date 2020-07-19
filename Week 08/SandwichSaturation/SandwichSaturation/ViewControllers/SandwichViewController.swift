@@ -116,6 +116,46 @@ class SandwichViewController: UITableViewController {
     tableView.deselectRow(at: indexPath, animated: true)
   }
   
+  
+  override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    let sandwich = isFiltering ? filteredSandwiches[indexPath.row] : sandwiches[indexPath.row]
+    
+    return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+      
+      let oneStar = UIAction(title: "★☆☆☆☆", image: UIImage(systemName: "1.circle")) { action in
+        self.coreDataManager.edit(sandwich, 1.0)
+        self.sandwiches = self.coreDataManager.fetchSandwiches()
+        tableView.reloadData()
+      }
+      
+      let twoStars = UIAction(title: "★★☆☆☆", image: UIImage(systemName: "2.circle")) { action in
+        self.coreDataManager.edit(sandwich, 2.0)
+        self.sandwiches = self.coreDataManager.fetchSandwiches()
+        tableView.reloadData()
+      }
+      
+      let threeStars = UIAction(title: "★★★☆☆", image: UIImage(systemName: "3.circle")) { action in
+        self.coreDataManager.edit(sandwich, 3.0)
+        self.sandwiches = self.coreDataManager.fetchSandwiches()
+        tableView.reloadData()
+      }
+      
+      let fourStars = UIAction(title: "★★★★☆", image: UIImage(systemName: "4.circle")) { action in
+        self.coreDataManager.edit(sandwich, 4.0)
+        self.sandwiches = self.coreDataManager.fetchSandwiches()
+        tableView.reloadData()
+      }
+      
+      let fiveStars = UIAction(title: "★★★★★", image: UIImage(systemName: "5.circle")) { action in
+        self.coreDataManager.edit(sandwich, 5.0)
+        self.sandwiches = self.coreDataManager.fetchSandwiches()
+        tableView.reloadData()
+      }
+      
+      return UIMenu(title: "Rating", children: [fiveStars, fourStars, threeStars, twoStars, oneStar])
+    }
+  }
+  
 }
 
 

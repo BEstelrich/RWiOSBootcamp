@@ -1,5 +1,6 @@
 // 2020.07.17 | SandwichSaturation - CoreDataManager.swift | Copyright © 2020 Jeff Rames. All rights reserved.
 import UIKit
+import CoreData
 
 
 class CoreDataManager {
@@ -57,7 +58,7 @@ class CoreDataManager {
     switch sortingSelection {
     case .name:
       return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }
-
+      
     case .sauceAmount:
       return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }.sorted { $0.sauceAmount.lowercased() < $1.sauceAmount.lowercased() }
       
@@ -65,6 +66,24 @@ class CoreDataManager {
       return sandwiches.sorted { $0.name.lowercased() < $1.name.lowercased() }.sorted { $0.rating > $1.rating }
     }
   }
-
+  
+  
+  func edit(_ sandwich: Sandwich, _ rating: Double) {
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Sandwich")
+    fetchRequest.predicate = NSPredicate(format: "name = %@", sandwich.name)
+    
+    do {
+      let results = try appDelegate.persistentContainer.viewContext.fetch(fetchRequest)
+      
+      let result = results[0] as! NSManagedObject
+      result.setValue(rating, forKey: "rating")
+      print(result)
+      appDelegate.saveContext()
+      
+    } catch let error as NSError {
+      print("Could not fetch. \(error), \(error.userInfo)")
+    }
+  }
+  
   
 }
