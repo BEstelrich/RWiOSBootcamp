@@ -97,5 +97,14 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	<p>
 </details>
 
+<details>
+	<summary><b>Week 09. Networking and design patters</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/1941154-fundamental-ios-design-patterns#c-rate">Fundamental iOS Design Patterns</a><br/>
+	📚 Video course: <a href="https://www.raywenderlich.com/10376245-networking-with-urlsession">Networking with URLSession</a><br/>
+	📱 Assignment: <a href="./Week%2009/Readme.md">jQuiz</a>
+	<p>
+</details>
+
 
 <!-- Footer -->
