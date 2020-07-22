@@ -11,7 +11,7 @@
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
 		C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7A24C2549400F6D3EC /* ViewController.swift */; };
 		C3DF5B8324C2549A00F6D3EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3DF5B8224C2549A00F6D3EC /* Assets.xcassets */; };
-		C3DF5BAB24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */; };
+		C3DF5BAB24C256CF00F6D3EC /* JeopardyThemeSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3DF5BAA24C256CF00F6D3EC /* JeopardyThemeSong.mp3 */; };
 		C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */; };
 		C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5BAF24C260A600F6D3EC /* Clue.swift */; };
 		C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53724C4DEA300D11A30 /* ImageCache.swift */; };
@@ -46,7 +46,7 @@
 		C3DF5B8724C2549A00F6D3EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3DF5B8C24C2549A00F6D3EC /* jQuizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jQuizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B9724C2549A00F6D3EC /* jQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jeopardy-theme-song.mp3"; sourceTree = "<group>"; };
+		C3DF5BAA24C256CF00F6D3EC /* JeopardyThemeSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = JeopardyThemeSong.mp3; sourceTree = "<group>"; };
 		C3DF5BAD24C25E1A00F6D3EC /* NetworkingHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingHandler.swift; sourceTree = "<group>"; };
 		C3DF5BAF24C260A600F6D3EC /* Clue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
 		C3FBE53724C4DEA300D11A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -126,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				C3DF5B8224C2549A00F6D3EC /* Assets.xcassets */,
-				C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */,
+				C3DF5BAA24C256CF00F6D3EC /* JeopardyThemeSong.mp3 */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 				C97E3AAF24C78F3B0006415E /* Main.storyboard in Resources */,
 				C97E3AB024C78F3B0006415E /* LaunchScreen.storyboard in Resources */,
 				C3DF5B8324C2549A00F6D3EC /* Assets.xcassets in Resources */,
-				C3DF5BAB24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 in Resources */,
+				C3DF5BAB24C256CF00F6D3EC /* JeopardyThemeSong.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
