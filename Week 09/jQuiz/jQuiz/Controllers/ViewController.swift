@@ -12,11 +12,11 @@ import UIKit
 class ViewController: UIViewController {
   
   @IBOutlet weak var logoImageView: UIImageView!
-  @IBOutlet weak var soundButton: UIButton!
   @IBOutlet weak var categoryLabel: UILabel!
   @IBOutlet weak var clueLabel: UILabel!
   @IBOutlet weak var answersTableView: UITableView!
   @IBOutlet weak var scoreLabel: UILabel!
+  @IBOutlet weak var soundButton: UIButton!
   
   var clues: [Clue] = []
   var correctAnswerClue: Clue?
@@ -25,13 +25,18 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupTableView()
     setupView()
+    setupTableView()
+    getClues()
   }
   
   
   func setupView() {
     self.scoreLabel.text = "\(self.points)"
+    self.categoryLabel.text = clues.first?.category?.title?.capitalized
+    self.clueLabel.text = clues.first?.question?.capitalized
+    
+    self.answersTableView.reloadData()
     
     if SoundManager.shared.isSoundEnabled == false {
       soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
@@ -39,6 +44,23 @@ class ViewController: UIViewController {
       soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
     }
     SoundManager.shared.playSound()
+  }
+  
+  
+  func getClues() {
+    Networking.shared.getRandomCategory(completion: { (clues, error) in
+      guard let category = clues?.first?.category,
+        error == nil else { return }
+      
+      Networking.shared.getAllCluesInCategory(category) { (clues, error) in
+        guard let clues = clues,
+          error == nil else { return }
+        DispatchQueue.main.async {
+          self.clues = clues
+          self.setupView()
+        }
+      }
+    })
   }
   
   
@@ -69,7 +91,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return answersTableView.frame.height / 4
+//    return answersTableView.frame.height / 4
+    return UITableView.automaticDimension
   }
   
   

@@ -10,7 +10,7 @@ class AnswersTableViewCell: UITableViewCell {
   
   
   func populate(with clue: Clue) {
-    answerLabel.text = clue.answer
+    answerLabel.text = clue.answer?.capitalized
   }
 
 }
