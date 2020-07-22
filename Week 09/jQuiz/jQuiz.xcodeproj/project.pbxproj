@@ -18,6 +18,7 @@
 		C97E3AAF24C78F3B0006415E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97E3AAB24C78F3B0006415E /* Main.storyboard */; };
 		C97E3AB024C78F3B0006415E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C97E3AAD24C78F3B0006415E /* LaunchScreen.storyboard */; };
 		C97E3AB224C78F650006415E /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E3AB124C78F650006415E /* SoundManager.swift */; };
+		C990209B24C8EDD700132A1B /* AnswersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C990209A24C8EDD700132A1B /* AnswersTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C97E3AAC24C78F3B0006415E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C97E3AAE24C78F3B0006415E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C97E3AB124C78F650006415E /* SoundManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		C990209A24C8EDD700132A1B /* AnswersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				C97E3AAD24C78F3B0006415E /* LaunchScreen.storyboard */,
 				C97E3AAB24C78F3B0006415E /* Main.storyboard */,
 				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
+				C990209A24C8EDD700132A1B /* AnswersTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				C3DF5BAE24C25E1A00F6D3EC /* NetworkingHandler.swift in Sources */,
 				C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */,
 				C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */,
+				C990209B24C8EDD700132A1B /* AnswersTableViewCell.swift in Sources */,
 				C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */,
 				C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */,
 				C97E3AB224C78F650006415E /* SoundManager.swift in Sources */,
