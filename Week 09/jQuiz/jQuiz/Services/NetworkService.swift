@@ -1,16 +1,17 @@
 //
-//  NetworkingHandler.swift
+//  NetworkingService.swift
 //  jQuiz
 //
 //  Created by Jay Strawn on 7/17/20.
 //  Copyright © 2020 Jay Strawn. All rights reserved.
 //
-import Foundation
+import UIKit
 
 
-class Networking {
+class NetworkService {
   
-  static let shared = Networking()
+  static let shared = NetworkService()
+  private let cache = NSCache<NSString, UIImage>()
   private init() {}
   
   
@@ -54,8 +55,8 @@ class Networking {
   
   func getAllCluesInCategory(_ category: Category, completion: @escaping ([Clue]?, ErrorMessage?) -> Void) {
     guard let categoryId = category.id else {
-        completion(nil, .invalidURL)
-        return
+      completion(nil, .invalidURL)
+      return
     }
     
     guard let url = URL(string: "https://www.jservice.io/api/clues?category=\(categoryId)") else {
@@ -86,12 +87,40 @@ class Networking {
       do {
         let decoder = JSONDecoder()
         let cluesData = try decoder.decode([Clue].self, from: data)
-        print("Clues data: \(cluesData)")
-        print("Clues data count: \(cluesData.count)")
         completion(cluesData, nil)
       } catch {
         completion(nil, .invalidData)
       }
+    }
+    task.resume()
+  }
+  
+  
+  func downloadImage(from stringURL: String, completion: @escaping (UIImage?) -> Void) {
+    let cacheKey = NSString(string: stringURL)
+
+    if let image = cache.object(forKey: cacheKey) {
+      completion(image)
+      return
+    }
+
+    guard let url = URL(string: stringURL) else {
+      completion(nil)
+      return
+    }
+
+    let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+      guard let self = self,
+        error == nil,
+        let response = response as? HTTPURLResponse,
+        (200..<300).contains(response.statusCode),
+        let data = data,
+        let image = UIImage(data: data) else {
+          completion(nil)
+          return
+      }
+      self.cache.setObject(image, forKey: cacheKey)
+      completion(image)
     }
     task.resume()
   }

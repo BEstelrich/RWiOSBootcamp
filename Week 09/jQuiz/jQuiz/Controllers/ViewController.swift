@@ -14,11 +14,15 @@ class ViewController: UIViewController {
   @IBOutlet weak var logoImageView: UIImageView!
   @IBOutlet weak var categoryLabel: UILabel!
   @IBOutlet weak var clueLabel: UILabel!
-  @IBOutlet weak var answersTableView: UITableView!
   @IBOutlet weak var scoreLabel: UILabel!
-  @IBOutlet weak var soundButton: UIButton!
+  @IBOutlet weak var soundSettingsButton: SoundSettingsButton!
+  @IBOutlet weak var answersTableView: UITableView!
   
-  var clues: [Clue] = []
+  var clues: [Clue] = [] {
+    didSet {
+      answersTableView.reloadData()
+    }
+  }
   var correctAnswerClue: Clue?
   var points: Int = 0
   
@@ -32,27 +36,28 @@ class ViewController: UIViewController {
   
   
   func setupView() {
-    self.scoreLabel.text = "\(self.points)"
-    self.categoryLabel.text = clues.first?.category?.title?.capitalized
-    self.clueLabel.text = clues.first?.question?.capitalized
-    
-    self.answersTableView.reloadData()
-    
-    if SoundManager.shared.isSoundEnabled == false {
-      soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-    } else {
-      soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
+    setLogoImageView()
+    categoryLabel.text = clues.first?.category?.title?.capitalized
+    clueLabel.text = clues.first?.question
+    scoreLabel.text = "\(points)"
+  }
+  
+  
+  func setLogoImageView() {
+    NetworkService.shared.downloadImage(from: Constants.URL.hearderImage) { (image) in
+      DispatchQueue.main.async {
+        self.logoImageView.image = image
+      }
     }
-    SoundManager.shared.playSound()
   }
   
   
   func getClues() {
-    Networking.shared.getRandomCategory(completion: { (clues, error) in
+    NetworkService.shared.getRandomCategory(completion: { (clues, error) in
       guard let category = clues?.first?.category,
         error == nil else { return }
       
-      Networking.shared.getAllCluesInCategory(category) { (clues, error) in
+      NetworkService.shared.getAllCluesInCategory(category) { (clues, error) in
         guard let clues = clues,
           error == nil else { return }
         DispatchQueue.main.async {
@@ -65,12 +70,8 @@ class ViewController: UIViewController {
   
   
   @IBAction func didPressVolumeButton(_ sender: UIButton) {
-    SoundManager.shared.toggleSoundPreference()
-    if SoundManager.shared.isSoundEnabled == false {
-      soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-    } else {
-      soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
-    }
+    SoundManager.shared.togglePreferences()
+//    soundSettingsButton.toggleAppearance()
   }
   
 }
@@ -91,7 +92,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//    return answersTableView.frame.height / 4
     return UITableView.automaticDimension
   }
   
