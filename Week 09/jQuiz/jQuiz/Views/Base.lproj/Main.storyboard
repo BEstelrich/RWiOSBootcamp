@@ -52,6 +52,7 @@
                                 <rect key="frame" x="25" y="815" width="19" height="22"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <state key="normal" image="speaker" catalog="system"/>
+                                <state key="selected" image="speaker.slash" catalog="system"/>
                                 <connections>
                                     <action selector="didPressVolumeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVX-pa-Evl"/>
                                 </connections>
@@ -107,8 +108,8 @@
                         <outlet property="categoryLabel" destination="RMY-cr-kf3" id="X86-DI-Hpn"/>
                         <outlet property="clueLabel" destination="IW7-gs-GWY" id="FIM-dl-6xE"/>
                         <outlet property="logoImageView" destination="pK8-df-Hfb" id="9oD-GH-uVb"/>
+                        <outlet property="musicButton" destination="HVo-4j-EUU" id="oyf-8r-H3E"/>
                         <outlet property="scoreLabel" destination="au0-8X-o1t" id="7EV-50-xd8"/>
-                        <outlet property="soundButton" destination="HVo-4j-EUU" id="xp6-Xg-450"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -118,5 +119,6 @@
     </scenes>
     <resources>
         <image name="speaker" catalog="system" width="128" height="121"/>
+        <image name="speaker.slash" catalog="system" width="128" height="124"/>
     </resources>
 </document>

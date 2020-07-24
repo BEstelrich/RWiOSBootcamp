@@ -15,14 +15,10 @@ class ViewController: UIViewController {
   @IBOutlet weak var categoryLabel: UILabel!
   @IBOutlet weak var clueLabel: UILabel!
   @IBOutlet weak var scoreLabel: UILabel!
-  @IBOutlet weak var soundSettingsButton: SoundSettingsButton!
+  @IBOutlet weak var musicButton: UIButton!
   @IBOutlet weak var answersTableView: UITableView!
   
-  var clues: [Clue] = [] {
-    didSet {
-      answersTableView.reloadData()
-    }
-  }
+  var clues: [Clue] = [] { didSet { answersTableView.reloadData() } }
   var correctAnswerClue: Clue?
   var points: Int = 0
   
@@ -40,6 +36,7 @@ class ViewController: UIViewController {
     categoryLabel.text = clues.first?.category?.title?.capitalized
     clueLabel.text = clues.first?.question
     scoreLabel.text = "\(points)"
+    updateSoundManager()
   }
   
   
@@ -68,10 +65,15 @@ class ViewController: UIViewController {
     })
   }
   
+  func updateSoundManager() {
+    musicButton.isSelected = AppSettings.isSoundEnabled ? false : true
+    SoundManager.shared.updateSound()
+  }
+  
   
   @IBAction func didPressVolumeButton(_ sender: UIButton) {
-    SoundManager.shared.togglePreferences()
-//    soundSettingsButton.toggleAppearance()
+    AppSettings.isSoundEnabledToggle()
+    updateSoundManager()
   }
   
 }
