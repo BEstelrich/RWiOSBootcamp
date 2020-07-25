@@ -9,6 +9,7 @@
 
 <!-- Body -->
 ## Frameworks/External dependencies
+- Foundation
 - UIKit
 - CoreData
 
