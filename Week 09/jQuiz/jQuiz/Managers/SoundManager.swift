@@ -22,8 +22,8 @@ class SoundManager: NSObject {
       player?.play()
       player?.numberOfLoops = -1
       AppSettings.isSoundEnabled = true
-    } catch {
-      print("Error")
+    } catch let error as NSError {
+      print("Error: \(error.description)")
     }
   }
   

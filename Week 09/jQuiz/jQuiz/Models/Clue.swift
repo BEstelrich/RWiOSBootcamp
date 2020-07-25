@@ -8,7 +8,8 @@
 import Foundation
 
 
-struct Clue: Codable {
+struct Clue: Codable, Equatable, Hashable {
+  
   let id: Int?
   let answer: String?
   let question: String?
@@ -18,6 +19,7 @@ struct Clue: Codable {
   let updatedAt: String?
   let categoryId: Int?
   let category: Category?
+  
   
   enum CodingKeys: String, CodingKey {
     case id = "id"
@@ -30,15 +32,29 @@ struct Clue: Codable {
     case categoryId = "category_id"
     case category = "category"
   }
+  
+  
+  static func == (lhs: Clue, rhs: Clue) -> Bool {
+    return lhs.question == rhs.question && lhs.answer == rhs.answer
+  }
+  
+  
+  func hash(into hasher: inout Hasher) {
+    hasher.combine(question)
+    hasher.combine(answer)
+  }
+  
 }
- 
+
 
 struct Category: Codable {
+  
   let id: Int?
   let title: String?
   let createdAt: String?
   let updatedAt: String?
   let cluesCount: Int?
+  
   
   enum CodingKeys: String, CodingKey {
     case id = "id"
@@ -47,4 +63,5 @@ struct Category: Codable {
     case updatedAt = "updated_at"
     case cluesCount = "clues_count"
   }
+  
 }

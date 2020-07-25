@@ -18,25 +18,20 @@ class ViewController: UIViewController {
   @IBOutlet weak var musicButton: UIButton!
   @IBOutlet weak var answersTableView: UITableView!
   
-  var clues: [Clue] = [] { didSet { answersTableView.reloadData() } }
-  var correctAnswerClue: Clue?
-  var points: Int = 0
+  private let jQuizGame = JQuizGame()
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    setupView()
     setupTableView()
-    getClues()
+    setupView()
   }
   
   
   func setupView() {
     setLogoImageView()
-    categoryLabel.text = clues.first?.category?.title?.capitalized
-    clueLabel.text = clues.first?.question
-    scoreLabel.text = "\(points)"
-    updateSoundManager()
+    prepareViewForNextRound()
+    updateSoundManagerSettings()
   }
   
   
@@ -49,33 +44,34 @@ class ViewController: UIViewController {
   }
   
   
-  func getClues() {
-    NetworkService.shared.getRandomCategory(completion: { (clues, error) in
-      guard let category = clues?.first?.category,
-        error == nil else { return }
-      
-      NetworkService.shared.getAllCluesInCategory(category) { (clues, error) in
-        guard let clues = clues,
-          error == nil else { return }
-        DispatchQueue.main.async {
-          self.clues = clues
-          self.setupView()
-        }
-      }
-    })
-  }
-  
-  func updateSoundManager() {
+  func updateSoundManagerSettings() {
     musicButton.isSelected = AppSettings.isSoundEnabled ? false : true
     SoundManager.shared.updateSound()
   }
   
   
-  @IBAction func didPressVolumeButton(_ sender: UIButton) {
-    AppSettings.isSoundEnabledToggle()
-    updateSoundManager()
+  func prepareViewForNextRound() {
+    jQuizGame.setupGame {
+      DispatchQueue.main.async {
+        self.categoryLabel.text = self.jQuizGame.currentClue?.category?.title?.capitalized
+        self.clueLabel.text = self.jQuizGame.currentClue?.question
+        self.scoreLabel.text = "\(self.jQuizGame.points)"
+        self.answersTableView.reloadData()
+      }
+    }
   }
   
+
+  @IBAction func didPressVolumeButton(_ sender: UIButton) {
+    AppSettings.isSoundEnabledToggle()
+    updateSoundManagerSettings()
+  }
+  
+  
+  @IBAction func didPressResetButton(_ sender: UIButton) {
+    jQuizGame.resetGame()
+    prepareViewForNextRound()
+  }
 }
 
 
@@ -84,31 +80,33 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func setupTableView() {
     answersTableView.delegate = self
     answersTableView.dataSource = self
-    answersTableView.separatorStyle = .none
   }
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return clues.count
+    return jQuizGame.clues.count
   }
-  
-  
-  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return UITableView.automaticDimension
-  }
-  
+
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     guard let cell = answersTableView.dequeueReusableCell(withIdentifier: AnswersTableViewCell.reuseIdentifier) as? AnswersTableViewCell else { return UITableViewCell() }
-    let clue = clues[indexPath.row]
+    let clue = jQuizGame.clues[indexPath.row]
     cell.populate(with: clue)
     return cell
   }
   
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+  func tableView(_ tableView: UITableView , didSelectRowAt indexPath: IndexPath) {
+    let cell = tableView.cellForRow(at: indexPath) as! AnswersTableViewCell
+    tableView.isUserInteractionEnabled = false
+    let selectedAnswer = cell.answerLabel.text!.cleanHTMLAttributes!.capitalized
+    jQuizGame.checkIfCorrect(selectedAnswer) ? cell.updateAppearance(to: .green) : cell.updateAppearance(to: .red)
     
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+      cell.updateAppearance(to: .systemPurple)
+      self.prepareViewForNextRound()
+      tableView.isUserInteractionEnabled = true
+    }
   }
   
 }
-

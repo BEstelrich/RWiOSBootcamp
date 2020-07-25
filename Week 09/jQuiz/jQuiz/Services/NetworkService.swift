@@ -59,7 +59,14 @@ class NetworkService {
       return
     }
     
-    guard let url = URL(string: "https://www.jservice.io/api/clues?category=\(categoryId)") else {
+    guard let categoryCluesCount = category.cluesCount else {
+      completion(nil, .invalidURL)
+      return
+    }
+    
+    let offset = categoryCluesCount >= 10 ? categoryCluesCount - 10 : 0
+    
+    guard let url = URL(string: "https://www.jservice.io/api/clues?category=\(categoryId)&offset=\(offset)") else {
       completion(nil, .invalidURL)
       return
     }
