@@ -106,5 +106,14 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	<p>
 </details>
 
+<details>
+	<summary><b>Week 10. Concurrency and memory management</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/9461083-ios-concurrency-with-gcd-and-operations">iOS Concurrency with GCD and Operations</a><br/>
+	📚 Article: <a href="https://www.raywenderlich.com/966538-arc-and-memory-management-in-swift">ARC and Memory Management in Swift</a><br/>
+	📱 Assignment: <a href="./Week%2010/Readme.md">Animations</a>
+	<p>
+</details>
+
 
 <!-- Footer -->
