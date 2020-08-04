@@ -115,5 +115,21 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 	<p>
 </details>
 
+<details>
+	<summary><b>Week 11. Animation, Xcode tips and tricks</b></summary>
+	<p>
+	📚 Video course: <a href="https://www.raywenderlich.com/10523008-beginning-ios-animations">Beginning iOS Animations</a><br/>
+	📚 Video course: <a href="https://www.raywenderlich.com/3199-xcode-tips-and-tricks">Xcode Tips and Tricks</a><br/>
+	📱 Assignment: <a href="./Week%2011/Readme.md">AnimationFactory</a>
+	<p>
+</details>
+
+<details>
+	<summary><b>Week 12. Capstone project</b></summary>
+	<p>
+	📱 Assignment: <a href="./Week%2012/Readme.md">Project</a>
+	<p>
+	</details>
+
 
 <!-- Footer -->
