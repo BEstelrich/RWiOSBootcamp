@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,82 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimationFactory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPs-LR-Aao" userLabel="Position">
+                                <rect key="frame" x="177" y="802" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="BPR-a7-VD4"/>
+                                    <constraint firstAttribute="height" constant="60" id="VEq-WZ-bmB"/>
+                                    <constraint firstAttribute="width" constant="60" id="iFF-Pw-bfy"/>
+                                    <constraint firstAttribute="width" constant="60" id="u4f-ob-ULY"/>
+                                </constraints>
+                                <state key="normal" image="Position"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeD-WY-kbf" userLabel="Shape">
+                                <rect key="frame" x="177" y="802" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="1PB-U9-6GU"/>
+                                    <constraint firstAttribute="width" constant="60" id="7jn-VK-ppt"/>
+                                    <constraint firstAttribute="width" constant="60" id="Nug-JZ-Qyc"/>
+                                    <constraint firstAttribute="height" constant="60" id="tPz-df-XY4"/>
+                                </constraints>
+                                <state key="normal" image="Shape"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNG-u1-bcD" userLabel="Color">
+                                <rect key="frame" x="177" y="802" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="94v-rB-h7b"/>
+                                    <constraint firstAttribute="width" constant="60" id="TgU-V0-RQQ"/>
+                                    <constraint firstAttribute="width" constant="60" id="aNQ-R9-ipA"/>
+                                    <constraint firstAttribute="height" constant="60" id="uUD-2r-iio"/>
+                                </constraints>
+                                <state key="normal" image="Color"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOD-Un-B4z" userLabel="Home">
+                                <rect key="frame" x="177" y="802" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="RDm-Cc-Tv3"/>
+                                    <constraint firstAttribute="height" constant="60" id="q9C-Sk-KfF"/>
+                                </constraints>
+                                <state key="normal" image="Home"/>
+                                <connections>
+                                    <action selector="homeButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FQy-sI-iav"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="LeD-WY-kbf" firstAttribute="leading" secondItem="nOD-Un-B4z" secondAttribute="trailing" constant="-60" id="0oF-Ua-j1p"/>
+                            <constraint firstItem="nOD-Un-B4z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OYW-Fm-UIp"/>
+                            <constraint firstItem="nOD-Un-B4z" firstAttribute="centerY" secondItem="pPs-LR-Aao" secondAttribute="centerY" id="RCA-yv-FAl"/>
+                            <constraint firstItem="nOD-Un-B4z" firstAttribute="top" secondItem="RNG-u1-bcD" secondAttribute="bottom" constant="-60" id="SnE-9u-dVJ"/>
+                            <constraint firstItem="nOD-Un-B4z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="U4G-o3-VAd"/>
+                            <constraint firstItem="LeD-WY-kbf" firstAttribute="centerY" secondItem="pPs-LR-Aao" secondAttribute="centerY" id="k8F-cc-fBZ"/>
+                            <constraint firstItem="nOD-Un-B4z" firstAttribute="centerX" secondItem="RNG-u1-bcD" secondAttribute="centerX" id="mwJ-3B-Qkz"/>
+                            <constraint firstItem="nOD-Un-B4z" firstAttribute="leading" secondItem="pPs-LR-Aao" secondAttribute="trailing" constant="-60" id="tI7-fm-CmK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="changeColorOffsetConstraint" destination="SnE-9u-dVJ" id="WjD-UL-i9V"/>
+                        <outlet property="changePositionOffsetConstraint" destination="tI7-fm-CmK" id="Boi-G4-Vex"/>
+                        <outlet property="changeShapeOffsetConstraint" destination="0oF-Ua-j1p" id="fud-dT-L9u"/>
+                        <outlet property="homeButton" destination="nOD-Un-B4z" id="drx-py-KRD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Color" width="512" height="512"/>
+        <image name="Home" width="512" height="512"/>
+        <image name="Position" width="512" height="512"/>
+        <image name="Shape" width="512" height="512"/>
+    </resources>
 </document>
