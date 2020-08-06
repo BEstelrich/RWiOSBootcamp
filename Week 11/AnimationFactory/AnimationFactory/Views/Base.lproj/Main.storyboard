@@ -33,7 +33,7 @@
                                 </constraints>
                                 <state key="normal" image="Position"/>
                                 <connections>
-                                    <action selector="changePositionButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kV8-zr-siG"/>
+                                    <action selector="transformButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kV8-zr-siG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNG-u1-bcD" userLabel="Color">
@@ -46,7 +46,7 @@
                                 </constraints>
                                 <state key="normal" image="Color"/>
                                 <connections>
-                                    <action selector="changeColorButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ary-EA-IDX"/>
+                                    <action selector="appearanceButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ary-EA-IDX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LeD-WY-kbf" userLabel="Shape">
@@ -59,7 +59,7 @@
                                 </constraints>
                                 <state key="normal" image="Shape"/>
                                 <connections>
-                                    <action selector="changeShapeButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8qR-zb-ugi"/>
+                                    <action selector="shapeButtonDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8qR-zb-ugi"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOD-Un-B4z" userLabel="Home">
@@ -98,7 +98,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AS8-rq-R2K">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New object modifications has been scheduled to be animated." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AS8-rq-R2K">
                                                 <rect key="frame" x="0.0" y="45" width="362" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
@@ -140,8 +140,7 @@
                     <connections>
                         <outlet property="animatedView" destination="D44-Nn-EjE" id="3Nt-FD-366"/>
                         <outlet property="homeButton" destination="nOD-Un-B4z" id="drx-py-KRD"/>
-                        <outlet property="notificationDescriptionLabel" destination="AS8-rq-R2K" id="dCs-cE-vm8"/>
-                        <outlet property="notificationTitleLabel" destination="kgK-uR-gvg" id="DiF-Oh-SN9"/>
+                        <outlet property="notificationLabel" destination="kgK-uR-gvg" id="DiF-Oh-SN9"/>
                         <outlet property="notificationView" destination="wUp-m7-6TI" id="laP-XW-0NJ"/>
                         <outletCollection property="homeButtonOffsetArrayOfConstraints" destination="0oF-Ua-j1p" collectionClass="NSMutableArray" id="Sxx-el-etx"/>
                         <outletCollection property="homeButtonOffsetArrayOfConstraints" destination="SnE-9u-dVJ" collectionClass="NSMutableArray" id="2Jo-ii-mdj"/>
