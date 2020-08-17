@@ -16,10 +16,10 @@ TC: Bartolome Estelrich \[*BEstelrich#0357*]
 Toronto [Canada]
 
 ### *Programming experience*
-Over two years ago I wrote, in Swift, my first line of code. Around 6 months later I released an app on AppStore [**Toronto2Do**](https://apps.apple.com/app/toronto2do/id1258574300). Since then I've been adding additional features to my app and used it as a motivation to keep learning Swift. Nowadays I'm working hard to learn as much as possible in order to get my first job in this field.
+Over two years ago I wrote, in Swift, my first line of code. Around 6 months later I released an app on AppStore [**Toronto2Do**](https://apps.apple.com/app/toronto2do/id1258574300). Since then I've been adding additional features to my app and used it as a motivation to keep learning Swift.
 
 ### *Goals*
-Switching careers from an Architecture and Design background to a full-time iOS Developer position.
+Transition from Architecture and Design to iOS Development.
 
 ### *Hobbies*
 Technology, Photography, Home automation and Futuristic movies. 
@@ -28,6 +28,24 @@ Technology, Photography, Home automation and Futuristic movies.
 ## 👨‍🎓 Curriculum
 Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/10408731-rw-bootcamp)
 
+### *Capstone: Space Xploration*
+For my Capstone project I focused on the **Space X company**. Space Xploration is currently divided in missions and sections. However, at launch it will have a **Statistics tab in addition to a new home screen widget.**
+
+Despite the fact of being a one week project, it was a lot of fun to build my first fully operational app in SwiftUI. **As soon iOS14 is released it will be available on the App Store, so stay tunned! 😂**
+
+<p align="left">
+	<img src="./Assets/AppStoreBadge.png" width="125"/>
+</p>
+
+<p align="left">
+	<img src="./Assets/W12_AppPreview1.gif" height="500"/>
+	<img src="./Assets/W12_Screenshot1.png" height="500"/>
+	<img src="./Assets/W12_Screenshot2.png" height="500"/>
+</p>
+
+
+
+### *Course syllabus*
 <details>
 	<summary><b>Week 01. Controls, outlets and UIKit</b></summary>
 	<p>
@@ -125,9 +143,9 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 </details>
 
 <details>
-	<summary><b>Week 12. Capstone project</b></summary>
+	<summary><b>Week 12. Capstone project: Space Xploration</b></summary>
 	<p>
-	📱 Assignment: <a href="./Week%2012/Readme.md">Project</a>
+	📱 Assignment: <a href="./Week%2012/Readme.md">Space Xploration</a>
 	<p>
 	</details>
 
