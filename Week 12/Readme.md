@@ -31,7 +31,7 @@ Finally we have mission launchpads and landpads with their respective details an
 
 
 ## Preview
-Those are the most relevant screenshots on the app.
+Those are the most relevant screenshots of the app.
 
 <p align="left">
 	<img src="../Assets/W12_AppPreview1.gif" height="500"/>

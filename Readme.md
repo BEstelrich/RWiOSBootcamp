@@ -31,7 +31,7 @@ Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/1040873
 ### *Capstone: Space Xploration*
 For my Capstone project I focused on the **Space X company**. Space Xploration is currently divided in missions and sections. However, at launch it will have a **Statistics tab in addition to a new home screen widget.**
 
-Despite the fact of being a one week project, it was a lot of fun to build my first fully operational app in SwiftUI. **As soon iOS14 is released it will be available on the App Store, so stay tunned! 😂**
+Despite the fact of being a one week project, it was a lot of fun to build my first fully operational app in SwiftUI. **As soon iOS14 is released it will be available on the App Store, so stay tuned! 😂**
 
 <p align="left">
 	<img src="./Assets/AppStoreBadge.png" width="125"/>
