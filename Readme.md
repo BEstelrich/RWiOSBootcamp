@@ -1,11 +1,13 @@
-<!-- Header -->
+<!-- HEADER -->
 <img src="./Assets/W00_Bootcamp.png"/>
 <h1>Ray Wenderlich iOS Bootcamp [Summer 2020]</h1>
 
-[![](https://img.shields.io/badge/@BEstelrichS-1A94E0.svg?logoColor=white&logo=twitter)](https://twitter.com/BEstelrichS)
+[![](https://img.shields.io/badge/@BEstelrich-1A94E0.svg?logoColor=white&logo=twitter)][Twitter]
 
 
-<!-- Body -->
+
+
+<!-- BODY -->
 ## 👨‍💻 About
 
 ### *Name | Discord name*
@@ -150,4 +152,8 @@ Despite the fact of being a one week project, it was a lot of fun to build my fi
 	</details>
 
 
-<!-- Footer -->
+	
+	
+<!-- FOOTER -->
+<!-- Permanent links -->
+[Twitter]: https://twitter.com/BEstelrich
