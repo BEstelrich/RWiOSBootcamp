@@ -32,11 +32,17 @@ Finally we have mission launchpads and landpads with their respective details an
 
 ## Preview
 Those are the most relevant screenshots of the app.
+<p align="left" >
+	<a href="https://apps.apple.com/app/space-xploration/id1530580909">
+	<img src="../Assets/AppStoreBadge.png" width="125"/>
+</p>
 
 <p align="left">
-	<img src="../Assets/W12_AppPreview1.gif" height="500"/>
 	<img src="../Assets/W12_Screenshot1.png" height="500"/>
 	<img src="../Assets/W12_Screenshot2.png" height="500"/>
+	<img src="../Assets/W12_Screenshot3.png" height="500"/>
+	<img src="../Assets/W12_Screenshot4.png" height="500"/>
+    <img src="../Assets/W12_Screenshot5.png" height="500"/>
 </p>
 
 <!-- Footer -->

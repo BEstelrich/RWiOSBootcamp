@@ -31,16 +31,17 @@ Technology, Photography, Home automation and Futuristic movies.
 Details: [Ray Wenderlich Bootcamp website](https://www.raywenderlich.com/10408731-rw-bootcamp)
 
 ### *Capstone: Space Xploration*
-For my Capstone project I focused on the **Space X company**. Space Xploration is currently divided in missions and sections. However, at launch it will have a **Statistics tab in addition to a new home screen widget.**
+For my Capstone project I focused on the **Space X company**. Space Xploration provides updated information about all the Space X missions and company sections, presenting a whole variety of details for space enthusiasts.
 
-Despite the fact of being a one week project, it was a lot of fun to build my first fully operational app in SwiftUI. **As soon iOS14 is released it will be available on the App Store, so stay tuned! 😂**
+Despite the fact of being a one week project, it was a lot of fun to build my first fully functional app in SwiftUI. And after adding some more features to the Capstone, Space Xploration is now **available on the App Store! 🥳**
 
-<p align="left">
-	<img src="./Assets/AppStoreBadge.png" width="125"/>
+<p align="left" >
+	<a href="https://apps.apple.com/app/space-xploration/id1530580909">
+	<img src="./Assets/AppStoreBadge.png" width="125">
+	</a>
 </p>
 
 <p align="left">
-	<img src="./Assets/W12_AppPreview1.gif" height="500"/>
 	<img src="./Assets/W12_Screenshot1.png" height="500"/>
 	<img src="./Assets/W12_Screenshot2.png" height="500"/>
 </p>
@@ -51,8 +52,8 @@ Despite the fact of being a one week project, it was a lot of fun to build my fi
 <details>
 	<summary><b>Week 01. Controls, outlets and UIKit</b></summary>
 	<p>
-	📚 Video course: <a href="https://www.raywenderlich.com/5993-your-first-ios-and-uikit-app">Your First iOS and UIKit App</a><br/>
-	📱 Assignment: <a href="./Week%2001/Readme.md">ColorPicker</a>
+	📚 Video course: <a href="https://www.raywenderlich.com/5539282-programming-in-swift-fundamentals">Programming in Swift: Fundamentals</a><br/>
+	📱 Assignment: <a href="./Week%2002/Readme.md">BullsEye, RGBullsEye and RevBullsEye</a>
 	</p>
 </details>
 
